@@ -1,14 +1,17 @@
-var data = [];
-var url = "http://opendata2.epa.gov.tw/AQI.json";
+var xhr = new XMLHttpRequest();
+var url = "https://script.google.com/macros/s/AKfycbxGvm_EQqUY-R2Mi8_ObH0O1ciwDpHeOaLbewo7YLUYpnwKLE_7/exec?url=http://opendata2.epa.gov.tw/AQI.json";
 
-//處理json資料
-axios.get(url).then(function(response){
-    data = response.data;
-    
+xhr.open('get',url,true);
+xhr.send(null);
+xhr.onload =()=>{
+
+
+    //處理json資料
+    var allData = JSON.parse(xhr.responseText);
+
     //將縣市資料input至Select中，執行forEach迴圈
     var countyArray = [];   //將縣市資料取出，暫存陣列
     var publishArray = [];  //將更新資料取出，暫存陣列
-    allData = [...data]; //複製陣列
 
     //利用新陣列取得 countyArray(縣市)/publishArray(更新時間)
     allData.forEach(function(item){
@@ -145,4 +148,4 @@ axios.get(url).then(function(response){
         showData(obj.target.value);  
     });
 
-});
+};
