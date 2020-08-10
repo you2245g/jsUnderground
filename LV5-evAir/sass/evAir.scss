@@ -1,0 +1,213 @@
+@import "../sass/evAirMix.scss";  //叫入Mix與變數
+
+body{
+    background-color: #F0F0F0;
+    font-family: 'Noto Sans TC', sans-serif;
+    text-align: center;
+}
+
+#wrapper{
+    margin: 0 auto;
+    padding: 40px;
+}
+
+header{
+    width: 100%;
+    & div{
+        float: left;
+    }
+    & h1{
+        @include fontFace(43px, 400);    
+        padding: 10px 0 20px;
+    }
+    & select{
+        border: $keyBorder;
+        width: 100%;        
+    }
+
+    & table, & tr, & td{
+        border: $keyBorder;
+        table-layout: fixed;
+        height: 50px;
+
+        & thead tr td:nth-child(1){
+            background-color: $airLV1;
+        }
+        & thead tr td:nth-child(2){
+            background-color: $airLV2;
+        }
+        & thead tr td:nth-child(3){
+            background-color: $airLV3;
+        }
+        & thead tr td:nth-child(4){
+            background-color: $airLV4;
+        }
+        & thead tr td:nth-child(5){
+            background-color: $airLV5;
+        }
+        & thead tr td:nth-child(6){
+            background-color: $airLV6;
+        }
+    }
+}
+
+#title{
+    display: flex;
+    padding: 30px 0px 30px;
+    & h2, & p, & div{
+        align-items: center;
+        display: flex;
+    }
+    & h2 ,& p{
+        flex-grow: 1;
+    }
+    & h2{
+        font-size: 36px;
+    }
+
+    & p {
+        display: block;
+        text-align: right;
+        margin-top: 13px;
+    }
+
+    & div{
+        flex-grow: 30;
+        border-top: 2px dashed $keycolor;
+        margin-top: 20px;
+    }
+}
+
+#display{
+    > div{
+    float: left;
+        //左段
+        &:first-child{
+            //width: 33%;
+            border: $keyBorder;
+            > div:first-child{
+                > p {
+                    float: left;
+                    font-size: 30px;
+                    padding: 20px 0;
+                    border-bottom: $keyBorder;
+                }
+                &::after{
+                    content:"";
+                    display: block;
+                    clear: both;
+                }
+                > p:first-child{
+                    width: 55%;
+                    border-right: $keyBorder;
+                }
+                > p:last-child{
+                    width: 45%;
+                }
+            }
+
+            > div:nth-child(n+2){
+                border-bottom: 1px solid black;
+                margin: 10px 50px;
+                > p {
+                    font-size: 24px;
+                    padding: 15px 0;
+                }
+                &::after{
+                    content:"";
+                    display: block;
+                    clear: both;
+                }
+                > p:first-child{
+                    padding-left: 10px;
+                    float: left;
+                    & span{
+                        font-size: 12px;
+                    }
+                }
+                > p:last-child{
+                    padding: 25px 10px 0px 0px;
+                    float: right;
+                }
+            }
+            > div:last-child{
+                border: none;
+            }
+        }
+
+        //右段
+        &:last-child{
+            width: calc(67% - 30px);
+            margin-left: 30px;
+            > div{
+                float: left;
+                width: calc(50% - 15px);
+                border: $keyBorder;
+                > p {
+                    float: left;
+                    font-size: 30px;
+                    padding: 20px 0;
+                }
+                &::after{
+                    content:"";
+                    display: block;
+                    clear: both;
+                }
+                > p:first-child{
+                    width: 55%;
+                    border-right: $keyBorder;
+                }
+                > p:last-child{
+                    width: 45%;
+                }
+                &:nth-child(2n){
+                    margin-left: 30px;
+                }
+                &:nth-child(n+3){
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+
+.row::after{
+    content:"";
+    clear:both;
+    display:table;
+}
+
+.siteHover:hover{
+    background-color: #ADADAD;
+    cursor: pointer;
+}
+
+.noAQIData{
+    color: red;
+    background-color: transparent;
+}
+
+.airLV1{
+    background-color: $airLV1;
+}
+
+.airLV2{
+    background-color: $airLV2;
+}
+
+.airLV3{
+    background-color: $airLV3;
+}
+
+.airLV4{
+    background-color: $airLV4;
+}
+
+.airLV5{
+    background-color: $airLV5;
+}
+
+.airLV6{
+    background-color: $airLV6;
+}

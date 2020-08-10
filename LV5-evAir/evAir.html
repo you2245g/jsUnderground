@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/evAir.css">
+        <link rel="stylesheet" href="css/evAirResponse.css">
+        <title>全台空氣品質儀表板</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header class="row">
+                <div>
+                    <h1>空氣品質指標(AQI)</h1>
+                    <select class="countySelect">
+                        <!--底下用js增加區域-->
+                    </select>
+                    <div>
+                        <select class="districtSelect">
+                            <option>請選擇區域</option>
+                            <!--底下用js增加區域-->
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>0～50</td>
+                                <td>51～100</td>
+                                <td>101～150</td>
+                                <td>151～200</td>
+                                <td>201～300</td>
+                                <td>301～400</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>良好</td>
+                                <td>普通</td>
+                                <td>對敏感族群<br>不健康</td>
+                                <td>對所有族群<br>不健康</td>
+                                <td>非常不健康</td>
+                                <td>危害</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </header>
+
+            <div id="title">
+                <h2 class="thisCounty"></h2>
+                <div></div>
+                <p class="upDateTime"></p>
+            </div>
+
+            <div id="display" class="row">
+                <!--左半-->
+                <div>
+                    <div> 
+                        <p class="thisDistrict"></p>
+                        <p class="thisAQI"></p>
+                    </div>
+                    <div>
+                        <p>臭氧<br><span>O3(ppb)</span></p>
+                        <p class="allAQI"></p>
+                    </div>
+                    <div>
+                        <p>懸浮微粒<br><span>PM10(μg/m3)</span></p>
+                        <p class="allAQI"></p>
+                    </div>
+                    <div>
+                        <p>細懸浮微粒<br><span>PM2.5(μg/m3)</span></p>
+                        <p class="allAQI"></p>
+                    </div>
+                    <div>
+                        <p>一氧化碳<br><span>CO(ppm)</span></p>
+                        <p class="allAQI"></p>
+                    </div>
+                    <div>
+                        <p>二氧化硫<br><span>SO2(ppb)</span></p>
+                        <p class="allAQI"></p>
+                    </div>
+                    <div>
+                        <p>二氧化氮<br><span>NO2(ppb)</span></p>
+                        <p class="allAQI"></p>
+                    </div>
+                </div>
+                <!--右半-->
+                <div class="displayNone displayData">
+                    <!--
+                    <div> 
+                        <p>宜蘭</p>
+                        <p>22</p>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!--載入axios外掛-->
+        <script src="js/evAir.js"></script>
+    </body>
+</html>

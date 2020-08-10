@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+@mixin fontface($fontSize,$fontWeightbold){
+    font-size: $fontSize;
+    font-weight: $fontWeightbold;
+}
+
+@mixin outward($margin,$padding,$width) {
+    margin: $margin;
+    padding: $padding;
+    width: $width;
+}
+
+@mixin colorset($color,$backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+
+
+body{
+    background-color:#F0F0F0;
+}
+
+h1,h3,h4{
+    display: block;
+}
+
+h1{
+    font-family: 'Rowdies', cursive;
+    @include fontface(70px, 700);
+    @include outward(100px auto 30px, 2px 0, 500px);
+    @include colorset( #5B5B5B, transparent);
+    text-align: center;
+    border-top: #5B5B5B 8px solid;
+    border-bottom: #5B5B5B 8px solid;
+}
+
+#table{
+    margin-bottom: 50px;
+    font-family: 'Rowdies', cursive;
+    & .showblock{
+        @include outward( 0 auto, 1px, 480px);
+        border-top: solid black 1px;
+        border-bottom: solid black 1px;
+        border-left: solid black 2px;
+        border-right: solid black 2px;
+        &::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        & div:first-child{
+            width: 65%;
+            float: left;
+            & h3{
+                @include fontface(35px, 400);
+                padding: 15px 20px 2.5px;
+            }
+            & h4{
+                @include fontface(19px, 300);
+                padding: 2.5px 20px 15px;
+            } 
+        }
+        & div:last-child{
+            float: right;
+            @include fontface(55px, 300);
+            @include outward(0px, 17px 0px 0px , 35%);
+        }
+    }
+    & .showblock:first-child{
+        border-top: solid black 2px;
+    }
+    & .showblock:last-child{
+        border-bottom: solid black 2px;
+    }
+}
+
+.dark{
+    @include colorset(white, black);
+}
+
+.bright{
+    @include colorset(black, white);
+}

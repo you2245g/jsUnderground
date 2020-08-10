@@ -1,0 +1,103 @@
+@import "../sass/evAirMix.scss";  //叫入Mix與變數
+
+@media only screen and (min-width:$pc-media){  //電腦板面
+
+    header{
+        & div:first-child{
+            width: 30%;
+            margin-right: 40px;
+
+            &:last-child{
+                display: none;
+            }
+        }
+
+        & table{
+            width: 800px;
+        }
+
+        & select{
+            &:last-child{
+                display: none;
+            }
+        }
+    }
+    //響應式header列
+
+    #display{
+        > div{
+            //左段
+            &:first-child{
+                width: 33%;
+                }
+            }
+        }
+    //響應式display列
+}
+
+
+@media only screen and (max-width: $pcs-media){
+
+    header{
+        & div:first-child, & table{
+            width: 100%;
+        }
+
+        & div:last-child{
+            margin-top: 20px;
+        }
+
+        & select{
+            &:last-child{
+                display: none;
+            }
+        }
+    }
+    //響應式header列
+
+    #display{
+        > div{
+            //左段
+            &:first-child{
+                width: 33%;
+                }
+            }
+
+            &:first-child{
+                width: 67%;
+            }
+    }
+    //響應式display列
+}
+
+
+@media only screen and (max-width: $pad-media){
+
+    header{
+        & div:first-child{
+            & div{
+                width: 100%;
+            }
+        }
+        & select{
+            &:last-child{
+                display: block;
+            }
+        }
+    }
+    //響應式header列
+
+    #display{
+        > div{
+            //左段
+            &:first-child{
+                width: 100%;
+                }
+            }
+        }
+        .displayNone{
+            display: none;
+        }
+    //響應式display列
+}
+

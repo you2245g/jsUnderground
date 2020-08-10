@@ -1,0 +1,92 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #F0F0F0;
+}
+
+h1, h3, h4 {
+  display: block;
+}
+
+h1 {
+  font-family: 'Rowdies', cursive;
+  font-size: 70px;
+  font-weight: 700;
+  margin: 100px auto 30px;
+  padding: 2px 0;
+  width: 500px;
+  color: #5B5B5B;
+  background-color: transparent;
+  text-align: center;
+  border-top: #5B5B5B 8px solid;
+  border-bottom: #5B5B5B 8px solid;
+}
+
+#table {
+  margin-bottom: 50px;
+  font-family: 'Rowdies', cursive;
+}
+
+#table .showblock {
+  margin: 0 auto;
+  padding: 1px;
+  width: 480px;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+  border-left: solid black 2px;
+  border-right: solid black 2px;
+}
+
+#table .showblock::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#table .showblock div:first-child {
+  width: 65%;
+  float: left;
+}
+
+#table .showblock div:first-child h3 {
+  font-size: 35px;
+  font-weight: 400;
+  padding: 15px 20px 2.5px;
+}
+
+#table .showblock div:first-child h4 {
+  font-size: 19px;
+  font-weight: 300;
+  padding: 2.5px 20px 15px;
+}
+
+#table .showblock div:last-child {
+  float: right;
+  font-size: 55px;
+  font-weight: 300;
+  margin: 0px;
+  padding: 17px 0px 0px;
+  width: 35%;
+}
+
+#table .showblock:first-child {
+  border-top: solid black 2px;
+}
+
+#table .showblock:last-child {
+  border-bottom: solid black 2px;
+}
+
+.dark {
+  color: white;
+  background-color: black;
+}
+
+.bright {
+  color: black;
+  background-color: white;
+}
+/*# sourceMappingURL=worldtime.css.map */

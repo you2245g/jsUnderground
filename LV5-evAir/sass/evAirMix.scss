@@ -1,0 +1,22 @@
+/*color變數*/
+$airLV1:#82D900;
+$airLV2:#FFFF37;
+$airLV3:#EAC100;
+$airLV4:#D94600;
+$airLV5:#921AFF;
+$airLV6:#9F0050;
+$keycolor:black;
+$keyBorder:2px solid $keycolor;
+$backColor:white;
+
+/*響應式變數*/
+$pc-media:1280px;
+$pcs-media:1279px;
+$pad-media:960px;
+$pads-media:959px;
+
+
+@mixin fontFace($fontSize,$fontWeight) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}

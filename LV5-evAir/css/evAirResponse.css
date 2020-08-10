@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/*color變數*/
+/*響應式變數*/
+@media only screen and (min-width: 1280px) {
+  header div:first-child {
+    width: 30%;
+    margin-right: 40px;
+  }
+  header div:first-child:last-child {
+    display: none;
+  }
+  header table {
+    width: 800px;
+  }
+  header select:last-child {
+    display: none;
+  }
+  #display > div:first-child {
+    width: 33%;
+  }
+}
+
+@media only screen and (max-width: 1279px) {
+  header div:first-child, header table {
+    width: 100%;
+  }
+  header div:last-child {
+    margin-top: 20px;
+  }
+  header select:last-child {
+    display: none;
+  }
+  #display > div:first-child {
+    width: 33%;
+  }
+  #display:first-child {
+    width: 67%;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  header div:first-child div {
+    width: 100%;
+  }
+  header select:last-child {
+    display: block;
+  }
+  #display > div:first-child {
+    width: 100%;
+  }
+  .displayNone {
+    display: none;
+  }
+}
+/*# sourceMappingURL=evAirResponse.css.map */

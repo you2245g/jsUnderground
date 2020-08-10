@@ -1,0 +1,145 @@
+%center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+} //建立置中extend
+
+@mixin outward($width,$height,$border,$color) {
+    width: $width;
+    height: $height;
+    border-radius: $border;
+    background-color: $color;
+} //建立長、寬及border-radius及背景色mixin
+
+
+//時鐘巢狀
+#clock{
+    @extend %center;
+    @include outward(380px, 380px, 100%, #B7BFD5);
+    transform: translate(-50%, -50%);   //平移至中心
+    box-shadow: 8px 8px 15px #BFC3CE;
+    //時鐘外    
+
+    #clockInner{
+        @include outward(92%, 92%, 100%, #F7FBFB);
+        @extend %center;
+        transform: translate(-50%, -50%);  //平移至中心
+        border:1px solid #1A6A64;
+    } //時鐘內
+} 
+
+
+
+//刻度巢狀
+.scale {
+    position: relative;
+    @include outward(100%, 100%, 0%, transparent);
+    //刻度外
+
+    div{
+        @extend %center;
+        @include outward(1px, 5px, 0%, black);
+        transform-origin: 0 0;  //關鍵
+
+        &:nth-child(6n+1){
+            @include outward(2px, 20px, 0%, black);
+        } //小時刻度
+
+        &:nth-child(6n+4)::before{  //增加內容
+            content: '★';
+            display: block;
+            font-size: 11px;
+            position: relative;
+            left: -5px;
+            top: -6px;
+        } //裝飾星星刻度
+
+        span{  
+            position: absolute;
+            font-size: 20px;
+            top: -25px;
+            left: -4px;
+        }  //刻面文字修飾
+    }  //刻度內
+} 
+
+//第一內圈
+.inner{
+    @extend %center;
+    @include outward(220px, 220px, 100%, grey);
+    transform: translate(-50%, -50%);
+    
+    div{
+        @extend %center;
+        @include outward(218px, 218px, 100%, white);
+        transform: translate(-50%, -50%);
+        
+    }
+
+}
+
+//第2內圈
+.inner2{
+    @extend %center;
+    @include outward(100px, 100px, 100%, grey);
+    transform: translate(-50%, -50%);
+    box-shadow: 8px 8px 15px #BFC3CE;
+    
+    div{
+        @extend %center;
+        @include outward(98px, 98px, 100%, #F7FBFB);
+        transform: translate(-50%, -50%);
+        
+    }
+
+}
+
+
+//時指針
+.hourHand{
+    @extend %center;
+    @include outward(6px, 60px, 2px, black);
+    transform-origin: 50% 4px;
+        
+        &::before {
+            content: '';
+            @include outward(3px, 30px, 2px, white);
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: 5px;            
+            transform: translateX(-50%); //位移50%，置中
+        } //指針內裝飾
+}
+.minHand{
+    @extend %center;
+    @include outward(6px, 110px, 3px, black);
+    transform-origin: 50% 4px;
+
+    &::after {
+        content: '';
+        @include outward(5px, 5px, 100%, white);
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 5px;
+        transform: translate(-50%, -50%);
+
+      }//分針內圓球
+
+      &::before {
+        content: '';
+        @include outward(1px, 100px, 0px, white);
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 5px;
+        transform: translateX(-50%); //位移50%，置中
+      }//分針內裝飾
+}
+
+.secHand{
+    @extend %center;
+    @include outward(2px, 140px, 100%, red); 
+    transform-origin: 50% 4px;
+}//秒針（內無裝飾）
