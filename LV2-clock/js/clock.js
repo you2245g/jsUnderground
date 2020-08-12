@@ -45,7 +45,9 @@ $(document).ready(function(){
         $('.minHand').attr('style','transform:rotate('+ minDegree + 'deg);');
         $('.hourHand').attr('style','transform:rotate('+ hourDegree + 'deg);');
 
-    } , 1000);  //自動設定時間為一秒
+    } , 100);  //自動設定時間為一秒
 
 })();
+
+
 
