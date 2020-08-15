@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+        <link rel="stylesheet" href="css/Calc.css">
+        <title>60秒算數挑戰</title>
+    </head>
+    <body>
+        <div id="titlePage">
+            <h1 class="row animate__animated animate__fadeInDown">
+                <div>60</div>
+                <div>
+                    <div>
+                        SECONDS
+                    </div>
+                    <div>
+                        <p>
+                            +-×÷
+                        </p>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div>CHALLENGE</div>
+                </div>
+            </h1>
+            <div class="btnStart">START</div>
+            <p>
+                <i>
+                    Try answer more as you can!
+                </i>
+            </p>
+        </div>
+
+        <div id="playGround">
+            <h2 class="row">
+                <div>
+                    <div>60 SECONDS CHALLENGE</div>
+                    <div>SCORE</div>
+                    <div class="score">0</div>
+                </div>
+                <div class="animate__animated animate__bounce animate__infinite infinite">
+                    <i>
+                        <span class="setTime">01:00</span>
+                    </i>
+                </div>
+            </h2>
+            <div>
+                <p>
+                    <span class="printNumber1"></span>
+                    <span class="questionSign"></span>
+                    <span class="printNumber2"></span>
+                    <span>=</span>
+                </p>
+                <input type="text" class="answerReply">
+            </div>
+        </div>
+
+        <div id="endPhase" class="animate__animated animate__fadeInDown">
+            <div>60 SECONDS CHALLENGE</div>
+            <div>
+                <div></div>
+                <p>YOUR FINAL SCORE</p>
+                <div></div>
+            </div>
+            <div class="finalScore animate__animated animate__bounceIn animate__delay-2s"></div>
+            <div class="btnRestart animate__animated animate__bounce animate__delay-5s">TRY AGAIN</div>
+        </div>
+        <script src="js/Calc.js"></script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+$bold:'Bebas Neue', cursive;
+$thin:'Acme', sans-serif;
+$backColor:#FF9238;
+$keyColor:black;
+$primarycolor:white;
+
+@mixin colorSet($color,$backgroundColor){
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+@mixin outward($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+@mixin fontFace($fontFamily, $fontSize) {
+    font-family: $fontFamily;
+    font-size: $fontSize;
+}

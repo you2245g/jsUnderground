@@ -1,0 +1,186 @@
+@import "../sass/CalcMix.scss";
+
+body{
+    background-color:$backColor;
+    text-align: center;
+}
+
+
+#playGround, #endPhase{
+    display: none;
+}
+
+.row::after{
+    content:"";
+    clear:both;
+    display:table;
+}
+
+h1{
+    width: 750px;
+    margin: 90px auto 0px;
+    > div{
+        float: left; 
+    }
+    > div:first-child{
+        color: $primarycolor;
+        text-shadow: rgb(0, 0, 0) 10px 0px 0px;
+        @include fontFace($bold, 300px);
+        margin-right: 30px;
+    }
+    > div:last-child{
+        text-align: left;
+        > div:first-child{
+            float: left;
+            margin-top: 70px;
+            @include fontFace($bold, 80px);
+        }
+        > div:nth-child(2){
+            float: left;
+            color: $primarycolor;
+            margin: 50px 0px 0px 15px;
+            letter-spacing: 5px;
+            > p {
+                margin-bottom: 5px;
+            }
+            > div {
+                background-color: $primarycolor;
+                @include outward(5px, 100%);
+                margin-top: 5px;
+            }
+        }
+        > div:last-child{
+            text-align: left;
+            clear: both;
+            @include fontFace($bold, 130px);
+            line-height: 100px;
+        }
+    }
+}
+
+#titlePage{
+    > div{
+    width: 300px;
+    @include fontFace($thin, 30px);
+    margin: 120px auto 0px;
+    letter-spacing: 2px;
+    padding: 10px;
+    }
+    > p{
+        color: $primarycolor;
+        @include fontFace($thin, 20px);
+        letter-spacing: 1px;
+        margin-top: 5px;
+    }
+}
+
+
+
+
+h2{
+    margin: 100px auto;
+    max-width: 80%;
+    > div:first-child{
+        float: left;
+        > div:first-child{
+            @include colorSet($primarycolor, $backColor);
+            @include fontFace($bold, 40px);
+            @include outward(auto, 400px);
+            padding: 10px;
+            border: 5px solid $primarycolor;
+            letter-spacing: 1px;
+        }
+        > div:nth-child(2){
+            text-align: left;
+            @include outward(auto, 90px);
+            @include fontFace($bold, 40px);
+            @include colorSet($backColor, $primarycolor);
+            padding: 10px;
+            letter-spacing: 2px;
+            float: left;
+        }
+        > div:last-child{
+            @include fontFace($bold, 60px);
+            letter-spacing: 1px;
+            text-align: left;
+            float: left;
+            margin: 5px 0px 0px 20px;
+            width: 40px;
+        }
+    }
+    > div:last-child{
+        float: right;
+        color: $primarycolor;
+        margin-top: 20px;
+        @include fontFace($bold, 100px);
+        letter-spacing: 5px;
+    }
+}
+
+#playGround > div{
+    width: 50%; 
+    display: flex;
+    margin: 0px auto;
+    > p{
+        flex-grow: 2;
+        @include fontFace($bold, 100px);
+        > span:nth-child(even){
+            color: $primarycolor;
+            padding: 0px 20px;
+        }
+    }
+    > input{
+        margin-top: 105px;
+        flex-grow: 1;
+        border: 2px $keyColor solid;
+        border-radius: 10px;
+        @include fontFace($bold, 70px);
+        @include outward(90px, 150px);
+        text-align: center;
+    }
+}
+
+#endPhase{
+    > div:first-child{
+        margin: 70px auto 0px;
+        @include fontFace($bold, 40px);  
+        @include colorSet($primarycolor, $backColor);
+        border: 3px solid $primarycolor;
+        width: 330px; 
+        padding: 5px 0;  
+    }
+    > div:nth-child(2){
+        display: flex;
+        justify-content: center;
+        > p{
+            @include fontFace($bold, 70px);
+            margin-top: 20px;
+            letter-spacing: 3px;
+            padding: 0px 20px;
+        }
+        > div{
+            @include outward(10px, 30px);
+            margin-top: 55px;
+            background-color: $primarycolor;
+        }
+    }
+    > div:nth-child(3){
+        @include fontFace($bold, 120px);
+        line-height: 17px;
+    }
+    > div:last-child{
+        margin: 200px auto 0px;
+        padding: 10px;
+        @include fontFace($bold, 40px);
+        width: 180px;
+    }
+}
+
+[class*="btn"]{
+    @include colorSet($primarycolor, $keyColor);
+    cursor: pointer;
+}
+[class*="btn"]:hover{
+    background-color: blue;
+    color: white;
+}
