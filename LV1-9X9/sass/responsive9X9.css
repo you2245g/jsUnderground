@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  #wrapper {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1199px) and (max-width: 769px) {
+  #wrapper {
+    max-width: 800px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #wrapper {
+    max-width: 1200px;
+  }
+}
+/*# sourceMappingURL=responsive9X9.css.map */

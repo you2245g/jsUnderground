@@ -1,0 +1,27 @@
+@import "../sass/import9X9.scss";
+
+
+
+@media screen and (max-width:768px){
+
+    #wrapper{
+        max-width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 1199px) and (max-width: 769px){
+
+    #wrapper{
+        max-width: 800px;
+    }
+
+}
+
+@media screen and (min-width: 1200px){
+
+    #wrapper{
+        max-width: 1200px;
+    }
+
+}

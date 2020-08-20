@@ -1,0 +1,24 @@
+*{
+            box-sizing: border-box;
+       -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+@mixin outward($margin,$width) {
+    margin: $margin;
+    width: $width;
+}
+
+@mixin colorset($color,$backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+$keyColor:#00BB00;
+$backColor:#F0F0F0;
+
+
+
+

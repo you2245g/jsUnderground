@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,CAAC,CAAA;EACW,UAAU,EAAE,UAAU;EAC3B,eAAe,EAAE,UAAU;EAC9B,kBAAkB,EAAE,UAAU;EAC9B,OAAO,EAAE,GAAG;EACZ,MAAM,EAAE,GAAG;CACd",
+    "sources": [
+        "import9X9.scss"
+    ],
+    "names": [],
+    "file": "import9X9.css"
+}
