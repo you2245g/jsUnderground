@@ -1,0 +1,99 @@
+body {
+  background-color: #E0E0E0;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+nav {
+  width: 100%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+nav div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 30px;
+  margin: 0 5%;
+}
+
+#upperControlKey, #lowerControlKey {
+  background-color: white;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+}
+
+footer #itemBox {
+  background-color: white;
+}
+
+footer #itemBox > div:first-child .fa-eraser, footer #itemBox > div:first-child .fa-paint-brush {
+  margin: 0 2.5px 0 5px;
+  cursor: pointer;
+}
+
+footer #itemBox > div:first-child > span {
+  margin: 0 10px;
+}
+
+footer #itemBox > div:first-child > span > input {
+  background-color: #E0E0E0;
+  font-family: 'Barlow Condensed', sans-serif;
+  width: 70px;
+  height: 40px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+footer #itemBox > div:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer #itemBox > div:last-child > p {
+  padding: 9px 10px 0 0;
+}
+
+footer #itemBox > div:last-child > div {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  margin: 0 5px;
+  text-align: center;
+  padding-top: 7px;
+}
+
+.disable {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+  color: grey;
+}
+
+.unchoose {
+  opacity: 0.5;
+  color: gray;
+}
+
+[class*="key"]:hover {
+  color: grey;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Canvas.css.map */

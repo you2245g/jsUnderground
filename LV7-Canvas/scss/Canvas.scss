@@ -1,0 +1,90 @@
+@import "../scss/CanvasMix.scss";
+
+body{
+    @include backWords;
+}
+
+//canvas(背景)
+canvas{
+    @include outward(100%,100%);
+    position: absolute;
+    z-index: -1;
+}
+
+//導覽列內容
+nav{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    text-align: center;
+    div{
+        flex-grow: 1;
+        font-size: 30px;
+        margin: 0 5%;
+    }
+}
+
+//上下鍵鈕
+#upperControlKey, #lowerControlKey{
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+//footer item欄
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    #itemBox{
+        background-color: white;
+        > div:first-child{
+            .fa-eraser, .fa-paint-brush{
+                margin: 0 2.5px 0 5px;
+                cursor: pointer;
+            }
+            > span{
+                margin: 0 10px;
+                > input{
+                    @include backWords;
+                    @include outward(70px, 40px);
+                    text-align: center;
+                    margin: 0 10px;
+                }
+            }
+        }
+        > div:last-child{
+            display: flex;
+            > p{
+                padding: 9px 10px 0 0;
+            }
+            > div{
+                cursor: pointer;
+                @include outward(40px, 40px);
+                border-radius: 40px;
+                margin: 0 5px;
+                text-align: center;
+                padding-top: 7px;
+            }
+        }
+    }
+}
+
+//for option key
+.disable{
+    cursor: not-allowed !important;
+    opacity: 0.5;
+    color: grey;
+}
+
+//for brush and eraser
+.unchoose{
+    opacity: 0.5;
+    color: gray;
+}
+
+[class*="key"]:hover{
+    color: grey;
+    cursor: pointer;   
+}

@@ -1,0 +1,90 @@
+@media only screen and (max-width: 960px) {
+  nav {
+    padding: 10px 10%;
+  }
+  nav div p {
+    display: none;
+  }
+  #upperControlKey, #lowerControlKey {
+    width: 50px;
+    height: 25px;
+    font-size: 15px;
+  }
+  #upperControlKey {
+    border-radius: 0 0 25px 25px;
+  }
+  #lowerControlKey {
+    border-radius: 25px 25px 0 0;
+    padding-top: 5px;
+  }
+  footer {
+    width: 100%;
+    margin: 0 auto;
+  }
+  footer #itemBox {
+    border-radius: unset;
+    font-size: 20px;
+    padding: 15px 0;
+  }
+  footer #itemBox > div {
+    margin: 0 auto;
+  }
+  footer #itemBox > div:first-child {
+    width: 235px;
+  }
+  footer #itemBox > div:last-child {
+    margin-top: 15px;
+    width: 300px;
+  }
+  footer #itemBox > div:last-child > p {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  nav {
+    padding: 10px 15%;
+  }
+  nav div p {
+    font-size: 20px !important;
+    margin-top: 8px;
+  }
+  #upperControlKey, #lowerControlKey {
+    width: 70px;
+    height: 35px;
+    font-size: 20px;
+  }
+  #upperControlKey, #lowerControlKey {
+    border-radius: 0 0 35px 35px;
+  }
+  #lowerControlKey {
+    border-radius: 35px 35px 0 0;
+    padding-top: 7px;
+  }
+  footer {
+    width: 80%;
+    margin: 0 10%;
+  }
+  footer #itemBox {
+    border-radius: 100px;
+    font-size: 22px;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 15px 0;
+  }
+  footer #itemBox > div:first-child {
+    width: 275px;
+  }
+  footer #itemBox > div:last-child {
+    width: 360px;
+  }
+}
+/*# sourceMappingURL=ResponsiveCanvas.css.map */

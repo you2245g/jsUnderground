@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <script src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>  <!--fontAwesome CDN-->
+        <script src="js/jquery-3.5.1.min.js"></script> <!--jQuery-->
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap" rel="stylesheet"> <!--google字型-->
+        <link rel="stylesheet" href="scss/Canvas.css">
+        <link rel="stylesheet" href="scss/ResponsiveCanvas.css">
+        <title>畫版</title>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <nav class="upperShadow">
+            <div class="keySave">
+                <i class="fas fa-camera"></i>
+                <p>SAVE</p>
+            </div>
+            <div class="keyClear disable">
+                <i class="fas fa-expand"></i>
+                <p>CLEAR ALL</p>
+            </div>
+            <div class="keyUndo disable">
+                <i class="fas fa-undo-alt"></i>
+                <p>UNDO</p>
+            </div>
+            <div class="keyRedo disable">
+                <i class="fas fa-redo-alt"></i>
+                <p>REDO</p>
+            </div>
+        </nav>
+        <div id="upperControlKey" class="key upperShadow">
+            ∧
+        </div>
+        <!--上段Box-->
+
+        <!--下段Box-->
+        <footer>
+            <div id="lowerControlKey"  class="key">
+                ∨
+            </div>
+            <div id="itemBox">
+                <div>
+                    <a class="paintBrush"><i class="fas fa-paint-brush"></i></a>
+                    <a class="eraser unchoose"><i class="fas fa-eraser"></i></a>
+                    <span>
+                        SIZE:
+                        <input value="10" class="penPath">
+                        PX
+                    </span>
+                </div>
+                <div>
+                    <p class="colorAfter">COLOR:</p>
+                    <!--以下增加
+                    <div class="colorItem"></div>
+                    -->
+                </div>
+            </div>
+        </footer>
+        <!--上列工具-->
+        <script src="js/Canvas.js"></script>
+    </body>
+</html>

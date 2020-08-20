@@ -1,0 +1,286 @@
+$(document).ready(function(){
+    //區塊滑動
+    var n = 0; //記算點按次數(upper)
+    var i = 0; //記算點按次數(lower)
+
+    $("#upperControlKey").click(function(){
+        $('nav').slideToggle();
+        n++;
+        //判斷變更符號
+        if(n%2 ===1){
+            $("#upperControlKey").text('∨');
+        }else {
+            $("#upperControlKey").text('∧');
+        }
+
+    });
+
+    $("#lowerControlKey").click(function(){
+        $('#itemBox').slideToggle();
+        i++;
+        //判斷變更符號
+        if(i%2 ===1){
+            $("#lowerControlKey").text('∧');
+        }else {
+            $("#lowerControlKey").text('∨');
+        }        
+
+    });
+});
+
+//功能鍵定義
+const keyClear = document.querySelector('.keyClear');
+const keyUndo = document.querySelector('.keyUndo');
+const keyRedo = document.querySelector('.keyRedo');
+
+//畫布範圍
+const canvas = document.getElementById('canvas');
+
+//畫筆控制及初始畫布
+const ctx = canvas.getContext('2d'); //canvas定義為2D
+init();
+
+//控制滑鼠移動時，畫下筆畫，預設值為false
+let isDrawing = false; 
+
+//設定滑鼠座標(0,0)
+let lastX = 0;
+let lastY = 0;
+
+//移動滑鼠開始畫畫
+canvas.addEventListener('mousemove', function(obj){
+
+    if(!isDrawing){return}; //停止繪畫動作
+
+    ctx.beginPath();          //路徑開始
+    ctx.moveTo(lastX, lastY); //路徑結束
+    ctx.lineTo(obj.offsetX, obj.offsetY);
+    ctx.stroke();
+    ctx.save();
+    [lastX, lastY] = [obj.offsetX, obj.offsetY];
+
+});
+
+//點按滑鼠更新座標
+canvas.addEventListener('mousedown', function(obj){
+    isDrawing = true;
+    [lastX, lastY] = [obj.offsetX, obj.offsetY];
+});
+
+//當滑鼠放開時，停止畫畫
+canvas.addEventListener('mouseout',() => isDrawing = false);
+
+//歷史紀錄(步驟次數與畫布陣列值需相符)
+let step = -1;        //步驟次數
+let userhistory = []; //畫布數值（每筆劃記錄座標)
+
+//每次放開滑鼠時，紀錄加1，並移除disable css外觀
+canvas.addEventListener('mouseup',function(){
+
+    record();
+    if(userhistory.length > 0){
+        keyUndo.classList.remove('disable');
+        keyClear.classList.remove('disable');
+    } //畫下第一筆後，要將undo及clear鈕解鎖
+    keyRedo.classList.add('disable'); //每一筆新劃的筆劃都沒有重作
+    isDrawing = false;
+});
+
+
+//記錄步驟紀錄(陣列push,步驟+1)
+function record(){
+    step ++; //步驟加一
+    if (step < userhistory.length) userhistory.length = step
+    userhistory.push(canvas.toDataURL());  //將影像存成Base64編碼
+}
+
+
+//上段功能鍵利用
+
+//下載按鈕(創造A元素下載)
+$('.keySave').click(function(){
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL();
+    link.download = '我的畫作';
+    link.click();
+});
+
+//清空鍵(回初始設定)
+keyClear.addEventListener('click',function(){
+    step = -1;
+    userhistory = [];
+    //按鍵變成不可用
+    keyUndo.classList.add('disable');
+    keyRedo.classList.add('disable');
+    keyClear.classList.add('disable');   
+    //畫布重新整理
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    loaded();
+})
+
+
+//Undo鍵
+keyUndo.addEventListener('click',function(){
+
+	if (step > 0) {
+		step--
+		const pic = new Image(); //建立新的 Image
+		pic.src = userhistory[step]; //載入影像
+        pic.onload = function () {ctx.drawImage(pic, 0, 0)}; //將影像繪出 0, 0 表示座標起始位置
+    }
+    
+    //判斷已無步驟回復時
+    if(step === 0){
+        keyUndo.classList.add('disable');     //undo鍵不能用(步驟=0時)
+    } else if ( step < userhistory.length && step > 0) {
+        keyRedo.classList.remove('disable');  //redo鍵可以用
+    }
+
+});
+
+//Redo鍵
+
+keyRedo.addEventListener('click',function(){
+
+	if (step < userhistory.length - 1) {
+		step ++;
+		const pic = new Image();
+		pic.src = userhistory[step];
+		pic.onload = function () {ctx.drawImage(pic, 0, 0)};
+    }
+
+    //判斷步驟是最後時
+    if (userhistory.length-1 === step){
+        keyRedo.classList.add('disable');
+    } else if(step > 0){
+        keyUndo.classList.remove('disable');
+    }
+
+});
+
+
+//工具列應用
+
+//畫筆尺寸設定
+$('.penPath').keyup(function() {
+    if ($('.penPath').val() >= 101) {
+        alert("畫筆最大設定為100");
+        $('.penPath').val(10);
+        ctx.lineWidth = 10;
+    } else {
+        ctx.lineWidth = $('.penPath').val()
+    }
+});
+
+
+//填上顏色及顏色設定
+var colorArray = ['#D94600', '#005AB5', '#019858', '#2828FF', '#E800E8', '#7373B9'];
+
+//色圈背景填色
+for(var i = 0;i<colorArray.length;i++){
+    var str = '';
+    str += 
+    `
+    <div class="colorItem" style="background:${colorArray[i]}">
+        
+    </div>
+    `
+    ;
+    $('.colorAfter').after(str);
+
+}
+
+//選色框
+const colorItem = document.querySelectorAll('.colorItem');
+colorItem[5].textContent = '✓'; //選色初始設定
+
+for(var i = 0 ;i<colorItem.length;i++){
+
+    colorItem[i].addEventListener('click',function(obj){
+        //切換按鈕外觀
+        $('.paintBrush').removeClass('unchoose');
+        $('.eraser').addClass('unchoose'); 
+
+        colorItem.forEach(function(item){
+            const check = item;
+            check.textContent = ''; //將其餘勾選部份取消
+            if(obj.target.className ==='colorItem'){
+                var penColor = obj.target.style.backgroundColor;
+                ctx.strokeStyle = penColor;
+                obj.target.textContent = '✓';
+            }
+        })
+    
+    });
+}
+
+//橡皮擦功能
+$('.eraser').click(function(){
+    //切換按鈕外觀
+    $('.eraser').removeClass('unchoose');
+    $('.paintBrush').addClass('unchoose');
+    //設定畫筆顏色為背景色
+    ctx.strokeStyle = '#E8E8E8'; 
+
+    //令所有的色塊框內勾選取消
+    for(var i = 0; i<colorItem.length;i++){
+        colorItem[i].textContent = '';
+    }
+
+});
+
+
+//畫筆功能
+$('.paintBrush').click(function(){
+
+    //切換按鈕外觀
+    $('.paintBrush').removeClass('unchoose');
+    $('.eraser').addClass('unchoose'); 
+    //假使colorItem已有被選取,則彈回(無作用)
+    for(var i = 0;i<colorItem.length;i++){
+        if(colorItem[i].textContent ==='✓'){return}
+    }
+    //畫筆回到初始值
+    colorItem[5].textContent = '✓'; //選色初始設定
+    ctx.strokeStyle = '#D94600';    //指定畫筆顏色
+    ctx.lineWidth = 10;             //指定畫筆大小
+});
+
+//每當視窗重新讀取時，則執行紀錄
+window.addEventListener('load',loaded);
+
+window.addEventListener('resize',function(){
+               
+    if(canvas === undefined){          
+        canvas = createCanvas();
+        ctx = canvas.getContext("2d");  
+    }
+    //重新定義畫布
+    init();
+    //執行record
+    loaded();
+    //紀錄恢復原值
+    step = -1;
+    userhistory = [];
+    //按鍵變成不可用
+    keyUndo.classList.add('disable');
+    keyRedo.classList.add('disable');
+    keyClear.classList.add('disable'); 
+
+});
+
+//畫筆及畫布回復開始值
+function init(){
+    canvas.width  = window.innerWidth;  
+    canvas.height = window.innerHeight; 
+    ctx.strokeStyle = '#D94600';                      //畫筆顏色
+    ctx.lineJoin = 'round';                           //
+    ctx.lineCap = 'round';                            //繪製結束的線帽
+    ctx.lineWidth = 10;                               //筆畫初始大小
+}
+//重新讀取
+function loaded(){
+    ctx.fillStyle = '#E8E8E8'; //讓第一次進來跑 function 的時候就加上背景顏色
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    record();    
+}

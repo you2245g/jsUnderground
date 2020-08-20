@@ -1,0 +1,106 @@
+@import "../scss/CanvasMix.scss";
+
+
+@media only screen and (max-width:960px){
+
+    //導覽列內容
+    nav{
+        padding: 10px 10%;
+        div{
+            p{
+                display: none;
+            }
+        }
+    }
+
+    //上下鍵內容
+    #upperControlKey, #lowerControlKey{
+        @include outward(50px,25px);
+        font-size: 15px;      
+    }   
+
+    #upperControlKey{
+        border-radius: 0 0 25px 25px;
+    }
+
+    #lowerControlKey{
+        border-radius: 25px 25px 0 0;
+        padding-top: 5px;
+    }
+
+
+    //footer 工具列部份
+    footer{
+        width: 100%;
+        margin: 0 auto;
+        #itemBox{
+            border-radius: unset;
+            font-size: 20px;
+            padding: 15px 0;
+            > div{
+                margin: 0 auto;
+                &:first-child{
+                    width: 235px;
+                }
+                &:last-child{
+                    margin-top: 15px;
+                    width: 300px;
+                    > p{
+                        display: none;
+                    }
+                } 
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:961px){
+
+     //導覽列內容
+     nav{
+        padding: 10px 15%;
+        div{
+            p{
+                font-size: 20px !important;
+                margin-top: 8px;
+            }
+        }
+    }
+    
+    //上下鍵內容
+    #upperControlKey, #lowerControlKey{
+        @include outward(70px,35px);
+        font-size: 20px;
+    }   
+
+    #upperControlKey, #lowerControlKey{
+        border-radius: 0 0 35px 35px;
+    }
+
+    #lowerControlKey{
+        border-radius: 35px 35px 0 0;
+        padding-top: 7px;
+    }
+
+    //footer 工具列部份
+    footer{
+        width: 80%;
+        margin: 0 10%;
+        #itemBox{
+            border-radius: 100px;
+            font-size: 22px;
+            margin-bottom: 20px;
+            //單行置中
+            display: flex;   //行內置中
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            > div:first-child{
+                width: 275px;
+            }
+            > div:last-child{
+                width: 360px;
+            }
+        }
+    }
+}
