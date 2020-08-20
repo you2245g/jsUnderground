@@ -262,6 +262,7 @@ window.addEventListener('resize',function(){
     //紀錄恢復原值
     step = -1;
     userhistory = [];
+    record();
     //按鍵變成不可用
     keyUndo.classList.add('disable');
     keyRedo.classList.add('disable');
