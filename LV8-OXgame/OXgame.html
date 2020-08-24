@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="scss/tic.css">
+        <link rel="stylesheet" href="scss/ticResponsive.css">
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <title>井字遊戲</title>
+    </head>
+    <body>
+        <!--第一頁cover-->
+        <div id="cover">
+            <div><i>TIC</i></div>
+            <div>
+                <div class="coverCircle"></div>
+            </div>
+            <div>×</div>
+            <div>×</div>
+            <div><i>TAC</i></div>
+            <div>
+                <div class="coverCircle"></div>
+            </div>
+            <div>
+                <div class="coverCircle"></div>
+            </div>
+            <div>×</div>
+            <div><i>TOE</i></div>
+            <button class="btnStart">
+                START
+            </button>
+        </div>
+        <!--第二頁playGround-->
+        <div id="playGround" class="hide">
+            <div class="scroeBoard">
+                <div>×</div>
+                <div class="XScoreBoard">0</div>
+                <div>vs</div>
+                <div class="OScoreBoard">0</div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="notice">
+                <div>Your Turn!</div>
+                <div>Your Turn!</div>
+            </div>
+            <div class="OXBoard">
+                <div class="lineY"></div>
+                <div class="lineY"></div>               
+                <div class="OXPlay"></div>
+                <div class="OXPlay"></div>
+                <div class="OXPlay"></div>
+                <div class="lineX"></div>
+                <div class="OXPlay"></div>
+                <div class="OXPlay"></div>
+                <div class="OXPlay"></div>
+                <div class="lineX"></div>
+                <div class="OXPlay"></div>
+                <div class="OXPlay"></div>
+                <div class="OXPlay"></div>
+            </div>
+            <div class="endPhase hide">
+                <div class="OWIN hide">
+                    <h2>Winner</h2>
+                    <div></div>
+                </div>
+                <div class="XWIN hide">
+                    <div></div>
+                    <h2>Winner</h2>
+                </div>
+                <div class="drawGame hide">
+                    <h2>DRAW</h2>
+                    <h2>DRAW</h2>
+                    <h2>DRAW</h2>
+                    <div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btnRestart">
+                RESTART
+            </button>
+        </div>
+        <script src="js/tic.js"></script>
+    </body>
+</html>

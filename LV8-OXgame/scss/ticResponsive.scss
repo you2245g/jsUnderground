@@ -1,0 +1,420 @@
+@import "../scss/ticMix.scss";
+
+
+@media (max-width: 767px) {
+
+  //cover區塊/////
+  #cover {
+    max-width: $blockMobile;
+    > div{
+      @include outward(calc(#{$blockMobile}/3),calc(#{$blockMobile}/3));
+      &:first-child, &:nth-child(5), &:nth-child(9){
+        font-size: 60px;
+      }
+      &:nth-child(3), &:nth-child(4), &:nth-child(8){
+        font-size: 110px;
+      }
+      &:nth-child(6), &:nth-child(7){
+        > div{
+          &::after{
+              @include outward(26px,26px);
+              left: 6px;
+              top:6px
+          }
+        }    
+      }
+      .coverCircle{
+        @include outward(50px,50px);
+      }
+    }
+  }
+
+  //共用button(#cover & #playGround Button)
+  button{
+    @include outward(100%,$btnMobile);
+    margin-top: 5vh;
+    font-size: $mainFontSizeMobile;
+  }
+
+  //playground區塊/////
+  #playGround{
+    //第一段div
+    width: $blockMobile;
+    .scroeBoard{  
+      @include outward(100%,$btnMobile);
+      > div{
+        &:nth-child(odd){
+          width: calc(#{$blockMobile}/9);
+        }
+        &:nth-child(even){
+          width: calc(#{$blockMobile}/3);
+          font-size: $mainFontSizeMobile;
+        }
+        &:nth-child(1){
+          font-size: 25px;
+        }
+        &:nth-child(3){
+          font-size: $subFontSizeMobile;
+        }
+        &:nth-child(5){
+          > div{
+            @include outward(20px,20px);
+          }
+        }
+      }
+    }
+  }
+  //第二段div
+  .notice{
+    font-size: calc(#{$subFontSizeMobile} - 2px);
+  }
+  //第三段div
+  .OXBoard{
+    margin-top: 4vh;
+    > div{
+      @include outward(calc(#{$blockMobile}/3),calc(#{$blockMobile}/3));
+    }
+    .OXPlay{
+      .OMark{
+        @include outward(45px, 45px);
+      }
+      .XMark{
+        @include outward(50px, 3px);
+        &:after{
+            @include outward(50px, 3px);
+        }
+      }
+    }
+  }
+  //第四段div
+  .endPhase{
+    margin-top: 5vh;
+    @include outward(100%,$blockMobile);
+    h2{
+      font-size: 60px;
+      top: calc(50% - 30px);
+      left: 19px;
+    }
+    .OWIN{
+      > div{
+          border: 20px solid $primaryColor;
+          @include outward(260px,250px);
+      }
+    }
+    .XWIN{
+      > div{
+          @include outward(260px, 20px);
+          &:after{
+              @include outward(260px, 20px);
+          }
+      }
+    }
+    .drawGame{
+      > h2{
+        left: 60px !important;
+        &:nth-child(1){
+          top: 40px !important;
+        }
+        &:nth-child(2){
+          top: 115px !important;
+        }
+        &:nth-child(3){
+          top: 190px !important;
+        }
+      } 
+      > div{
+        > div:nth-child(1){
+            border: 12px solid $primaryColor;
+            @include outward(110px, 110px);
+        }
+        > div:nth-child(2){
+            margin-top: 50px !important;
+            @include outward(140px, 12px);
+            &:after{
+                @include outward(140px, 12px);
+          }
+        } 
+      }
+    }
+  }
+}
+
+
+
+  
+@media screen and (min-width: 768px) and (max-width: 1199px){
+
+  //cover區塊/////
+  #cover {
+    max-width: $blockTablet;
+    > div{
+      @include outward(calc(#{$blockTablet}/3),calc(#{$blockTablet}/3));
+      &:first-child, &:nth-child(5), &:nth-child(9){
+        font-size: 90px;
+      }
+      &:nth-child(3), &:nth-child(4), &:nth-child(8){
+        font-size: 135px;
+      }
+      &:nth-child(6), &:nth-child(7){
+        > div{
+          &::after{
+              @include outward(35px,35px);
+              left: 12px;
+              top:12px
+          }
+        }    
+      }
+      .coverCircle{
+        @include outward(70px,70px);
+      }
+    }
+  }
+
+  //共用button(#cover & #playGround Button)
+  button{
+    @include outward(100%,$btnTablet);
+    margin-top: 5vh;
+    font-size: $mainFontSizeTablet;
+  }
+
+  //playground區塊/////
+  #playGround{
+    //第一段div
+    width: $blockTablet;
+    .scroeBoard{  
+      @include outward(100%,$btnTablet);
+      > div{
+        &:nth-child(odd){
+          width: calc(#{$blockTablet}/9);
+        }
+        &:nth-child(even){
+          width: calc(#{$blockTablet}/3);
+          font-size: $mainFontSizeTablet;
+        }
+        &:nth-child(1){
+          font-size: 35px;
+        }
+        &:nth-child(3){
+          font-size: $subFontSizeTablet;
+        }
+        &:nth-child(5){
+          > div{
+            @include outward(25px,25px);
+          }
+        }
+      }
+    }
+  }
+  //第二段div
+  .notice{
+    font-size: calc(#{$subFontSizeTablet} - 2px);
+  }
+  //第三段div
+  .OXBoard{
+    margin-top: 5vh;
+    > div{
+      @include outward(calc(#{$blockTablet}/3),calc(#{$blockTablet}/3));
+    }
+    .OXPlay{
+      .OMark{
+        @include outward(65px, 65px);
+      }
+      .XMark{
+        @include outward(70px, 3px);
+        &:after{
+            @include outward(70px, 3px);
+        }
+      }
+    }
+  }
+  //第四段div
+  .endPhase{
+    margin-top: 6vh;
+    @include outward(100%,$blockTablet);
+    h2{
+      font-size: 85px;
+      top: calc(50% - 35px);
+      left: 26px;
+    }
+    .OWIN{
+      > div{
+          border: 30px solid $primaryColor;
+          @include outward(350px,350px);
+      }
+    }
+    .XWIN{
+      > div{
+          @include outward(390px, 30px);
+          &:after{
+              @include outward(390px, 30px);
+          }
+      }
+    }
+    .drawGame{
+      > h2{
+        left: 81px !important;
+        &:nth-child(1){
+          top: 70px !important;
+        }
+        &:nth-child(2){
+          top: 170px !important;
+        }
+        &:nth-child(3){
+          top: 270px !important;
+        }
+      } 
+      > div{
+        > div:nth-child(1){
+            border: 15px solid $primaryColor;
+            @include outward(180px, 180px);
+        }
+        > div:nth-child(2){
+            margin-top: 80px !important;
+            @include outward(200px, 15px);
+            &:after{
+                @include outward(200px, 15px);
+          }
+        } 
+      }
+    }
+  }
+}
+
+
+@media (min-width: 1200px) {
+
+  //cover區塊/////
+  #cover {
+    max-width: $blockDeskTop;
+    > div{
+      @include outward(calc(#{$blockDeskTop}/3),calc(#{$blockDeskTop}/3));
+      &:first-child, &:nth-child(5), &:nth-child(9){
+        font-size: 100px;
+      }
+      &:nth-child(3), &:nth-child(4), &:nth-child(8){
+        font-size: 190px;
+      }
+      &:nth-child(6), &:nth-child(7){
+        > div{
+            &::after{
+                @include outward(50px,50px);
+                left: 14px;
+                top:14px
+            }
+          }    
+      }
+    }
+    .coverCircle{
+      @include outward(90px,90px);
+    }
+  }
+
+  //共用button(#cover & #playGround Button)
+  button{
+    @include outward(100%,$btnDeskTop);
+    margin-top: 2.5vh;
+    font-size: $mainFontSizeDeskTop;
+  }
+
+  //playground區塊/////
+  #playGround{
+    //第一段div
+    width: $blockDeskTop;
+    .scroeBoard{  
+      @include outward(100%,$btnDeskTop);
+      > div{
+        &:nth-child(odd){
+          width: calc(#{$blockDeskTop}/9);
+        }
+        &:nth-child(even){
+          width: calc(#{$blockDeskTop}/3);
+          font-size: $mainFontSizeDeskTop;
+        }
+        &:nth-child(1){
+          font-size: 40px;
+        }
+        &:nth-child(3){
+          font-size: $subFontSizeDeskTop;
+        }
+        &:nth-child(5){
+          > div{
+            @include outward(30px,30px);
+          }
+        }
+      }
+    }
+  }
+  //第二段div
+  .notice{
+    font-size: calc(#{$subFontSizeDeskTop} - 2px);
+  }
+  //第三段div
+  .OXBoard{
+    margin-top: 1vh;
+    > div{
+      @include outward(calc(#{$blockDeskTop}/3),calc(#{$blockDeskTop}/3));
+    }
+    .OXPlay{
+      .OMark{
+        @include outward(80px, 80px);
+      }
+      .XMark{
+        @include outward(90px, 3px);
+        &:after{
+            @include outward(90px, 3px);
+        }
+      }
+    }
+  }
+  //第四段div
+  .endPhase{
+    margin-top: 2vh;
+    @include outward(100%,$blockDeskTop);
+    h2{
+      font-size: 100px;
+      top: calc(50% - 40px);
+      left: 35px;
+    }
+    .OWIN{
+      > div{
+          border: 30px solid $primaryColor;
+          @include outward(400px,400px);
+      }
+    }
+    .XWIN{
+      > div{
+          @include outward(480px, 30px);
+          &:after{
+              @include outward(480px, 30px);
+          }
+      }
+    }
+    .drawGame{
+      > h2{
+        left: 95px !important;
+        &:nth-child(1){
+          top: 90px !important;
+        }
+        &:nth-child(2){
+          top: 195px !important;
+        }
+        &:nth-child(3){
+          top: 300px !important;
+        }
+      } 
+      > div{
+        > div:nth-child(1){
+            border: 20px solid $primaryColor;
+            @include outward(180px, 180px);
+        }
+        > div:nth-child(2){
+            margin-top: 80px !important;
+            @include outward(200px, 20px);
+            &:after{
+                @include outward(200px, 20px);
+          }
+        } 
+      }
+    }
+  }
+}

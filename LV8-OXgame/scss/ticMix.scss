@@ -1,0 +1,40 @@
+@mixin outward($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin colorSet($color,$backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+//顏色設定
+$keyColor:black;
+$primaryColor:#ED494C;
+$subColor:white;
+$playBackgroundColor:#ff6d70;
+
+//區塊高寬設定
+$blockDeskTop:500px;
+$blockTablet:420px;
+$blockMobile:300px;
+
+//按鈕及記分板高度設定
+$btnDeskTop:60px;
+$btnTablet:55px;
+$btnMobile:40px;
+
+//文字尺寸（按鈕文字、比數文字）
+$mainFontSizeDeskTop:30px;
+$mainFontSizeTablet:25px;
+$mainFontSizeMobile:20px;
+
+//文字尺寸（vs字樣、Your Turn!字樣-2px）
+$subFontSizeDeskTop:20px;
+$subFontSizeTablet:15px;
+$subFontSizeMobile:11px;

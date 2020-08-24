@@ -1,0 +1,381 @@
+@media (max-width: 767px) {
+  #cover {
+    max-width: 300px;
+  }
+  #cover > div {
+    width: calc(300px/3);
+    height: calc(300px/3);
+  }
+  #cover > div:first-child, #cover > div:nth-child(5), #cover > div:nth-child(9) {
+    font-size: 60px;
+  }
+  #cover > div:nth-child(3), #cover > div:nth-child(4), #cover > div:nth-child(8) {
+    font-size: 110px;
+  }
+  #cover > div:nth-child(6) > div::after, #cover > div:nth-child(7) > div::after {
+    width: 26px;
+    height: 26px;
+    left: 6px;
+    top: 6px;
+  }
+  #cover > div .coverCircle {
+    width: 50px;
+    height: 50px;
+  }
+  button {
+    width: 100%;
+    height: 40px;
+    margin-top: 5vh;
+    font-size: 20px;
+  }
+  #playGround {
+    width: 300px;
+  }
+  #playGround .scroeBoard {
+    width: 100%;
+    height: 40px;
+  }
+  #playGround .scroeBoard > div:nth-child(odd) {
+    width: calc(300px/9);
+  }
+  #playGround .scroeBoard > div:nth-child(even) {
+    width: calc(300px/3);
+    font-size: 20px;
+  }
+  #playGround .scroeBoard > div:nth-child(1) {
+    font-size: 25px;
+  }
+  #playGround .scroeBoard > div:nth-child(3) {
+    font-size: 11px;
+  }
+  #playGround .scroeBoard > div:nth-child(5) > div {
+    width: 20px;
+    height: 20px;
+  }
+  .notice {
+    font-size: calc(11px - 2px);
+  }
+  .OXBoard {
+    margin-top: 4vh;
+  }
+  .OXBoard > div {
+    width: calc(300px/3);
+    height: calc(300px/3);
+  }
+  .OXBoard .OXPlay .OMark {
+    width: 45px;
+    height: 45px;
+  }
+  .OXBoard .OXPlay .XMark {
+    width: 50px;
+    height: 3px;
+  }
+  .OXBoard .OXPlay .XMark:after {
+    width: 50px;
+    height: 3px;
+  }
+  .endPhase {
+    margin-top: 5vh;
+    width: 100%;
+    height: 300px;
+  }
+  .endPhase h2 {
+    font-size: 60px;
+    top: calc(50% - 30px);
+    left: 19px;
+  }
+  .endPhase .OWIN > div {
+    border: 20px solid #ED494C;
+    width: 260px;
+    height: 250px;
+  }
+  .endPhase .XWIN > div {
+    width: 260px;
+    height: 20px;
+  }
+  .endPhase .XWIN > div:after {
+    width: 260px;
+    height: 20px;
+  }
+  .endPhase .drawGame > h2 {
+    left: 60px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(1) {
+    top: 40px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(2) {
+    top: 115px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(3) {
+    top: 190px !important;
+  }
+  .endPhase .drawGame > div > div:nth-child(1) {
+    border: 12px solid #ED494C;
+    width: 110px;
+    height: 110px;
+  }
+  .endPhase .drawGame > div > div:nth-child(2) {
+    margin-top: 50px !important;
+    width: 140px;
+    height: 12px;
+  }
+  .endPhase .drawGame > div > div:nth-child(2):after {
+    width: 140px;
+    height: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  #cover {
+    max-width: 420px;
+  }
+  #cover > div {
+    width: calc(420px/3);
+    height: calc(420px/3);
+  }
+  #cover > div:first-child, #cover > div:nth-child(5), #cover > div:nth-child(9) {
+    font-size: 90px;
+  }
+  #cover > div:nth-child(3), #cover > div:nth-child(4), #cover > div:nth-child(8) {
+    font-size: 135px;
+  }
+  #cover > div:nth-child(6) > div::after, #cover > div:nth-child(7) > div::after {
+    width: 35px;
+    height: 35px;
+    left: 12px;
+    top: 12px;
+  }
+  #cover > div .coverCircle {
+    width: 70px;
+    height: 70px;
+  }
+  button {
+    width: 100%;
+    height: 55px;
+    margin-top: 5vh;
+    font-size: 25px;
+  }
+  #playGround {
+    width: 420px;
+  }
+  #playGround .scroeBoard {
+    width: 100%;
+    height: 55px;
+  }
+  #playGround .scroeBoard > div:nth-child(odd) {
+    width: calc(420px/9);
+  }
+  #playGround .scroeBoard > div:nth-child(even) {
+    width: calc(420px/3);
+    font-size: 25px;
+  }
+  #playGround .scroeBoard > div:nth-child(1) {
+    font-size: 35px;
+  }
+  #playGround .scroeBoard > div:nth-child(3) {
+    font-size: 15px;
+  }
+  #playGround .scroeBoard > div:nth-child(5) > div {
+    width: 25px;
+    height: 25px;
+  }
+  .notice {
+    font-size: calc(15px - 2px);
+  }
+  .OXBoard {
+    margin-top: 5vh;
+  }
+  .OXBoard > div {
+    width: calc(420px/3);
+    height: calc(420px/3);
+  }
+  .OXBoard .OXPlay .OMark {
+    width: 65px;
+    height: 65px;
+  }
+  .OXBoard .OXPlay .XMark {
+    width: 70px;
+    height: 3px;
+  }
+  .OXBoard .OXPlay .XMark:after {
+    width: 70px;
+    height: 3px;
+  }
+  .endPhase {
+    margin-top: 6vh;
+    width: 100%;
+    height: 420px;
+  }
+  .endPhase h2 {
+    font-size: 85px;
+    top: calc(50% - 35px);
+    left: 26px;
+  }
+  .endPhase .OWIN > div {
+    border: 30px solid #ED494C;
+    width: 350px;
+    height: 350px;
+  }
+  .endPhase .XWIN > div {
+    width: 390px;
+    height: 30px;
+  }
+  .endPhase .XWIN > div:after {
+    width: 390px;
+    height: 30px;
+  }
+  .endPhase .drawGame > h2 {
+    left: 81px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(1) {
+    top: 70px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(2) {
+    top: 170px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(3) {
+    top: 270px !important;
+  }
+  .endPhase .drawGame > div > div:nth-child(1) {
+    border: 15px solid #ED494C;
+    width: 180px;
+    height: 180px;
+  }
+  .endPhase .drawGame > div > div:nth-child(2) {
+    margin-top: 80px !important;
+    width: 200px;
+    height: 15px;
+  }
+  .endPhase .drawGame > div > div:nth-child(2):after {
+    width: 200px;
+    height: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #cover {
+    max-width: 500px;
+  }
+  #cover > div {
+    width: calc(500px/3);
+    height: calc(500px/3);
+  }
+  #cover > div:first-child, #cover > div:nth-child(5), #cover > div:nth-child(9) {
+    font-size: 100px;
+  }
+  #cover > div:nth-child(3), #cover > div:nth-child(4), #cover > div:nth-child(8) {
+    font-size: 190px;
+  }
+  #cover > div:nth-child(6) > div::after, #cover > div:nth-child(7) > div::after {
+    width: 50px;
+    height: 50px;
+    left: 14px;
+    top: 14px;
+  }
+  #cover .coverCircle {
+    width: 90px;
+    height: 90px;
+  }
+  button {
+    width: 100%;
+    height: 60px;
+    margin-top: 2.5vh;
+    font-size: 30px;
+  }
+  #playGround {
+    width: 500px;
+  }
+  #playGround .scroeBoard {
+    width: 100%;
+    height: 60px;
+  }
+  #playGround .scroeBoard > div:nth-child(odd) {
+    width: calc(500px/9);
+  }
+  #playGround .scroeBoard > div:nth-child(even) {
+    width: calc(500px/3);
+    font-size: 30px;
+  }
+  #playGround .scroeBoard > div:nth-child(1) {
+    font-size: 40px;
+  }
+  #playGround .scroeBoard > div:nth-child(3) {
+    font-size: 20px;
+  }
+  #playGround .scroeBoard > div:nth-child(5) > div {
+    width: 30px;
+    height: 30px;
+  }
+  .notice {
+    font-size: calc(20px - 2px);
+  }
+  .OXBoard {
+    margin-top: 1vh;
+  }
+  .OXBoard > div {
+    width: calc(500px/3);
+    height: calc(500px/3);
+  }
+  .OXBoard .OXPlay .OMark {
+    width: 80px;
+    height: 80px;
+  }
+  .OXBoard .OXPlay .XMark {
+    width: 90px;
+    height: 3px;
+  }
+  .OXBoard .OXPlay .XMark:after {
+    width: 90px;
+    height: 3px;
+  }
+  .endPhase {
+    margin-top: 2vh;
+    width: 100%;
+    height: 500px;
+  }
+  .endPhase h2 {
+    font-size: 100px;
+    top: calc(50% - 40px);
+    left: 35px;
+  }
+  .endPhase .OWIN > div {
+    border: 30px solid #ED494C;
+    width: 400px;
+    height: 400px;
+  }
+  .endPhase .XWIN > div {
+    width: 480px;
+    height: 30px;
+  }
+  .endPhase .XWIN > div:after {
+    width: 480px;
+    height: 30px;
+  }
+  .endPhase .drawGame > h2 {
+    left: 95px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(1) {
+    top: 90px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(2) {
+    top: 195px !important;
+  }
+  .endPhase .drawGame > h2:nth-child(3) {
+    top: 300px !important;
+  }
+  .endPhase .drawGame > div > div:nth-child(1) {
+    border: 20px solid #ED494C;
+    width: 180px;
+    height: 180px;
+  }
+  .endPhase .drawGame > div > div:nth-child(2) {
+    margin-top: 80px !important;
+    width: 200px;
+    height: 20px;
+  }
+  .endPhase .drawGame > div > div:nth-child(2):after {
+    width: 200px;
+    height: 20px;
+  }
+}
+/*# sourceMappingURL=ticResponsive.css.map */

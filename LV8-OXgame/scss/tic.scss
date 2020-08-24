@@ -1,0 +1,229 @@
+@import "../scss/ticMix.scss";
+
+body{
+    text-align: center;
+    background-color:$keyColor;
+    @include flex(column);
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#cover{
+    margin: 0 auto;
+    @include flex(row);
+    flex-wrap: wrap;
+    font-family: 'Bungee Inline', cursive;
+    > div {
+        //令行內文件垂直置中
+        @include flex(column);
+        justify-content: center;
+        font-family: 'Contrail One', cursive;
+        &:first-child, &:nth-child(5), &:nth-child(9){
+            color: $subColor;
+        }
+        &:nth-child(2){
+            > div{
+                border:10px solid $primaryColor;
+            }
+        }
+        &:nth-child(3){
+            -webkit-text-stroke:5px white;
+        }
+        &:nth-child(6), &:nth-child(7){
+            > div{
+                border:3px solid $primaryColor;
+                position: relative;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    border:3px solid $primaryColor;
+                    border-radius: 50%;
+                }
+            }    
+        }
+        &:nth-child(4), &:nth-child(8){
+            color: $primaryColor;
+        }
+        .coverCircle{
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+    }
+    button{
+        @include colorSet($keyColor, $subColor);
+    }
+}
+
+//共用button
+button{
+    font-family: 'Bungee Inline', cursive !important;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+//playground區塊
+#playGround{
+    margin: 0 auto;
+    font-family: 'Alata', sans-serif;
+    //第一段DIV
+    .scroeBoard{
+        @include flex(row);
+        border: 2px solid $keyColor;
+        border-radius: 5px;
+        > div{
+            //行內對齊
+            @include flex(column);
+            justify-content: center;
+            &:nth-child(1){
+                color: $subColor;
+            }
+            &:nth-child(3){
+                @include colorSet($subColor, $keyColor);
+            }
+            &:nth-child(even){
+                @include colorSet($keyColor,$subColor);
+            }
+            &:nth-child(5){  //圓圈
+                > div{
+                    border:3px solid $subColor;
+                    border-radius: 50%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+    //第二段DIV
+    .notice{
+        @include flex(row);
+        justify-content: space-between;
+        color: $subColor;
+        margin: 1vh auto 0;
+    }
+
+    //第三段DIV
+    .OXBoard{
+        @include flex(row);
+        flex-wrap: wrap;
+        position: relative !important;
+        [class*="line"]{
+            background-color: $primaryColor;
+            border-radius: 4px;
+        }
+        .lineX{
+            @include outward(100%,4px);
+        }
+        .lineY{
+            position: absolute !important;
+            @include outward(4px,100%);
+            &:nth-child(1){
+                left: 33.333%;
+            }
+            &:nth-child(2){
+                left: 66.666%;
+            }
+        }
+        .OXPlay{
+            @include flex(column);
+            justify-content: center;
+            > div{
+                margin: 0 auto;
+            }
+            &:hover{
+                cursor: pointer;
+                background-color:lighten($primaryColor, 20%);
+            }
+            .OMark{
+                border-radius: 50%;
+                border: 3px solid $subColor;
+            }
+            .XMark{
+                transform: rotate(45deg);
+                background-color:$subColor;
+                &:after{
+                    content: "";
+                    display:block;
+                    transform: rotate(90deg);
+                    background-color:$subColor;
+                }
+            }
+        }
+    }
+    //第四段DIV(OWIN、XWIN、DRAW)
+    .endPhase{
+        @include flex(column);
+        justify-content: center;
+        position: relative;
+        div{
+            margin: 0 auto;
+        }
+        h2{
+            font-family: 'Bungee Inline', cursive !important;
+            position: absolute;
+            color: transparent;
+            -webkit-text-stroke:1px white;
+        }
+        .OWIN{
+            > div{
+                border-radius: 50%;
+            }
+        }
+        .XWIN{
+            > div{
+                transform: rotate(45deg);
+                background-color:$primaryColor;
+                &:after{
+                    content: "";
+                    display:block;
+                    transform: rotate(90deg);
+                    background-color:$primaryColor;
+                }
+            }
+        }
+        
+        .drawGame{
+            > div{
+                @include flex(row);
+                position: relative;
+                > div:nth-child(1){
+                    border-radius: 50%;
+                    z-index: -1;
+                }
+                > div:nth-child(2){
+                    z-index: -1;
+                    transform: rotate(45deg);
+                    background-color:$primaryColor;
+                    &:after{
+                        content: "";
+                        display:block;
+                        transform: rotate(90deg);
+                        background-color:$primaryColor;
+                    }
+                } 
+            }
+        }
+    }
+    button{
+        @include colorSet($subColor, $primaryColor);
+    }
+}
+
+
+//輸贏展示區
+.hide{
+    display: none !important;
+}
+
+//記分板OX換色
+.playOn{
+    background-color:$primaryColor;
+}
+.playOff{
+    background-color: $keyColor;
+}
+
+//Your Turn文字
+.invisible{
+    visibility:hidden;
+}

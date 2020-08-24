@@ -1,0 +1,327 @@
+body {
+  text-align: center;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#cover {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-family: 'Bungee Inline', cursive;
+}
+
+#cover > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Contrail One', cursive;
+}
+
+#cover > div:first-child, #cover > div:nth-child(5), #cover > div:nth-child(9) {
+  color: white;
+}
+
+#cover > div:nth-child(2) > div {
+  border: 10px solid #ED494C;
+}
+
+#cover > div:nth-child(3) {
+  -webkit-text-stroke: 5px white;
+}
+
+#cover > div:nth-child(6) > div, #cover > div:nth-child(7) > div {
+  border: 3px solid #ED494C;
+  position: relative;
+}
+
+#cover > div:nth-child(6) > div::after, #cover > div:nth-child(7) > div::after {
+  content: "";
+  position: absolute;
+  border: 3px solid #ED494C;
+  border-radius: 50%;
+}
+
+#cover > div:nth-child(4), #cover > div:nth-child(8) {
+  color: #ED494C;
+}
+
+#cover > div .coverCircle {
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+#cover button {
+  color: black;
+  background-color: white;
+}
+
+button {
+  font-family: 'Bungee Inline', cursive !important;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#playGround {
+  margin: 0 auto;
+  font-family: 'Alata', sans-serif;
+}
+
+#playGround .scroeBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+#playGround .scroeBoard > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#playGround .scroeBoard > div:nth-child(1) {
+  color: white;
+}
+
+#playGround .scroeBoard > div:nth-child(3) {
+  color: white;
+  background-color: black;
+}
+
+#playGround .scroeBoard > div:nth-child(even) {
+  color: black;
+  background-color: white;
+}
+
+#playGround .scroeBoard > div:nth-child(5) > div {
+  border: 3px solid white;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+#playGround .notice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  margin: 1vh auto 0;
+}
+
+#playGround .OXBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative !important;
+}
+
+#playGround .OXBoard [class*="line"] {
+  background-color: #ED494C;
+  border-radius: 4px;
+}
+
+#playGround .OXBoard .lineX {
+  width: 100%;
+  height: 4px;
+}
+
+#playGround .OXBoard .lineY {
+  position: absolute !important;
+  width: 4px;
+  height: 100%;
+}
+
+#playGround .OXBoard .lineY:nth-child(1) {
+  left: 33.333%;
+}
+
+#playGround .OXBoard .lineY:nth-child(2) {
+  left: 66.666%;
+}
+
+#playGround .OXBoard .OXPlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#playGround .OXBoard .OXPlay > div {
+  margin: 0 auto;
+}
+
+#playGround .OXBoard .OXPlay:hover {
+  cursor: pointer;
+  background-color: #f6a6a7;
+}
+
+#playGround .OXBoard .OXPlay .OMark {
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+#playGround .OXBoard .OXPlay .XMark {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: white;
+}
+
+#playGround .OXBoard .OXPlay .XMark:after {
+  content: "";
+  display: block;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  background-color: white;
+}
+
+#playGround .endPhase {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+#playGround .endPhase div {
+  margin: 0 auto;
+}
+
+#playGround .endPhase h2 {
+  font-family: 'Bungee Inline', cursive !important;
+  position: absolute;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+}
+
+#playGround .endPhase .OWIN > div {
+  border-radius: 50%;
+}
+
+#playGround .endPhase .XWIN > div {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: #ED494C;
+}
+
+#playGround .endPhase .XWIN > div:after {
+  content: "";
+  display: block;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  background-color: #ED494C;
+}
+
+#playGround .endPhase .drawGame > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+#playGround .endPhase .drawGame > div > div:nth-child(1) {
+  border-radius: 50%;
+  z-index: -1;
+}
+
+#playGround .endPhase .drawGame > div > div:nth-child(2) {
+  z-index: -1;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: #ED494C;
+}
+
+#playGround .endPhase .drawGame > div > div:nth-child(2):after {
+  content: "";
+  display: block;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  background-color: #ED494C;
+}
+
+#playGround button {
+  color: white;
+  background-color: #ED494C;
+}
+
+.hide {
+  display: none !important;
+}
+
+.playOn {
+  background-color: #ED494C;
+}
+
+.playOff {
+  background-color: black;
+}
+
+.invisible {
+  visibility: hidden;
+}
+/*# sourceMappingURL=tic.css.map */
