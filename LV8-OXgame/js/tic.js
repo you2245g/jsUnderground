@@ -113,6 +113,7 @@ function checkWinner(checkArray){
             //加分並上傳
             Oscore+=1;
             updateScore();
+            return
         }
         //叉叉贏(OXStatus判斷回合)
         else if(check && OXStatus === false){
@@ -123,9 +124,10 @@ function checkWinner(checkArray){
             //加分並上傳
             Xscore+=1;
             updateScore();
-            
+            return
+        }    
         //判斷第九手無勝負產生
-        }else if(circleArray.length + crossArray.length === 9){
+        else if(circleArray.length + crossArray.length === 9){
             //顯示板，無計分
             $('.OXBoard').addClass('hide');
             $('.endPhase').removeClass('hide');
