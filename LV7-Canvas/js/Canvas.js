@@ -209,8 +209,8 @@ $('.penPath').change(function() {
         alert("畫筆最大設定為100");
         $('.penPath').val(10);
         ctx.lineWidth = 10;
-    } else if(penPathNum < 0){
-        alert("畫筆數值不為負數");
+    } else if(penPathNum <= 0){
+        alert("畫筆數值不小於零");
         $('.penPath').val(10);
         ctx.lineWidth = 10;
     } else{
@@ -219,6 +219,19 @@ $('.penPath').change(function() {
     }
 
 });
+
+//畫筆尺寸設定（鍵盤用）
+document.addEventListener('keydown',function(obj){
+
+    let penPathNum = Number(document.querySelector('.penPath').value);
+    if(obj.keyCode === 13 && penPathNum !==''){
+
+        ctx.lineWidth = penPathNum;
+        $('.penPath').val(penPathNum);  //防止前數有0
+    }
+});
+
+
 
 //填上顏色及顏色設定
 var colorArray = ['#D94600', '#005AB5', '#019858', '#2828FF', '#E800E8', '#7373B9'];
