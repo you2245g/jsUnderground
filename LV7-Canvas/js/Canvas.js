@@ -195,16 +195,30 @@ keyRedo.addEventListener('click',function(){
 
 //工具列應用
 //畫筆尺寸設定
-$('.penPath').keyup(function() {
-    if ($('.penPath').val() >= 101) {
+$('.penPath').change(function() {
+
+    let penPathNum = Number(document.querySelector('.penPath').value);
+
+    if(isNaN($('.penPath').val())){
+        alert("請輸入中文");
+        $('.penPath').val(10);
+        ctx.lineWidth = 10;
+        return 
+    }
+    if (penPathNum >= 101) {
         alert("畫筆最大設定為100");
         $('.penPath').val(10);
         ctx.lineWidth = 10;
-    } else {
-        ctx.lineWidth = $('.penPath').val()
+    } else if(penPathNum < 0){
+        alert("畫筆數值不為負數");
+        $('.penPath').val(10);
+        ctx.lineWidth = 10;
+    } else{
+        ctx.lineWidth = penPathNum;
+        $('.penPath').val(penPathNum);  //防止前數有0
     }
-});
 
+});
 
 //填上顏色及顏色設定
 var colorArray = ['#D94600', '#005AB5', '#019858', '#2828FF', '#E800E8', '#7373B9'];
