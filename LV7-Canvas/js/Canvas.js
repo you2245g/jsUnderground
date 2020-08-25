@@ -195,7 +195,7 @@ keyRedo.addEventListener('click',function(){
 
 //工具列應用
 //畫筆尺寸設定
-$('.penPath').focusout(function() {
+$('.penPath').change(function() {
 
     let penPathNum = Number(document.querySelector('.penPath').value);
 
