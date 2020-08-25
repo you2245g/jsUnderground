@@ -39,6 +39,8 @@ const canvas = document.getElementById('canvas');
 //畫筆控制及初始畫布
 const ctx = canvas.getContext('2d'); //canvas定義為2D
 init();
+//每當視窗讀取時，則執行
+window.addEventListener('load',loaded);
 
 //控制滑鼠移動時，畫下筆畫，預設值為false
 let isDrawing = false; 
@@ -46,6 +48,17 @@ let isDrawing = false;
 //設定滑鼠座標(0,0)
 let lastX = 0;
 let lastY = 0;
+
+//歷史紀錄(步驟次數與畫布陣列值需相符)
+let step = -1;        //步驟次數
+let userhistory = []; //畫布數值（每筆劃記錄座標)
+
+//電腦滑鼠事件監聽
+//點按滑鼠更新座標
+canvas.addEventListener('mousedown', function(obj){
+    isDrawing = true;
+    [lastX, lastY] = [obj.offsetX, obj.offsetY];
+});
 
 //移動滑鼠開始畫畫
 canvas.addEventListener('mousemove', function(obj){
@@ -61,18 +74,8 @@ canvas.addEventListener('mousemove', function(obj){
 
 });
 
-//點按滑鼠更新座標
-canvas.addEventListener('mousedown', function(obj){
-    isDrawing = true;
-    [lastX, lastY] = [obj.offsetX, obj.offsetY];
-});
-
 //當滑鼠放開時，停止畫畫
 canvas.addEventListener('mouseout',() => isDrawing = false);
-
-//歷史紀錄(步驟次數與畫布陣列值需相符)
-let step = -1;        //步驟次數
-let userhistory = []; //畫布數值（每筆劃記錄座標)
 
 //每次放開滑鼠時，紀錄加1，並移除disable css外觀
 canvas.addEventListener('mouseup',function(){
@@ -86,17 +89,48 @@ canvas.addEventListener('mouseup',function(){
     isDrawing = false;
 });
 
+//手機touch事件監聽
+//手機點壓，更新座標
+canvas.addEventListener('touchstart',function(obj){
 
-//記錄步驟紀錄(陣列push,步驟+1)
-function record(){
-    step ++; //步驟加一
-    if (step < userhistory.length) userhistory.length = step
-    userhistory.push(canvas.toDataURL());  //將影像存成Base64編碼
-}
+    isDrawing = true; //令畫筆可以使用
+    var setX = obj.touches[0].clientX; //取得X座標
+    var setY = obj.touches[0].clientY; //取得Y座標
+    [lastX, lastY] = [setX, setY];
+
+});
+
+//滑動，開始畫畫
+canvas.addEventListener('touchmove',function(obj){
+
+    var setX = obj.touches[0].clientX; //取得X座標
+    var setY = obj.touches[0].clientY; //取得Y座標
+    if(!isDrawing){return}; //停止繪畫動作
+
+    ctx.beginPath();          //路徑開始
+    ctx.moveTo(lastX, lastY); //路徑結束
+    ctx.lineTo(setX, setY);
+    ctx.stroke();
+    ctx.save();
+    [lastX, lastY] = [setX, setY];
+
+});
+
+//移開touch觸發事件(執行紀錄，解鎖功能鈕)
+canvas.addEventListener('touchend',function(){
+
+    record();
+    if(userhistory.length > 0){
+        keyUndo.classList.remove('disable');
+        keyClear.classList.remove('disable');
+    } //畫下第一筆後，要將undo及clear鈕解鎖
+    keyRedo.classList.add('disable'); //每一筆新劃的筆劃都沒有重作
+    isDrawing = false;  //令畫筆不能使用
+
+});
 
 
 //上段功能鍵利用
-
 //下載按鈕(創造A元素下載)
 $('.keySave').click(function(){
     const link = document.createElement('a');
@@ -139,7 +173,6 @@ keyUndo.addEventListener('click',function(){
 });
 
 //Redo鍵
-
 keyRedo.addEventListener('click',function(){
 
 	if (step < userhistory.length - 1) {
@@ -160,7 +193,6 @@ keyRedo.addEventListener('click',function(){
 
 
 //工具列應用
-
 //畫筆尺寸設定
 $('.penPath').keyup(function() {
     if ($('.penPath').val() >= 101) {
@@ -192,7 +224,6 @@ for(var i = 0;i<colorArray.length;i++){
 
 //選色框
 const colorItem = document.querySelectorAll('.colorItem');
-colorItem[5].textContent = '✓'; //選色初始設定
 
 for(var i = 0 ;i<colorItem.length;i++){
 
@@ -246,9 +277,7 @@ $('.paintBrush').click(function(){
     ctx.lineWidth = 10;             //指定畫筆大小
 });
 
-//每當視窗重新讀取時，則執行紀錄
-window.addEventListener('load',loaded);
-
+//視窗被resize時，更新畫布
 window.addEventListener('resize',function(){
                
     if(canvas === undefined){          
@@ -270,7 +299,9 @@ window.addEventListener('resize',function(){
 
 });
 
-//畫筆及畫布回復開始值
+
+//複用函式區
+//畫筆及畫布初始化
 function init(){
     canvas.width  = window.innerWidth;  
     canvas.height = window.innerHeight; 
@@ -279,9 +310,31 @@ function init(){
     ctx.lineCap = 'round';                            //繪製結束的線帽
     ctx.lineWidth = 10;                               //筆畫初始大小
 }
-//重新讀取
+
+//視窗載入讀取
 function loaded(){
     ctx.fillStyle = '#E8E8E8'; //讓第一次進來跑 function 的時候就加上背景顏色
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //介面初始化
+    //判斷橡皮擦disable
+    $('.eraser').addClass('unchoose');
+    $('.paintBrush').removeClass('unchoose');
+    //選色框初始化
+    for(var i = 0 ;i<colorItem.length;i++){
+        if(i===5){
+            colorItem[i].textContent = '✓';
+        }else {
+            colorItem[i].textContent = '';
+        }
+    }
+    //penPath設置初始值
+    $('.penPath').val(10);
     record();    
+}
+
+//記錄步驟紀錄(陣列push,步驟+1)
+function record(){
+    step ++; //步驟加一
+    if (step < userhistory.length) userhistory.length = step
+    userhistory.push(canvas.toDataURL());  //將影像存成Base64編碼
 }
