@@ -228,6 +228,7 @@ document.addEventListener('keydown',function(obj){
 
         ctx.lineWidth = penPathNum;
         $('.penPath').val(penPathNum);  //防止前數有0
+        $('.penPath').blur(); //input失去焦點
     }
 });
 
