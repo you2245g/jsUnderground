@@ -32,15 +32,21 @@ $(document).ready(function(){
 const keyClear = document.querySelector('.keyClear');
 const keyUndo = document.querySelector('.keyUndo');
 const keyRedo = document.querySelector('.keyRedo');
+//歷史紀錄(步驟次數與畫布陣列值需相符)
+let step = -1;        //步驟次數
+let userhistory = []; //畫布數值（每筆劃記錄座標)
 
 //畫布範圍
 const canvas = document.getElementById('canvas');
 
 //畫筆控制及初始畫布
 const ctx = canvas.getContext('2d'); //canvas定義為2D
-init();
-//每當視窗讀取時，則執行
-window.addEventListener('load',loaded);
+//視窗讀取時，則執行
+window.addEventListener('load',function(){
+    init();   //畫筆初始
+    loaded(); //畫布佈置
+    layout(); //介面佈置
+});
 
 //控制滑鼠移動時，畫下筆畫，預設值為false
 let isDrawing = false; 
@@ -49,9 +55,6 @@ let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
 
-//歷史紀錄(步驟次數與畫布陣列值需相符)
-let step = -1;        //步驟次數
-let userhistory = []; //畫布數值（每筆劃記錄座標)
 
 //電腦滑鼠事件監聽
 //點按滑鼠更新座標
@@ -141,14 +144,12 @@ $('.keySave').click(function(){
 
 //清空鍵(回初始設定)
 keyClear.addEventListener('click',function(){
-    step = -1;
-    userhistory = [];
-    //按鍵變成不可用
+
+    //上段功能按鍵變成不可用
     keyUndo.classList.add('disable');
     keyRedo.classList.add('disable');
     keyClear.classList.add('disable');   
-    //畫布重新整理
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //畫布、紀錄重新整理
     loaded();
 })
 
@@ -279,23 +280,17 @@ $('.paintBrush').click(function(){
 
 //視窗被resize時，更新畫布
 window.addEventListener('resize',function(){
-               
+    //重新定義畫布    
     if(canvas === undefined){          
         canvas = createCanvas();
         ctx = canvas.getContext("2d");  
     }
-    //重新定義畫布
-    init();
     //執行record
-    loaded();
+    init();
     //紀錄恢復原值
-    step = -1;
-    userhistory = [];
-    record();
-    //按鍵變成不可用
-    keyUndo.classList.add('disable');
-    keyRedo.classList.add('disable');
-    keyClear.classList.add('disable'); 
+    loaded();
+    //外觀回復原值
+    layout();
 
 });
 
@@ -315,8 +310,14 @@ function init(){
 function loaded(){
     ctx.fillStyle = '#E8E8E8'; //讓第一次進來跑 function 的時候就加上背景顏色
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    //介面初始化
-    //判斷橡皮擦disable
+    step = -1;
+    userhistory = [];
+    record();    
+}
+
+//介面初始化
+function layout(){
+    //橡皮擦disable
     $('.eraser').addClass('unchoose');
     $('.paintBrush').removeClass('unchoose');
     //選色框初始化
@@ -329,7 +330,10 @@ function loaded(){
     }
     //penPath設置初始值
     $('.penPath').val(10);
-    record();    
+    //按鍵變成不可用
+    keyUndo.classList.add('disable');
+    keyRedo.classList.add('disable');
+    keyClear.classList.add('disable'); 
 }
 
 //記錄步驟紀錄(陣列push,步驟+1)
