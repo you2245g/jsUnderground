@@ -331,7 +331,6 @@ function init(){
     ctx.strokeStyle = '#D94600';                      //畫筆顏色
     ctx.lineJoin = 'round';                           //
     ctx.lineCap = 'round';                            //繪製結束的線帽
-    ctx.lineWidth = 10;                               //筆畫初始大小
 }
 
 //視窗載入讀取
@@ -357,7 +356,10 @@ function layout(){
         }
     }
     //penPath設置初始值
-    $('.penPath').val(10);
+    if($('.penPath').val() ==''){
+        $('.penPath').val(10);
+        ctx.lineWidth = Number(document.querySelector('.penPath').value);              //筆畫初始大小
+    }
     //按鍵變成不可用
     keyUndo.classList.add('disable');
     keyRedo.classList.add('disable');
