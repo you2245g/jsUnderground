@@ -225,7 +225,6 @@ $('.penPath').keyup(function(obj){
 
     let penPathNum = Number(document.querySelector('.penPath').value);
     if(obj.keyCode === 13 && penPathNum !==''){
-
         ctx.lineWidth = penPathNum;
         $('.penPath').val(penPathNum);  //防止前數有0
         $('.penPath').blur(); //input失去焦點
@@ -359,7 +358,8 @@ function layout(obj){
     if(obj.keyCode !==13){
         $('.penPath').val(10);        
         ctx.lineWidth = 10;             //筆畫初始大小   
-    }   
+    } 
+    ctx.lineWidth = Number(document.querySelector('.penPath').value);
     //按鍵變成不可用
     keyUndo.classList.add('disable');
     keyRedo.classList.add('disable');
