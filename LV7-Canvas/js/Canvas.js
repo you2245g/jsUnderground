@@ -305,8 +305,9 @@ $('.paintBrush').click(function(){
     ctx.lineWidth = 10;             //指定畫筆大小
 });
 
+
 //視窗被resize時，更新畫布
-window.addEventListener('resize',function(){
+window.addEventListener('resize',function(obj){
     //重新定義畫布    
     if(canvas === undefined){          
         canvas = createCanvas();
@@ -317,7 +318,7 @@ window.addEventListener('resize',function(){
     //紀錄恢復原值
     loaded();
     //外觀回復原值
-    layout();
+    layout(obj);
 
 });
 
@@ -358,8 +359,9 @@ function layout(obj){
     if(obj.keyCode !==13){
         $('.penPath').val(10);        
         ctx.lineWidth = 10;             //筆畫初始大小   
-    } 
-    ctx.lineWidth = Number(document.querySelector('.penPath').value);
+    } else {
+        ctx.lineWidth = document.querySelector('.penPath').value;
+    }
     //按鍵變成不可用
     keyUndo.classList.add('disable');
     keyRedo.classList.add('disable');
