@@ -42,10 +42,10 @@ const canvas = document.getElementById('canvas');
 //畫筆控制及初始畫布
 const ctx = canvas.getContext('2d'); //canvas定義為2D
 //視窗讀取時，則執行
-window.addEventListener('load',function(){
+window.addEventListener('load',function(obj){
     init();   //畫筆初始
     loaded(); //畫布佈置
-    layout(); //介面佈置
+    layout(obj); //介面佈置
 });
 
 //控制滑鼠移動時，畫下筆畫，預設值為false
@@ -328,9 +328,9 @@ window.addEventListener('resize',function(){
 function init(){
     canvas.width  = window.innerWidth;  
     canvas.height = window.innerHeight; 
-    ctx.strokeStyle = '#D94600';                      //畫筆顏色
-    ctx.lineJoin = 'round';                           //
-    ctx.lineCap = 'round';                            //繪製結束的線帽
+    ctx.strokeStyle = '#D94600';    //畫筆顏色
+    ctx.lineJoin = 'round';         //
+    ctx.lineCap = 'round';          //繪製結束的線帽
 }
 
 //視窗載入讀取
@@ -343,7 +343,7 @@ function loaded(){
 }
 
 //介面初始化
-function layout(){
+function layout(obj){
     //橡皮擦disable
     $('.eraser').addClass('unchoose');
     $('.paintBrush').removeClass('unchoose');
@@ -356,10 +356,10 @@ function layout(){
         }
     }
     //penPath設置初始值
-    if($('.penPath').val() ==''){
-        $('.penPath').val(10);
-        ctx.lineWidth = Number(document.querySelector('.penPath').value);              //筆畫初始大小
-    }
+    if(obj.keyCode !==13){
+        $('.penPath').val(10);        
+        ctx.lineWidth = 10;             //筆畫初始大小   
+    }   
     //按鍵變成不可用
     keyUndo.classList.add('disable');
     keyRedo.classList.add('disable');
