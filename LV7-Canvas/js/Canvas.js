@@ -42,10 +42,10 @@ const canvas = document.getElementById('canvas');
 //畫筆控制及初始畫布
 const ctx = canvas.getContext('2d'); //canvas定義為2D
 //視窗讀取時，則執行
-window.addEventListener('load',function(obj){
+window.addEventListener('load',function(){
     init();   //畫筆初始
     loaded(); //畫布佈置
-    layout(obj); //介面佈置
+    layout(); //介面佈置
 });
 
 //控制滑鼠移動時，畫下筆畫，預設值為false
@@ -307,7 +307,7 @@ $('.paintBrush').click(function(){
 
 
 //視窗被resize時，更新畫布
-window.addEventListener('resize',function(obj){
+window.addEventListener('resize',function(){
     //重新定義畫布    
     if(canvas === undefined){          
         canvas = createCanvas();
@@ -318,7 +318,7 @@ window.addEventListener('resize',function(obj){
     //紀錄恢復原值
     loaded();
     //外觀回復原值
-    layout(obj);
+    layout();
 
 });
 
@@ -355,12 +355,13 @@ function layout(obj){
             colorItem[i].textContent = '';
         }
     }
+
     //penPath設置初始值
-    if(obj.keyCode !==13){
+    if($('.penPath').val() ==''){
         $('.penPath').val(10);        
-        ctx.lineWidth = 10;             //筆畫初始大小   
+        ctx.lineWidth = $('.penPath').val();    //筆畫初始大小   
     } else {
-        ctx.lineWidth = document.querySelector('.penPath').value;
+        ctx.lineWidth = $('.penPath').val();
     }
     //按鍵變成不可用
     keyUndo.classList.add('disable');
