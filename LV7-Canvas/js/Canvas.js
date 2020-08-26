@@ -221,7 +221,7 @@ $('.penPath').change(function() {
 });
 
 //畫筆尺寸設定（鍵盤用）
-document.addEventListener('keydown',function(obj){
+$('.penPath').keyup(function(obj){
 
     let penPathNum = Number(document.querySelector('.penPath').value);
     if(obj.keyCode === 13 && penPathNum !==''){
