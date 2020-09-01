@@ -1,0 +1,39 @@
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin outward($width,$height) {  
+    width: $width;
+    height: $height;
+}
+
+@mixin outwardCircle($width,$height) {  
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+}
+
+@mixin colorSet($color,$backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//小圈項目
+$backcolor:#5858B9;
+$keyColorDark:#343BAA;
+$keyColorLight:#F0BEFF;
+$pressColorBlue:#1F1172;
+$pressColorRed:#FF00BA;
+
+//大圈項目
+//$n:6;
+
+$n:20;

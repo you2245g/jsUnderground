@@ -1,0 +1,154 @@
+@import '../scss/luchywheelMix.scss';
+
+
+body{    
+  @include outward(100vw,100vh);
+  background-color: $backcolor;
+  font-family: 'Staatliches', cursive;
+  position: relative;
+}
+
+
+.setBtn{
+  @include outward(220px,50%);
+  position: absolute;
+  left: calc(50% - 110px);
+  > div{
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    @include outward(100px, 30px);
+    @include colorSet($pressColorBlue,$keyColorLight);
+    border-radius: 20px;
+    font-size: 20px;
+    line-height: 30px;
+    bottom: 0px;
+    margin-bottom: 290px;
+    &:first-child{
+      margin-right: 10px;
+      left: 0px;
+    }
+    &:last-child{
+      margin-left: 10px;
+      right: 0px;
+    }
+  }
+}
+
+
+.prize{
+  @include outward(100%, 230px);
+  @include colorSet(white,lighten($pressColorBlue,15%));
+  @include center;
+  @include flex(row);
+  justify-content: space-between;
+  > div{
+    &:first-child{
+      font-size: 70px;
+      @include outward(50%,230px);
+      text-align: right;
+      padding: 50px 380px 0 0;
+    }
+    &:last-child{
+      font-size: 30px;
+      @include outward(50%,230px);
+      padding: 65px 0 0 320px;
+      > div{
+        font-size: 70px;
+        line-height: 90px;
+        color: $pressColorRed;
+        text-decoration: solid;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+//圓型外框
+.wheel{
+  @include outwardCircle(540px,540px);  //控制大小項目 
+  @include center;
+  //扇型內裡
+  .wheelInner{
+    @include outwardCircle(98%,98%);
+    @include center;
+    overflow: hidden;
+    > div{
+      @include outward(50%,50%);
+      position: absolute;
+      overflow: hidden;
+      top: 0; 
+      right: 0;
+      background-color: $keyColorLight;
+      transform-origin: left bottom;  
+      &:nth-child(odd){
+        background-color: $keyColorDark;
+      }
+    }
+  }
+  //6面扇型內文字&20面扇型文字
+  .prizeSet{
+    > div{
+      @include outward(80px, 43%);
+      transform-origin:  50% 100%;
+      position: absolute;
+      left: calc(50% - 40px);
+      top: 7%;
+      text-align:center;
+      i{
+        font-size: 60px;
+      }
+      p{
+        font-size: 30px;
+      }
+      span{
+        font-size: 30px;
+      }
+      > div{
+        @include outward(40px,20px);
+        font-size: 15px;
+        margin: 10px auto 0;
+        padding-top: 3px;
+        border-radius: 20px;
+      }
+      &:nth-child(odd){
+        color: $keyColorDark;
+        > div{
+          color: $keyColorLight;
+          background-color: $keyColorDark;
+        }
+      }
+      &:nth-child(even){
+        color: $keyColorLight;
+        > div{
+          color: $keyColorDark;
+          background-color: $keyColorLight;
+        }
+      }
+    }
+  }
+  > img{
+    position:absolute;
+    top: -5px;
+    &:last-child{
+      @include outward(40%,40%);
+      position: absolute;
+      top: 36% !important;
+      left: 30%;
+      cursor: pointer;
+    }
+  }
+  .textPress{
+    text-align: center;
+    font-size: 30px;
+    padding-top: 40px;
+    @include center;
+    @include outwardCircle(20%,20%);
+    @include colorSet($pressColorRed,$pressColorBlue);
+  }
+}
+
+
+
+

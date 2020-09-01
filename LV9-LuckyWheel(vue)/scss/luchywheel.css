@@ -1,0 +1,205 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #5858B9;
+  font-family: 'Staatliches', cursive;
+  position: relative;
+}
+
+.setBtn {
+  width: 220px;
+  height: 50%;
+  position: absolute;
+  left: calc(50% - 110px);
+}
+
+.setBtn > div {
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  color: #1F1172;
+  background-color: #F0BEFF;
+  border-radius: 20px;
+  font-size: 20px;
+  line-height: 30px;
+  bottom: 0px;
+  margin-bottom: 290px;
+}
+
+.setBtn > div:first-child {
+  margin-right: 10px;
+  left: 0px;
+}
+
+.setBtn > div:last-child {
+  margin-left: 10px;
+  right: 0px;
+}
+
+.prize {
+  width: 100%;
+  height: 230px;
+  color: white;
+  background-color: #311bb5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.prize > div:first-child {
+  font-size: 70px;
+  width: 50%;
+  height: 230px;
+  text-align: right;
+  padding: 50px 380px 0 0;
+}
+
+.prize > div:last-child {
+  font-size: 30px;
+  width: 50%;
+  height: 230px;
+  padding: 65px 0 0 320px;
+}
+
+.prize > div:last-child > div {
+  font-size: 70px;
+  line-height: 90px;
+  color: #FF00BA;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
+  text-decoration: underline;
+}
+
+.wheel {
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.wheel .wheelInner {
+  width: 98%;
+  height: 98%;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.wheel .wheelInner > div {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  background-color: #F0BEFF;
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+}
+
+.wheel .wheelInner > div:nth-child(odd) {
+  background-color: #343BAA;
+}
+
+.wheel .prizeSet > div {
+  width: 80px;
+  height: 43%;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  position: absolute;
+  left: calc(50% - 40px);
+  top: 7%;
+  text-align: center;
+}
+
+.wheel .prizeSet > div i {
+  font-size: 60px;
+}
+
+.wheel .prizeSet > div p {
+  font-size: 30px;
+}
+
+.wheel .prizeSet > div span {
+  font-size: 30px;
+}
+
+.wheel .prizeSet > div > div {
+  width: 40px;
+  height: 20px;
+  font-size: 15px;
+  margin: 10px auto 0;
+  padding-top: 3px;
+  border-radius: 20px;
+}
+
+.wheel .prizeSet > div:nth-child(odd) {
+  color: #343BAA;
+}
+
+.wheel .prizeSet > div:nth-child(odd) > div {
+  color: #F0BEFF;
+  background-color: #343BAA;
+}
+
+.wheel .prizeSet > div:nth-child(even) {
+  color: #F0BEFF;
+}
+
+.wheel .prizeSet > div:nth-child(even) > div {
+  color: #343BAA;
+  background-color: #F0BEFF;
+}
+
+.wheel > img {
+  position: absolute;
+  top: -5px;
+}
+
+.wheel > img:last-child {
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  top: 36% !important;
+  left: 30%;
+  cursor: pointer;
+}
+
+.wheel .textPress {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  color: #FF00BA;
+  background-color: #1F1172;
+}
+/*# sourceMappingURL=luchywheel.css.map */

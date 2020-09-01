@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="scss/luchywheel.css">
+        <title>幸運轉輪</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="setBtn">
+                <div class="2017Btn" @click="initPrize('./luckywheel2017.json')">2017</div>
+                <div class="2018Btn" @click="initPrize('./luckywheel2018.json')">2018</div>
+            </div>
+            <div class="prize">
+                <div>WELL<span style="visibility:hidden">!</span><br>DONE!</div>
+                <div>
+                    YOUR GET A FREE...
+                    <div class="prizeOUT">
+                        Anything!
+                    </div>
+                </div>
+            </div> 
+            <div class="wheel">
+                <div class="wheelInner">
+                    <!--
+                    <div></div>
+                    -->
+                </div>
+                <div class="prizeSet">
+                    
+                </div>
+                <img src="img/wheel-outside.svg">
+                <div class="textPress">PRESS</div>
+                <img src="img/hand.svg">
+            </div>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js'></script>
+        <script src="js/luckywheel.js"></script>
+    </body>
+</html>
+
+
+<!--
+
+https://fonts.google.com/specimen/Staatliches?sidebar.open=true&selection.family=Staatliches
+
+-->
