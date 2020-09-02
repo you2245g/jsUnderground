@@ -28,6 +28,11 @@ body {
   margin-bottom: 290px;
 }
 
+.setBtn > div:hover {
+  background-color: #FF00BA;
+  color: white;
+}
+
 .setBtn > div:first-child {
   margin-right: 10px;
   left: 0px;
@@ -114,13 +119,13 @@ body {
   overflow: hidden;
   top: 0;
   right: 0;
-  background-color: #F0BEFF;
+  background-color: #343BAA;
   -webkit-transform-origin: left bottom;
           transform-origin: left bottom;
 }
 
 .wheel .wheelInner > div:nth-child(odd) {
-  background-color: #343BAA;
+  background-color: #F0BEFF;
 }
 
 .wheel .prizeSet > div {
@@ -185,6 +190,14 @@ body {
   top: 36% !important;
   left: 30%;
   cursor: pointer;
+  -webkit-transform-origin: 50% 34%;
+          transform-origin: 50% 34%;
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+  -webkit-transition: -webkit-transform 3s;
+  transition: -webkit-transform 3s;
+  transition: transform 3s;
+  transition: transform 3s, -webkit-transform 3s;
 }
 
 .wheel .textPress {
@@ -201,5 +214,13 @@ body {
   border-radius: 50%;
   color: #FF00BA;
   background-color: #1F1172;
+}
+
+.active {
+  background-color: #FF00BA !important;
+}
+
+.active2 {
+  color: white !important;
 }
 /*# sourceMappingURL=luchywheel.css.map */

@@ -8,7 +8,7 @@ body{
   position: relative;
 }
 
-
+//選擇轉盤按鈕
 .setBtn{
   @include outward(220px,50%);
   position: absolute;
@@ -24,6 +24,10 @@ body{
     line-height: 30px;
     bottom: 0px;
     margin-bottom: 290px;
+    &:hover{
+      background-color: $pressColorRed;
+      color: white;
+    }
     &:first-child{
       margin-right: 10px;
       left: 0px;
@@ -35,7 +39,7 @@ body{
   }
 }
 
-
+//呈現獎項畫面
 .prize{
   @include outward(100%, 230px);
   @include colorSet(white,lighten($pressColorBlue,15%));
@@ -80,10 +84,10 @@ body{
       overflow: hidden;
       top: 0; 
       right: 0;
-      background-color: $keyColorLight;
+      background-color: $keyColorDark;
       transform-origin: left bottom;  
       &:nth-child(odd){
-        background-color: $keyColorDark;
+        background-color: $keyColorLight;
       }
     }
   }
@@ -137,6 +141,9 @@ body{
       top: 36% !important;
       left: 30%;
       cursor: pointer;
+      transform-origin: 50% 34%;
+      transform: rotate(190deg);
+      transition: transform 3s;
     }
   }
   .textPress{
@@ -149,6 +156,13 @@ body{
   }
 }
 
+//當獎項被指到時，使用此class
+.active{
+  background-color: $pressColorRed !important;
+}
 
+.active2{
+  color: white !important;
+}
 
 

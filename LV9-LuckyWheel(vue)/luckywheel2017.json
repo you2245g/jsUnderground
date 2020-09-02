@@ -1,5 +1,10 @@
 [
     {
+      "name": "Movie",
+      "icon": "movie_filter",
+      "amount": 0
+    },
+    {
       "name": "Wish",
       "icon": "cake",
       "amount": 5
@@ -23,10 +28,5 @@
       "name": "Wifi",
       "icon": "wifi",
       "amount": 5
-    },
-    {
-      "name": "Movie",
-      "icon": "movie_filter",
-      "amount": 0
     }
 ]

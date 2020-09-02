@@ -15,11 +15,11 @@
                 <div class="2017Btn" @click="initPrize('./luckywheel2017.json')">2017</div>
                 <div class="2018Btn" @click="initPrize('./luckywheel2018.json')">2018</div>
             </div>
-            <div class="prize">
+            <div class="prize" v-if="false">
                 <div>WELL<span style="visibility:hidden">!</span><br>DONE!</div>
                 <div>
                     YOUR GET A FREE...
-                    <div class="prizeOUT">
+                    <div class="prizeOut">
                         Anything!
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 </div>
                 <img src="img/wheel-outside.svg">
                 <div class="textPress">PRESS</div>
-                <img src="img/hand.svg">
+                <img src="img/hand.svg" @click="rotatePrize" class="pointer">
             </div>
         </div>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
@@ -44,9 +44,3 @@
     </body>
 </html>
 
-
-<!--
-
-https://fonts.google.com/specimen/Staatliches?sidebar.open=true&selection.family=Staatliches
-
--->
