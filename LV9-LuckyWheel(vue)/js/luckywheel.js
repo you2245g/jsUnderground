@@ -44,8 +44,9 @@ new Vue({
       for(let i = 0;i<num;i++){
         strFan +=
               `
-              <div class="prizeSetInner" style="transform: rotate(${(deg*i)-tilt}deg) skewY(${deg - 90}deg);"></div>
+              <div class="wheelInnerSet" style="transform: rotate(${(deg*i)-tilt}deg) skewY(${deg - 90}deg);"></div>
               `
+            
       }
       wheelInner.innerHTML = strFan;
       //扇型內資料處理(分析2017與2018資料)
@@ -53,7 +54,7 @@ new Vue({
         data.forEach(function(item,index){
             str +=
             `
-            <div :class="this.isShow ? 'active' : 'aaa'" style="transform: rotate(${(deg*index)}deg);">
+            <div class="prizeSetInner" style="transform: rotate(${(deg*index)}deg);">
               <i class="material-icons">${item.icon}</i>
               <p>${item.name}</p>
               <div>${item.amount}</div>
@@ -64,7 +65,7 @@ new Vue({
         data.forEach(function(item,index){
           str +=
           `
-          <div :class="this.isShow ? 'active2' : 'aaa'" style="transform: rotate(${(deg*index)}deg);">
+          <div class="prizeSetInner" style="transform: rotate(${(deg*index)}deg);">
             <span>${item.name}</span>
             <div>${item.amount}</div>
           </div>
@@ -128,20 +129,16 @@ new Vue({
       pointer.style.transform = `rotate(${degree}deg) `
 
 
+
+      //旋轉到的部份，加上active css
+      const wheelInnerSet = document.querySelectorAll('.wheelInnerSet')
+      const prizeSetInner = document.querySelectorAll('.prizeSetInner')
       setTimeout(function(){
+        wheelInnerSet[random].classList.add('active')
+        prizeSetInner[random].classList.add('active2')
         vm.isShow = true
       },3000)
 
-      /* 
-      //旋轉到的部份，加上active css
-      const prizeSetInner = document.querySelectorAll('.prizeSetInner')
-      const wheelInnerSet = document.querySelectorAll('.wheelInnerSet')
-      setTimeout(function(){
-        prizeSetInner[random].classList.add('active')
-        wheelInnerSet[random].classList.add('active2')
-        alert(random)
-      },3000)
-      */
       //產生獎別
 
 
