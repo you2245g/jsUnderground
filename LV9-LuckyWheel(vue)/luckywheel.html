@@ -12,30 +12,47 @@
     <body>
         <div id="wrapper">
             <div class="setBtn">
-                <div class="2017Btn" @click="initPrize('./luckywheel2017.json')">2017</div>
-                <div class="2018Btn" @click="initPrize('./luckywheel2018.json')">2018</div>
+                <div class="2017Btn" @click="clickYear('./luckywheel2017.json')">2017</div>
+                <div class="2018Btn" @click="clickYear('./luckywheel2018.json')">2018</div>
             </div>
             <div class="prize" v-if="isShow">
                 <div>WELL<span style="visibility:hidden">!</span><br>DONE!</div>
                 <div>
                     YOUR GET A FREE...
-                    <div class="prizeOut">
-                        Anything!
+                    <div v-text="award">
+                        
                     </div>
                 </div>
             </div> 
             <div class="wheel">
+                <!--扇面-->
                 <div class="wheelInner">
-                    <!--
-                    <div></div>
-                    -->
-                </div>
-                <div class="prizeSet">
                     
                 </div>
+
+                <!--資料內容-->
+                <div class="prizeSet" v-if="url ==='./luckywheel2017.json'">
+                    <template v-for="(item, index) in prizes">
+                        <div :style="setDegree(index)" class="prizeSetInner">
+                            <i class="material-icons" v-text="item.icon"></i>
+                            <p v-text="item.name"></p>
+                            <div v-text="item.amount"></div>
+                        </div>
+                    </template>
+                </div>
+                <div class="prizeSet" v-else-if="url ==='./luckywheel2018.json'">
+                    <template v-for="(key, index) in prizes">
+                        <div :style="setDegree(index)" class="prizeSetInner">
+                            <span v-text="key.name"></span>
+                            <div v-text="key.amount"></div>
+                        </div>
+                    </template>
+                </div>
+                
+                <!--外框及指針-->
                 <img src="img/wheel-outside.svg">
                 <div class="textPress">PRESS</div>
-                <img src="img/hand.svg" @click="rotatePrize" class="pointer">
+                <img src="img/hand.svg" class="pointer" @click="rotatePrize()">
             </div>
         </div>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
