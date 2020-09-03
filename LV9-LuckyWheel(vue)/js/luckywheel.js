@@ -11,7 +11,7 @@ var nn = new Vue({
       prizeNumber:[],  //獎號陣列
       prizeDegree:[],  //中獎角度陣列      
       chanceRemain:0,  //轉動次數
-
+      //for旋轉用
       startDegree:0,   //指針起始角度(預設為0)
       clicked:true,   //禁止再點按觸動
       isShow:false,    //顯示中獎畫面控制(加入css、取消及顯現prize面版)
@@ -40,8 +40,15 @@ var nn = new Vue({
     }, 
     //點擊更換資料
     clickYear(url){
-      this.initPrize(url)
-      this.url = url
+      //點按後變更資料
+      let vm = this
+      vm.initPrize(url)
+      vm.url = url
+      //每次點按，外觀復位
+      const pointer = document.querySelector('.pointer')
+      pointer.style.transform = `rotate(190deg) `  //指針復位
+      vm.restore()
+      vm.clicked = true
     },
     //處理扇型
     fan(num){
@@ -64,7 +71,6 @@ var nn = new Vue({
       let obj = `transform: rotate(${this.deg*key}deg)`
       return obj
     },
-
     //動態產生獎號陣列(prizeNumber//[0,1,2,3,4,5,6,....])
     prizeArray(){
       this.prizeNumber = []
@@ -100,35 +106,35 @@ var nn = new Vue({
       vm.chanceRemain --
       //確認執行
       vm.clicked = !vm.clicked
-      //點擊關閉中獎畫面(含css添加後移除)
-      vm.isShow = false
-      const wheelInnerSet = document.querySelectorAll('.wheelInnerSet')
-      const prizeSetInner = document.querySelectorAll('.prizeSetInner')
-      for(i = 0; i <vm.innerObject;i++){
-        wheelInnerSet[i].className = 'wheelInnerSet'
-        prizeSetInner[i].className = 'prizeSetInner'
+      //點擊後復位
+      vm.restore()
+      //執行旋轉功能(判斷抽獎次數旋轉)
+      if(vm.chanceRemain>=0){
+        vm.checkPrize()
+      } else{
+        alert('獎品已抽完')
+        vm.clicked = false //不再重覆點按
       }
-      //執行旋轉功能
-      vm.checkPrize()
-
-
 
     },
     //確認獎項及印出
     checkPrize(){
       let vm = this
-      if(vm.clicked){return} //禁止抽獎是被再次點按
       //旋轉控制(產生隨機數+指定角度)
       //產生由零開始的隨機數字 
       let random = Math.floor(Math.random()* vm.innerObject)
-      //由起始角度旋轉四圈+中獎度數+指針本身偏移-起始角度除360得餘數
+      //判斷亂數生成所對應的獎品數量是否為零，否則需重新執行此函式
+      if(vm.prizes[random].amount ===0){
+        vm.checkPrize()
+        return
+      }
+      //由起始角度+旋轉四圈+中獎度數+指針本身偏移-起始角度除360得餘數
       let degree = vm.startDegree + 1440 + vm.prizeDegree[random]+ 190 - vm.startDegree % 360
       //下次旋轉由該角度開始
       vm.startDegree = degree
       //加上旋轉角度
       const pointer = document.querySelector('.pointer')
       pointer.style.transform = `rotate(${degree}deg) `
-
       //旋轉到的部份，加上active css
       //三秒後，獲獎顯示設定(css外觀變更，獎別顯示變更，獎品顯示品項減一)
       const wheelInnerSet = document.querySelectorAll('.wheelInnerSet')
@@ -141,12 +147,20 @@ var nn = new Vue({
         vm.isShow = true
         vm.clicked = true
       },3000)
-      
-
-
 
     },
-
+    //點按復位(2017鈕/2018鈕/點擊旋轉鈕使用)
+    restore(){
+      //點擊關閉中獎畫面(含css添加後移除)
+      this.isShow = false
+      const wheelInnerSet = document.querySelectorAll('.wheelInnerSet')
+      const prizeSetInner = document.querySelectorAll('.prizeSetInner')
+      const pointer = document.querySelector('.pointer')
+      for(i = 0; i <this.innerObject;i++){
+        wheelInnerSet[i].className = 'wheelInnerSet'
+        prizeSetInner[i].className = 'prizeSetInner'
+      }
+    },
 
   },
 });
