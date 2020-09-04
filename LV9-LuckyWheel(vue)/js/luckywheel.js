@@ -12,8 +12,9 @@ var nn = new Vue({
       prizeDegree:[],  //中獎角度陣列      
       chanceRemain:0,  //轉動次數
       //for旋轉用
-      startDegree:0,   //指針起始角度(預設為0)
-      clicked:true,   //禁止再點按觸動
+      startDegree:0,   //指針總角度(預設為0)
+      storeDegree:0,   //復位角度
+      clicked:true,    //禁止再點按觸動
       isShow:false,    //顯示中獎畫面控制(加入css、取消及顯現prize面版)
     },
   mounted(){
@@ -46,7 +47,7 @@ var nn = new Vue({
       vm.url = url
       //每次點按，外觀復位
       const pointer = document.querySelector('.pointer')
-      pointer.style.transform = `rotate(190deg) `  //指針復位
+      pointer.style.transform = `rotate(${vm.startDegree - vm.storeDegree}deg) `  //指針復位
       vm.restore()
       vm.clicked = true
     },
@@ -101,6 +102,7 @@ var nn = new Vue({
     //點擊旋轉
     rotatePrize(){
       let vm = this
+      const pointer = document.querySelector('.pointer')
       if(!vm.clicked){return}  //避免重覆點按
       //抽獎次數減一
       vm.chanceRemain --
@@ -113,6 +115,7 @@ var nn = new Vue({
         vm.checkPrize()
       } else{
         alert('獎品已抽完')
+        pointer.style.transform = `rotate(${vm.startDegree - vm.storeDegree}deg) `  //指針復位 
         vm.clicked = false //不再重覆點按
       }
 
@@ -132,6 +135,8 @@ var nn = new Vue({
       let degree = vm.startDegree + 1440 + vm.prizeDegree[random]+ 190 - vm.startDegree % 360
       //下次旋轉由該角度開始
       vm.startDegree = degree
+      //復位角度 = 總角度除360得餘數-復位角度190
+      vm.storeDegree = degree % 360 -190
       //加上旋轉角度
       const pointer = document.querySelector('.pointer')
       pointer.style.transform = `rotate(${degree}deg) `
@@ -155,7 +160,6 @@ var nn = new Vue({
       this.isShow = false
       const wheelInnerSet = document.querySelectorAll('.wheelInnerSet')
       const prizeSetInner = document.querySelectorAll('.prizeSetInner')
-      const pointer = document.querySelector('.pointer')
       for(i = 0; i <this.innerObject;i++){
         wheelInnerSet[i].className = 'wheelInnerSet'
         prizeSetInner[i].className = 'prizeSetInner'
