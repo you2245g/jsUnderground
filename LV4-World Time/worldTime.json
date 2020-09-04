@@ -1,0 +1,24 @@
+[
+    {
+        "showblock": "NEW YORK", 
+        "Zone": "America/New_York" 
+    },
+    {
+        "showblock": "LONDON", 
+        "Zone": "Europe/London" 
+    },
+    {
+        "showblock": "BANGKOK", 
+        "Zone": "Asia/Bangkok" 
+    },
+    {
+        "showblock": "TAIWAN", 
+        "Zone": "Asia/Taipei" 
+    },
+    {
+        "showblock": "SYDNEY", 
+        "Zone": "Australia/Sydney" 
+    }
+]
+
+
