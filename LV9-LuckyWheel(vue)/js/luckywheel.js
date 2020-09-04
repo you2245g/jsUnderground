@@ -46,10 +46,11 @@ var nn = new Vue({
       vm.initPrize(url)
       vm.url = url
       //每次點按，外觀復位
-      const pointer = document.querySelector('.pointer')
-      pointer.style.transform = `rotate(${vm.startDegree - vm.storeDegree}deg) `  //指針復位
       vm.restore()
       vm.clicked = true
+      if(vm.startDegree <=190){return}  //初次點按時，則不用復位
+      const pointer = document.querySelector('.pointer')
+      pointer.style.transform = `rotate(${vm.startDegree - vm.storeDegree}deg) `  //指針復位
     },
     //處理扇型
     fan(num){
