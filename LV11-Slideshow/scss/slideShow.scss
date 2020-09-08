@@ -1,6 +1,5 @@
 @import '../scss/slideShowMix.scss';
 
-
 #wrapper{
     font-family: 'Jockey One', sans-serif;
     margin: 0 auto;
@@ -38,26 +37,3 @@
         }
     }
 }
-
-
-.showDetail{
-    @include outward(100vw,100vh);
-    @include colorSet(white, rgba($keyColor,0.8));
-    position: fixed;
-    font-family: 'Teko', sans-serif;
-    padding: 10%;
-    @include flex(row);
-    > div{
-        &:first-child{
-            width: 30%;
-            background-color: white;
-        }
-        &:last-child{
-            width: 70%;
-            background-color: yellow;
-        }
-    }
-
-
-}
-

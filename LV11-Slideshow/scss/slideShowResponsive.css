@@ -1,40 +1,4 @@
-@media screen and (max-width: 599px) {
-  #wrapper header {
-    margin: 30px 0 20px;
-  }
-  #wrapper header > div {
-    width: 10px;
-    height: 100px;
-  }
-  #wrapper header > p {
-    font-size: 50px;
-    margin-left: 30px;
-  }
-  #wrapper .pictureBlock > div {
-    width: 170px !important;
-    height: 170px !important;
-    margin: 8px;
-  }
-}
-
-@media screen and (min-width: 600px) and (max-width: 889px) {
-  #wrapper header {
-    margin: 30px 0 20px;
-  }
-  #wrapper header > div {
-    width: 10px;
-    height: 140px;
-  }
-  #wrapper header > p {
-    font-size: 70px;
-    margin-left: 40px;
-  }
-  #wrapper .pictureBlock > div {
-    margin: 15px;
-  }
-}
-
-@media (min-width: 890px) {
+@media only screen and (min-width: 890px) {
   body {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -76,6 +40,45 @@
   }
   #wrapper .pictureBlock > div {
     margin: 25px;
+  }
+}
+
+@media only screen and (max-width: 889px) and (min-width: 600px) {
+  #wrapper header {
+    margin: 30px 0 20px;
+  }
+  #wrapper header > div {
+    width: 10px;
+    height: 140px;
+  }
+  #wrapper header > p {
+    font-size: 70px !important;
+    margin-left: 40px !important;
+    -webkit-writing-mode: unset !important;
+        -ms-writing-mode: unset !important;
+            writing-mode: unset !important;
+  }
+  #wrapper .pictureBlock > div {
+    margin: 15px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  #wrapper header {
+    margin: 30px 0 20px;
+  }
+  #wrapper header > div {
+    width: 10px;
+    height: 100px;
+  }
+  #wrapper header > p {
+    font-size: 50px;
+    margin-left: 30px;
+  }
+  #wrapper .pictureBlock > div {
+    width: 170px !important;
+    height: 170px !important;
+    margin: 8px;
   }
 }
 /*# sourceMappingURL=slideShowResponsive.css.map */

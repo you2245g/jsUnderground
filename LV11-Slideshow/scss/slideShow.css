@@ -45,31 +45,4 @@
   color: white;
   opacity: 0.9;
 }
-
-.showDetail {
-  width: 100vw;
-  height: 100vh;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  font-family: 'Teko', sans-serif;
-  padding: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.showDetail > div:first-child {
-  width: 30%;
-  background-color: white;
-}
-
-.showDetail > div:last-child {
-  width: 70%;
-  background-color: yellow;
-}
 /*# sourceMappingURL=slideShow.css.map */
