@@ -1,0 +1,81 @@
+@media screen and (max-width: 599px) {
+  #wrapper header {
+    margin: 30px 0 20px;
+  }
+  #wrapper header > div {
+    width: 10px;
+    height: 100px;
+  }
+  #wrapper header > p {
+    font-size: 50px;
+    margin-left: 30px;
+  }
+  #wrapper .pictureBlock > div {
+    width: 170px !important;
+    height: 170px !important;
+    margin: 8px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 889px) {
+  #wrapper header {
+    margin: 30px 0 20px;
+  }
+  #wrapper header > div {
+    width: 10px;
+    height: 140px;
+  }
+  #wrapper header > p {
+    font-size: 70px;
+    margin-left: 40px;
+  }
+  #wrapper .pictureBlock > div {
+    margin: 15px;
+  }
+}
+
+@media (min-width: 890px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #wrapper header > div {
+    width: 180px;
+    height: 15px;
+  }
+  #wrapper header > p {
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+    text-decoration: underline;
+    padding-top: 100px;
+    margin-left: 7px;
+    line-height: 90px;
+    font-size: 80px;
+    letter-spacing: 4px;
+  }
+  #wrapper .pictureBlock {
+    margin: 90px 0 0 43px;
+  }
+  #wrapper .pictureBlock > div {
+    margin: 25px;
+  }
+}
+/*# sourceMappingURL=slideShowResponsive.css.map */

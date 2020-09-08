@@ -1,0 +1,63 @@
+@import '../scss/slideShowMix.scss';
+
+
+#wrapper{
+    font-family: 'Jockey One', sans-serif;
+    margin: 0 auto;
+    header{
+        > div{
+            background-color: $keyColor;
+            float: left;
+        }
+    }
+    .pictureBlock{
+        > div{
+            float: left;
+            overflow: hidden;
+            cursor: pointer;
+            @include outward(260px,260px);
+            position: relative;
+            > div{
+                @include flex(column);
+                justify-content: center;
+                position: absolute;
+                text-align: center;
+                transition: opacity .25s ease-in-out, background .25s ease-in-out;
+                width: 100%;
+                font-size: 1.2rem;
+                top: 0;
+                bottom: 0;
+                opacity: 0;
+                color: white;
+                &:hover{
+                    background-color:rgba($keyColor,0.7); 
+                    color: white;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+
+.showDetail{
+    @include outward(100vw,100vh);
+    @include colorSet(white, rgba($keyColor,0.8));
+    position: fixed;
+    font-family: 'Teko', sans-serif;
+    padding: 10%;
+    @include flex(row);
+    > div{
+        &:first-child{
+            width: 30%;
+            background-color: white;
+        }
+        &:last-child{
+            width: 70%;
+            background-color: yellow;
+        }
+    }
+
+
+}
+
