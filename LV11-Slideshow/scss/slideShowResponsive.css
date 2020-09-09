@@ -54,9 +54,6 @@
   #wrapper header > p {
     font-size: 70px !important;
     margin-left: 40px !important;
-    -webkit-writing-mode: unset !important;
-        -ms-writing-mode: unset !important;
-            writing-mode: unset !important;
   }
   #wrapper .pictureBlock > div {
     margin: 15px;
@@ -79,6 +76,106 @@
     width: 170px !important;
     height: 170px !important;
     margin: 8px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .showDetail > div {
+    height: 100%;
+    float: left;
+  }
+  .showDetail > div:first-child {
+    width: 28%;
+    padding-top: 2%;
+    margin-right: 2%;
+  }
+  .showDetail > div:first-child > div:first-child {
+    position: relative;
+  }
+  .showDetail > div:first-child > div:first-child p {
+    font-weight: 600;
+    font-size: 50px;
+  }
+  .showDetail > div:first-child > div:first-child div {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    background-color: white;
+    width: 5px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    left: 45px;
+  }
+  .showDetail > div:first-child > div:first-child span {
+    font-weight: 400;
+    font-size: 35px;
+    position: absolute;
+    top: 70px;
+    left: 60px;
+  }
+  .showDetail > div:first-child > div:last-child {
+    font-weight: 400;
+    font-size: 18px;
+    position: absolute;
+    bottom: 5%;
+  }
+  .showDetail > div:first-child > div:last-child p {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    padding-bottom: 20px;
+  }
+  .showDetail > div:last-child {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .showDetail > div {
+    width: 100%;
+    background-color: blue;
+  }
+  .showDetail > div:first-child {
+    height: 30%;
+  }
+  .showDetail > div:first-child > div:first-child {
+    position: relative;
+  }
+  .showDetail > div:first-child > div:first-child p {
+    font-weight: 600;
+    font-size: 50px;
+  }
+  .showDetail > div:first-child > div:first-child div {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    background-color: white;
+    width: 5px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    left: 45px;
+  }
+  .showDetail > div:first-child > div:first-child span {
+    font-weight: 400;
+    font-size: 35px;
+    position: absolute;
+    top: 70px;
+    left: 60px;
+  }
+  .showDetail > div:first-child > div:last-child {
+    font-weight: 400;
+    font-size: 14px;
+    position: absolute;
+    bottom: 5%;
+  }
+  .showDetail > div:first-child > div:last-child p {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 20px;
+    padding-bottom: 20px;
+  }
+  .showDetail > div:last-child {
+    height: 70%;
   }
 }
 /*# sourceMappingURL=slideShowResponsive.css.map */

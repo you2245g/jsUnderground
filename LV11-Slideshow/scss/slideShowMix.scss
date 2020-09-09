@@ -13,4 +13,15 @@
     background-color: $backgroundColor;
 }
 
+@mixin position($top,$left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
+@mixin fontSet($fontWeight, $font-size) {
+    font-weight: $fontWeight;
+    font-size: $font-size;
+}
+
 $keyColor:black;

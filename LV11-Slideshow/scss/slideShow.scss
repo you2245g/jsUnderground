@@ -37,3 +37,84 @@
         }
     }
 }
+
+
+.showDetail{
+    position: fixed;
+    @include outward(100%,100%);
+    @include colorSet(white,rgba($keyColor,0.85));
+    top: 0px;
+    left: 0px;
+    padding: 8%;
+    font-family: 'Prompt', sans-serif;
+    > div{
+        position: relative;
+    
+        &:last-child{
+            //width: 70%; for 1024px Up
+            //height: 70%; for 1023px Down
+            background-color: $keyColor;
+            border: 7px solid white;
+            border-radius: 5px;
+            overflow: hidden;
+            > div{
+                //關閉鈕
+                &:first-child{
+                    background-color: #f0f0f0;
+                    position: absolute;
+                    cursor: pointer;
+                    top:10px;
+                    right: 10px;
+                    @include outward(30px,30px);
+                    border-radius: 50%;
+                    @include flex(column);
+                    justify-content: center;
+                    &:hover{
+                        background-color: deeppink;
+                    }
+                    div{
+                        transform: rotate(45deg);
+                        background-color:$keyColor;
+                        @include outward(2px,17px);
+                        margin: 0 auto;
+                        &:after{
+                            content: "";
+                            display:block;
+                            transform: rotate(90deg);
+                            background-color:$keyColor;
+                            @include outward(2px,17px);
+                        }
+                    }
+                }
+                //方向控制鈕
+                &:nth-last-child(2){
+                    > p{
+                        position: absolute;
+                        cursor: pointer;
+                        font-size: 20px;
+                        top: calc(50% - 20px);
+                        &:first-child{
+                            left: 1%;
+                            &:hover{
+                                color: brown;
+                            }
+                        }
+                        &:last-child{
+                            right: 1%;
+                            &:hover{
+                                color: brown;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.unUse{
+    display: none;
+}
+

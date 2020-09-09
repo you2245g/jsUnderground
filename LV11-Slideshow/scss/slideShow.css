@@ -45,4 +45,98 @@
   color: white;
   opacity: 0.9;
 }
+
+.showDetail {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.85);
+  top: 0px;
+  left: 0px;
+  padding: 8%;
+  font-family: 'Prompt', sans-serif;
+}
+
+.showDetail > div {
+  position: relative;
+}
+
+.showDetail > div:last-child {
+  background-color: black;
+  border: 7px solid white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.showDetail > div:last-child > div:first-child {
+  background-color: #f0f0f0;
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.showDetail > div:last-child > div:first-child:hover {
+  background-color: deeppink;
+}
+
+.showDetail > div:last-child > div:first-child div {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: black;
+  width: 2px;
+  height: 17px;
+  margin: 0 auto;
+}
+
+.showDetail > div:last-child > div:first-child div:after {
+  content: "";
+  display: block;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  background-color: black;
+  width: 2px;
+  height: 17px;
+}
+
+.showDetail > div:last-child > div:nth-last-child(2) > p {
+  position: absolute;
+  cursor: pointer;
+  font-size: 20px;
+  top: calc(50% - 20px);
+}
+
+.showDetail > div:last-child > div:nth-last-child(2) > p:first-child {
+  left: 1%;
+}
+
+.showDetail > div:last-child > div:nth-last-child(2) > p:first-child:hover {
+  color: brown;
+}
+
+.showDetail > div:last-child > div:nth-last-child(2) > p:last-child {
+  right: 1%;
+}
+
+.showDetail > div:last-child > div:nth-last-child(2) > p:last-child:hover {
+  color: brown;
+}
+
+.unUse {
+  display: none;
+}
 /*# sourceMappingURL=slideShow.css.map */

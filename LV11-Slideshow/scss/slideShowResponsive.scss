@@ -1,8 +1,8 @@
 @import '../scss/slideShowMix.scss';
 
 
-
-//小平板以下共通設定
+//for #wrapper
+//小平板以上共通設定(890px)
 @media only screen and (min-width: 890px){
 
     body{
@@ -49,7 +49,6 @@
             > p{
                 font-size: 70px !important;
                 margin-left: 40px !important;
-                writing-mode:unset !important;
             }
         }
         .pictureBlock{
@@ -60,9 +59,7 @@
     }
 }
 
-
-
-//phone以上(599px以下)
+//phone以下(599px以下)
 @media only screen and (max-width:599px){
 
     #wrapper{
@@ -87,4 +84,101 @@
 }
 
 
+//.showDetail響應式設定
 
+@media only screen and (min-width: 1024px){
+
+    .showDetail{
+        > div{
+            height: 100%;
+            float: left;
+            //position: relative;
+            //說明文字排版
+            &:first-child{
+                width: 28%;
+                padding-top: 2%;
+                margin-right: 2%;
+                > div{
+                    &:first-child{
+                        position: relative;
+                        p{
+                            @include fontSet(600,50px);
+                        }
+                        div{
+                            transform: rotate(45deg);
+                            background-color: white;
+                            @include outward(5px,100px);
+                            @include position(10px,45px);
+                        }
+                        span{
+                            @include fontSet(400,35px);
+                            @include position(70px,60px);
+                        }
+                    }
+                    &:last-child{
+                        @include fontSet(400,18px);
+                        position: absolute;
+                        bottom: 5%;
+                        p{  
+                            @include fontSet(600,25px);
+                            line-height: 30px;
+                            padding-bottom: 20px;
+                        }
+                    }
+                }
+            }
+            //相片及面版控制符號
+            &:last-child{
+                width: 70%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px){
+
+
+    .showDetail{
+        > div{
+            width: 100%;
+            //position: relative;
+            background-color: blue;
+            //說明文字排版
+            &:first-child{
+                height: 30%;
+                > div{  //弄到此
+                    &:first-child{
+                        position: relative;
+                        p{
+                            @include fontSet(600,50px);
+                        }
+                        div{
+                            transform: rotate(45deg);
+                            background-color: white;
+                            @include outward(5px,100px);
+                            @include position(10px,45px);
+                        }
+                        span{
+                            @include fontSet(400,35px);
+                            @include position(70px,60px);
+                        }
+                    }
+                    &:last-child{
+                        @include fontSet(400,14px);
+                        position: absolute;
+                        bottom: 5%;
+                        p{  
+                            @include fontSet(600,25px);
+                            line-height: 20px;
+                            padding-bottom: 20px;
+                        }
+                    }
+                }
+            }
+            //相片及面版控制符號
+            &:last-child{
+                height: 70%;
+            }
+        }    
+    }
+}

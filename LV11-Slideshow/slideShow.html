@@ -5,12 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/reset.css">
         <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;900&display=swap" rel="stylesheet">
+        <script src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>  <!--awesome Font-->
         <link rel="stylesheet" href="scss/slideShow.css">
         <link rel="stylesheet" href="scss/slideShowResponsive.css">
         <title>燈箱效果</title>
     </head>
     <body>
+        <!--外表-->
         <div id="wrapper">
             <header>
                 <div></div>
@@ -20,67 +22,45 @@
                 </p>
             </header>
             <div class="pictureBlock">
+                <!--
                 <div>
                     <img src="img/aaa.jpg">
                     <div>
                         <p>點我放大</p>
                     </div>
                 </div>
-                <div>
-                    <img src="img/aaa.jpg">
-                    <div>
-                        <p>點我放大</p>
-                    </div>
-                </div>
-                <div>
-                    <img src="img/aaa.jpg">
-                    <div>
-                        <p>點我放大</p>
-                    </div>
-                </div>
-                <div>
-                    <img src="img/aaa.jpg">
-                    <div>
-                        <p>點我放大</p>
-                    </div>
-                </div>
-                <div>
-                    <img src="img/aaa.jpg">
-                    <div>
-                        <p>點我放大</p>
-                    </div>
-                </div>
-                <div>
-                    <img src="img/aaa.jpg">
-                    <div>
-                        <p>點我放大</p>
-                    </div>
-                </div>
+                -->
             </div>
         </div>
-        <div class="showDetail" style="display: none;">
+        <!--說明區-->
+        <div class="showDetail unUse">
             <div>
+                <div><!--左側說明-->
+                    <p class="picIndex"></p>
+                    <div></div>
+                    <span class="picTotal"></span>
+                </div>
                 <div>
-                    <span>1</span>
-                    <div>/</div>
-                    <span>1</span>
-                </div><!--page-->
-                <div>detail</div><!--title-->
-                <div><i>Alexander Andrews</i></div><!--author-->
+                    <p class="picTitle">orange and silver nge and silver fox</p>
+                    <i class="picAuthor">-aAndrews-</i>
+                </div>
             </div>  
-            <div>
-                <div>
-                    <img src="" alt="">
-                    <div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <i></i>
-                        <i></i>
-                    </div>
+            <div><!--右側照片-->
+                <div class="detailClose">
+                    <div></div>
                 </div>
+                <div class="arrow">
+                    <p>
+                        <i class="fas fa-chevron-left"></i>
+                    </p>
+                    <p>
+                        <i class="fas fa-chevron-right"></i>
+                    </p>
+                </div>
+                <img class="picShow">
             </div>
         </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js'></script>
         <script src="js/slideShow.js"></script>
     </body>
 </html>
