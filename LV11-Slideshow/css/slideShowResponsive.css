@@ -133,7 +133,6 @@
 @media only screen and (max-width: 1023px) {
   .showDetail > div {
     width: 100%;
-    background-color: blue;
   }
   .showDetail > div:first-child {
     height: 30%;
@@ -143,24 +142,24 @@
   }
   .showDetail > div:first-child > div:first-child p {
     font-weight: 600;
-    font-size: 50px;
+    font-size: 40px;
   }
   .showDetail > div:first-child > div:first-child div {
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
     background-color: white;
-    width: 5px;
+    width: 4px;
     height: 100px;
     position: absolute;
-    top: 10px;
-    left: 45px;
+    top: 0px;
+    left: 40px;
   }
   .showDetail > div:first-child > div:first-child span {
     font-weight: 400;
-    font-size: 35px;
+    font-size: 30px;
     position: absolute;
-    top: 70px;
-    left: 60px;
+    top: 55px;
+    left: 50px;
   }
   .showDetail > div:first-child > div:last-child {
     font-weight: 400;
@@ -170,9 +169,9 @@
   }
   .showDetail > div:first-child > div:last-child p {
     font-weight: 600;
-    font-size: 25px;
-    line-height: 20px;
-    padding-bottom: 20px;
+    font-size: 20px;
+    line-height: 25px;
+    padding-bottom: 25px;
   }
   .showDetail > div:last-child {
     height: 70%;

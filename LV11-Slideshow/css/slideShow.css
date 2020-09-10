@@ -136,6 +136,11 @@
   color: brown;
 }
 
+.showDetail img {
+  display: block;
+  margin: 0 auto;
+}
+
 .unUse {
   display: none;
 }

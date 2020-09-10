@@ -142,7 +142,6 @@
         > div{
             width: 100%;
             //position: relative;
-            background-color: blue;
             //說明文字排版
             &:first-child{
                 height: 30%;
@@ -150,17 +149,17 @@
                     &:first-child{
                         position: relative;
                         p{
-                            @include fontSet(600,50px);
+                            @include fontSet(600,40px);
                         }
                         div{
                             transform: rotate(45deg);
                             background-color: white;
-                            @include outward(5px,100px);
-                            @include position(10px,45px);
+                            @include outward(4px,100px);
+                            @include position(0px,40px);
                         }
                         span{
-                            @include fontSet(400,35px);
-                            @include position(70px,60px);
+                            @include fontSet(400,30px);
+                            @include position(55px,50px);
                         }
                     }
                     &:last-child{
@@ -168,9 +167,9 @@
                         position: absolute;
                         bottom: 5%;
                         p{  
-                            @include fontSet(600,25px);
-                            line-height: 20px;
-                            padding-bottom: 20px;
+                            @include fontSet(600,20px);
+                            line-height: 25px;
+                            padding-bottom: 25px;
                         }
                     }
                 }

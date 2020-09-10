@@ -2,7 +2,8 @@
 const wrapper = document.getElementById('wrapper').style;
 
 wrapperResponsive();
-window.addEventListener('resize',function(){
+
+$( window ).resize(function() {
     wrapperResponsive();
 });
 
@@ -23,23 +24,24 @@ function wrapperResponsive(){
 }
 
 //點擊detailClose隱藏showDetail
-const detailClose = document.querySelector('.detailClose');
 const showDetail = document.querySelector('.showDetail');
-detailClose.addEventListener('click',function(){
+$('.detailClose').click(function(){
     showDetail.classList.add('unUse');
-})
+});
 
 //填入照片(json)
-const url = 'https://api.unsplash.com/search/photos?query=fox&client_id=q0QEycOVluTKpslrq4QTbEcfC6ZLQltwCl3NFO-rcf4&per_page=20';
-let photoStock = [];
+
+const url = 'https://api.unsplash.com/search/photos?query=fox&client_id=q0QEycOVluTKpslrq4QTbEcfC6ZLQltwCl3NFO-rcf4&per_page=21';
+let photoStock = []; //json資料put in
+let dataNum = 0;     //照片序列
 
 axios.get(url).then(function (response) {
+
     //引入相片api
     photoStock = JSON.parse(response.request.responseText);
 
     //為每個圖填入照片
     let str = '';
-    const pictureBlock = document.querySelector('.pictureBlock');
     for(let i =0;i<photoStock.results.length;i++){
         str +=
             `
@@ -51,47 +53,61 @@ axios.get(url).then(function (response) {
             </div>
             `
     }  
-    pictureBlock.innerHTML = str;
+    $('.pictureBlock').html(str);
 
     //點擊照片欄位顯示照片及資訊
     const displayPhoto = document.querySelectorAll('.displayPhoto');
-    const picIndex = document.querySelector('.picIndex');
-    const picTotal = document.querySelector('.picTotal');
-    const picTitle = document.querySelector('.picTitle');
-    const picAuthor = document.querySelector('.picAuthor');
-    const picShow = document.querySelector('.picShow');
 
     for(let i = 0;i<displayPhoto.length;i++){
         displayPhoto[i].addEventListener('click',function(obj){
 
             showDetail.classList.remove('unUse'); //顯示showDetail
-            var dataNum = obj.currentTarget.dataset.num; //取得data-set數值
-
-            //點擊後置入資料
-            picIndex.innerHTML = Number(dataNum)+1 ;
-            picTotal.innerHTML = displayPhoto.length;
-            picTitle.innerHTML = photoStock.results[dataNum].alt_description;
-            picAuthor.innerHTML = '- '+ photoStock.results[dataNum].user.name + ' -';
-            picShow.setAttribute("src", photoStock.results[dataNum].urls.regular)
+            dataNum = obj.currentTarget.dataset.num; //取得data-set數值
+            insertImg(dataNum);  //置入資料
         });
     }
 
-
     //nav導覽按鈕功能
-    const navLeft = document.querySelector('.fa-chevron-left') ;
-    const navRight = document.querySelector('.fa-chevron-right') ;
-
-    navLeft.addEventListener('click',function(){
-        alert("ddd");
+    //左邊
+    $('.fa-chevron-left').click(function(){
+        dataNum--;
+        if(dataNum < 0){
+            dataNum = photoStock.results.length - 1;
+        }
+        insertImg(dataNum);
+    });
+    //右邊
+    $('.fa-chevron-right').click(function(){
+        dataNum++;
+        if(dataNum > photoStock.results.length-1){
+            dataNum = 0;
+        }
+        insertImg(dataNum);
     });
 
+    //點擊後置入資料function
+    function insertImg(dataNum){
+        $('.picIndex').html(Number(dataNum)+1);
+        $('.picTotal').html(displayPhoto.length);
+        $('.picTitle').html(photoStock.results[dataNum].alt_description);
+        $('.picAuthor').html('- '+ photoStock.results[dataNum].user.name + ' -');
+        $('.picShow').attr("src", photoStock.results[dataNum].urls.regular);
 
-    navRight.addEventListener('click',function(){
-        alert("aaa");
-    });
+        //燈箱照片響應式
+        let img = new Image();
+        img.src = photoStock.results[dataNum].urls.regular;
+        //img.width(圖片寬度)/img.height(圖片高度)
+        if(img.width > img.height){  //當寬度大於高度時(寬型照片)
+            $('.picShow').css({"max-height":"rem(330px)","max-width":"100%"});
+        } else if(img.width < img.height){ //當寬度小於高度時(長型照片)
+            $('.picShow').css({"max-height":"rem(330px)","max-width":"330px"});
+        }
+
+    }
+
+
 
 })
 .catch(function (error) {
     console.log(error);
 });
-
