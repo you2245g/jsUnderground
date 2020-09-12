@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="scss/puzzle.css">
+        <link rel="stylesheet" href="scss/puzzleResponsive.css">
+        <title>拼圖</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="cover" v-if="coverPage">
+                <h1>玩拼圖學歷史</h1>
+                <button @click="gameStart">
+                    開始遊戲
+                </button>
+            </div>
+            <div class="playground" v-if="playgroundPage">
+                <h2>請完成這幅《清明上河圖》</h2>
+                <div class="frame">
+                    <div class="puzzle">
+                        <template>
+                            <template v-for="val in 9">
+                                <div data-num="val"></div>
+                            </template>
+                        </template>
+                    </div>
+                    <article>
+                        <h3>清院本清明上河圖</h3>
+                        <p>陳枚、孫祜、金昆、戴洪、程志道</p>
+                        <p>清高宗乾隆元年（1736）</p>
+                        <p>宋張澤端（活動於西元十二世紀前期）「清明上河圖」是畫史中寫實風俗畫的一件傑作，歷代臨仿者甚多，在故宮即藏有七種不同的本子，其中就屬清院本「清明上河圖」最為有名。</p>
+                        <p>此卷為乾隆元年（一七三六）由宮廷畫院畫師陳枚、孫祜、金昆、戴洪、程志道等五人合繪。 此卷設色鮮麗，用筆圓熟，界畫橋樑、屋宇及人物皆十分細膩嚴謹，是院畫中之極精者。所畫事物甚多，雖失去了宋代古制，但也足以代表明清之際北京風物。</p>
+                        <p>這幅畫作對於各種形態的幾乎正確描繪性使其負有盛名。《清明上河圖》是中國十大傳世名畫之一，獲譽為「中華第一神品」。</p>
+                    </article>
+                </div>
+                <button>
+                    重新排列
+                </button>
+            </div>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
+        <script src="js/puzzle.js"></script>
+    </body>
+</html>

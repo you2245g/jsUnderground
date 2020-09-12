@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>拼圖</title>
+        <style>
+.frame{
+    position: relative;
+}
+.s{
+    position: absolute;
+    left: calc(50% - 50px / 2);
+    width:50px;
+    height:50px;
+    background:rgb(0, 119, 255);
+    animation-name:oxxo;
+    animation-duration:2s;
+    animation-fill-mode:forwards;
+    z-index: 1;
+}
+.article{
+    position: absolute;
+    left: calc(50% - 50px / 2);
+    width:50px;
+    height:50px;  
+    background:transparent;
+    animation-name:xxoo;
+    animation-duration:2s;
+    transform: translate(calc(50px / 2 + 1vw),0);
+    animation-fill-mode:forwards;
+    z-index: -1;
+}
+@keyframes oxxo{
+    from{
+        transform: translate(0,0);
+    }
+    to{
+        transform: translate(calc(-50px / 2 - 1vw),0);
+    }
+}
+
+@keyframes xxoo{
+    from{
+        background-color: transparent;
+    }
+    to{
+        background: #f00;
+    }
+}
+
+.wire{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+            
+        </style>
+    </head>
+    <body>
+        <div class="wire">
+            <div style="text-align: center;">ddddd</div>
+            <div class="frame">
+                <div class="s">
+                    aaa
+                </div>
+                <div class="article">
+                ddddd
+                </div>
+            </div>
+            <div>aaaa</div>
+        </div>
+    </body>
+</html>
