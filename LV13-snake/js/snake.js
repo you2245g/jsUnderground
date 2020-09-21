@@ -17,6 +17,7 @@ var nn = new Vue({
         yAxis:10,    //y座標軸
         availablePixel:[],  //可用畫素陣列
         currentFood:[],     //食物座標
+        //addTaken:$('<div class="taken"></div>'),
         //蛇身體物件
         snake:{
             direction:'',
@@ -93,9 +94,10 @@ var nn = new Vue({
             //清空畫面及填充可用陣列
             for(let y = 1;y<=vm.yAxis;y++){
                 for(let x = 1;x<=vm.xAxis;x++){
-                    $(`[data-coor="${x}-${y}"]`).removeClass('food')
-                    $(`[data-coor="${x}-${y}"]`).removeClass('taken')
-                    $(`[data-coor="${x}-${y}"]`).removeClass('headDead')
+                    //移除所有的attr
+                    $(`[data-coor="${x}-${y}"]`).removeAttr('class')
+                    $(`[data-coor="${x}-${y}"]`).removeAttr('style') 
+                    $(`[data-coor="${x}-${y}"]`).empty()
                     vm.availablePixel.push(`${x}-${y}`)
                 }
             }       
@@ -149,8 +151,22 @@ var nn = new Vue({
             let indexOf = this.availablePixel.indexOf(str)   //檢查可用像素索引值
 
             if(indexOf !== -1){  
-                this.availablePixel.splice(indexOf,1)        //從可用的畫素中刪除
-                $(`[data-coor="${str}"]`).addClass('taken')  //選擇指定畫素填入顏色
+                this.availablePixel.splice(indexOf,1)         //從可用的畫素中刪除
+
+                let addTaken = $('<div class="taken"></div>')
+                $(`[data-coor="${str}"]`).append(addTaken)  //選擇指定畫素填入(div)
+
+                /*
+                //蛇身體著色
+                let head = this.snake.bodyPixel[this.snake.bodyPixel.length - 1]  //蛇頭為陣列尾
+
+                if(this.snake.bodyPixel.length == 1){
+                    console.log(head[1])
+                    $(`[data-coor="${head[0]}-1"] > div`).css('background-color','#93F3AF')
+                }
+                */
+
+
 
                 return true   //抓畫素成功
             }else {    
@@ -164,7 +180,23 @@ var nn = new Vue({
             var indexOf = Math.floor(Math.random()*vm.availablePixel.length) //從可用pixel隨機取得索引
 
             vm.currentFood = vm.availablePixel.splice(indexOf,1)[0].split('-')            //取得currentFood的x及y值
-            $(`[data-coor="${vm.currentFood[0]}-${vm.currentFood[1]}"]`).addClass('food') //選擇指定畫素填入食物
+            //轉成數值
+            let currentX = parseInt(vm.currentFood[0])
+            let currentY = parseInt(vm.currentFood[1])
+
+            $(`[data-coor="${currentX}-${currentY}"]`).addClass('food') //選擇指定畫素填入食物
+
+            //Y軸十字座標線
+            for(i = 1;i<11;i++){
+                $(`[data-coor="${currentX - i}-${currentY}"]`).css('background-color', `rgba(255,255,255,${0.3 / i})`)
+                $(`[data-coor="${currentX + i}-${currentY}"]`).css('background-color', `rgba(255,255,255,${0.3 / i})`)
+            }
+            //X軸十字座標線
+            for(i = 1;i<5;i++){
+                $(`[data-coor="${currentX}-${currentY - i}"]`).css('background-color', `rgba(255,255,255,${0.3 / i})`)
+                $(`[data-coor="${currentX}-${currentY + i}"]`).css('background-color', `rgba(255,255,255,${0.3 / i})`)
+            }
+
             return true
         },
         //判斷蛇頭碰到食物或碰壁(判斷輸贏)
@@ -191,9 +223,20 @@ var nn = new Vue({
                 vm.snake.bodyPixel.push(nextHead)   
                 //蛇頭外觀改變
                 $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).removeClass('food')
-                $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).addClass('taken')
+
+                let addTaken = $('<div class="taken"></div>')
+                $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).append(addTaken)
+
                 //加上分數
                 vm.Score ++
+                //迴圈清理背景(style)
+                for(let y = 1;y<=vm.yAxis;y++){
+                    for(let x = 1;x<=vm.xAxis;x++){
+                        //移除所有的style
+                        $(`[data-coor="${x}-${y}"]`).removeAttr('style') 
+                    }
+                } 
+
                 //加上beep音效
                 let beep = document.getElementById('beep')
                 beep.play()
@@ -203,36 +246,41 @@ var nn = new Vue({
                 if(!vm.ramdonFood()){
                     vm.gameState = 'aceMove' //當場內無可用座標時，則獲勝
                 }
-            //若蛇頭與食物座標疊合時(需正常釋放畫素)
+            //若蛇頭正常行進時(需正常釋放畫素)
             }else if(vm.snakeLocating(nextHead[0],nextHead[1])){
                 vm.snake.bodyPixel.push(nextHead)
+
                 let tail = vm.snake.bodyPixel.splice(0,1)[0]
                 vm.releasePixel(tail[0],tail[1])
+                $(`[data-coor="${tail[0]}-${tail[1]}"]`).empty()  //尾端釋放div
+                $(`[data-coor="${tail[0]}-${tail[1]}"] > div`).removeAttr('style')
+
+
             //其他狀態(輸的回合)
             } else{
                 //如果X0軸撞牆
                 if(nextHead[0]<=0){  
-                    $(`[data-coor="${nextHead[0] + 1}-${nextHead[1]}"]`).addClass('headDead')
+                    $(`[data-coor="${nextHead[0] + 1}-${nextHead[1]}"] > div`).css('background-color','red')
                 } 
                 //如果X22軸撞牆
                 else if(nextHead[0]>= vm.xAxis){
-                    $(`[data-coor="${nextHead[0] - 1}-${nextHead[1]}"]`).addClass('headDead')
+                    $(`[data-coor="${nextHead[0] - 1}-${nextHead[1]}"]  > div`).css('background-color','red')
                 }
                 //如果Y0軸撞牆
                 else if(nextHead[1]<=0){
-                    $(`[data-coor="${nextHead[0]}-${nextHead[1] + 1}"]`).addClass('headDead')
+                    $(`[data-coor="${nextHead[0]}-${nextHead[1] + 1}"]  > div`).css('background-color','red')
                 }
                 //如果Y22軸撞牆
                 else if(nextHead[1]>= vm.yAxis){
-                    $(`[data-coor="${nextHead[0]}-${nextHead[1] - 1}"]`).addClass('headDead')
+                    $(`[data-coor="${nextHead[0]}-${nextHead[1] - 1}"]  > div`).css('background-color','red')
                 }
                 //其他狀況:ex撞到身體
-                $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).addClass('headDead')
+                $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]  > div`).css('background-color','red')
                 //播放gameOver音效
                 let gameOverMusic = document.getElementById('gameOverMusic')
                 gameOverMusic.play()
                 //回傳badMove(遊戲結束)
-                vm.gameState = 'badMove'
+                //vm.gameState = 'badMove'
             }
 
         },

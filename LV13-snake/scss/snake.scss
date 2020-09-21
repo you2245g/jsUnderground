@@ -141,7 +141,10 @@ body{
 
 //for js
 .taken{
-    background-color: $decoColor;
+    background-color: $decoColor ;
+    @include outward(100%, 100%);
+    position: relative;
+    z-index: 1;
 }
 
 .food{
@@ -150,6 +153,3 @@ body{
     background-position: center center;
 }
 
-.headDead{
-    background-color:red !important;
-}
