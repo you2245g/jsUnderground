@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="scss/snake.css">
+        <title>貪食蛇遊戲</title>
+    </head>
+    <body>  
+        <div id="wrapper" @keydown.prevent="keyControl($event)" tabindex="0">
+            <!--遊戲音效-->
+            <audio id="beep"> <!--吃到食物-->
+                <source src="media/beep.mp3" type="audio/mp3">
+                <source src="media/beep.ogg" type="audio/ogg">
+            </audio>
+            <audio id="gameOverMusic"> <!--遊戲結束-->
+                <source src="media/gameover.mp3" type="audio/mp3">
+                <source src="media/gameover.ogg" type="audio/ogg">
+            </audio>
+            <!--遊戲封面-->
+            <div id="gameCover" v-show="gameStarter">
+                <h1>
+                    <div class="square"></div>
+                    SNAAAAAAAKE
+                    <div class="square"></div>
+                </h1>
+                <h2>
+                    PRESS [SPACE] TO START
+                </h2>
+            </div> 
+            <!--遊戲區域-->
+            <div id="playground" v-show="gameRunning">
+                <div class="pixel">
+                    <p>SNAA</p>
+                    <p>AAAAKE</p>
+                    <p>SNAA</p>
+                    <p>AAAAKE</p>
+                    <p>
+                        BEST
+                        <span v-text="bestScore"></span>
+                    </p>
+                    <p>
+                        SCORE
+                        <span v-text="Score"></span>
+                    </p>
+                </div>
+            </div>
+            <!--遊戲結束畫面-->
+            <div id="endGame" v-show="endPhase">
+                <h2>
+                    <div class="square"></div>
+                    GAME OVER
+                    <div class="square"></div>
+                </h2>
+                <div>
+                    <div>
+                        <p>SCORE</p>
+                        <p v-text="Score"></p>
+                    </div>
+                    <section>
+                        /
+                    </section>
+                    <div>
+                        <p>BEST</p>
+                        <p v-text="bestScore"></p>
+                    </div>
+                </div>
+                <div>
+                    RESTART?
+                </div>
+                <div>
+                    <span>YES[Y]</span>
+                    <span>NO[N]</span> 
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
+        <script src="js/snake.js"></script>
+    </body>
+</html>

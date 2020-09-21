@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "puzzleMix.scss"
+        "snakeMix.scss"
     ],
     "names": [],
-    "file": "puzzleMix.css"
+    "file": "snakeMix.css"
 }

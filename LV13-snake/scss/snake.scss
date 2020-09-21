@@ -1,0 +1,155 @@
+@import '../scss/snakeMix.scss';
+
+body{
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#gameCover{
+    background-image: url(../img/background.svg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    @include outward(100vw,100vh);
+    @include flex(column);
+    justify-content: center;
+    color: $keyColor;
+    > h1{
+        color: $keyColor;
+        font-size: 2rem;
+        @include flex(row);
+        margin: 0 auto;
+    }
+    > h2{
+        color:$decoColor;
+        padding-top: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+#playground{
+    @include outward(100vw,100vh);
+    @include colorSet($keyColor, $subColor);
+    .pixel{
+        @include pixelCenter(1100px, 500px);
+        > div{
+            @include outward(50px,50px);
+            border: solid 1px rgb(0, 42, 157);
+            float: left; 
+        }
+        > p{
+            &:first-child{
+                @include position(-5px, -131px, 25px);
+                transform-origin: right top;
+                transform: rotate(-90deg);
+            }
+            &:nth-child(2){
+                @include position(-29px, -29px, 25px);
+            }
+            &:nth-child(3){
+                @include position(511px, 1007px, 25px);
+                transform-origin: right bottom;
+                transform: rotate(90deg);
+            }
+            &:nth-child(4){
+                @include position(485px, 1105px, 25px);
+                transform-origin: left bottom;
+                transform: rotate(180deg);
+            }
+            &:nth-child(5){
+                position: absolute;
+                top: 520px;
+                font-size: 15px;
+            }
+            &:nth-child(6){
+                position: absolute;
+                left: 957px;
+                top: -40px;
+                font-size: 15px;    
+            }
+            > span{
+                font-size: 25px !important;
+            }
+        }
+    }
+
+}
+
+
+
+
+#endGame{
+    @include colorSet($keyColor, $subColor);
+    @include outward(100vw,100vh);
+    @include flex(column);
+    justify-content: center;
+    > h2{
+        @include flex(row);
+        font-size: 2rem;
+        margin: 0 auto;
+    }
+    > div{
+        &:nth-child(2){
+            @include flex(row);
+            margin: 40px auto 0;
+            section{
+                font-size: 30px;
+                margin: 15px 30px 0;
+            }
+            p{
+                &:first-child{
+                    font-size: 15px;
+                }
+                &:last-child{
+                    font-size: 35px;
+                    margin-top: 10px;
+                }
+            }
+        }
+
+
+        &:nth-child(3){
+            @include colorSet($subColor, $keyColor);
+            @include outward(220px, 40px);
+            margin: 30px auto;
+            font-size: 25px;
+            line-height: 40px;
+        }
+        &:nth-child(4){
+            color: $decoColor;
+            font-size: 25px;
+            > span{
+                &:first-child{
+                    padding-right: 10px;
+                }
+                &:last-child{
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.square{
+    background-color: $keyColor;
+    @include outward(30px,30px);    
+    float: left;
+    margin: 0 40px;
+}
+
+
+//for js
+.taken{
+    background-color: $decoColor;
+}
+
+.food{
+    background-image: url(../img/food.svg);
+    background-size: 150% 150%;
+    background-position: center center;
+}
+
+.headDead{
+    background-color:red !important;
+}
