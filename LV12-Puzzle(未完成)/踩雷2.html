@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dragcontainer">
+        <div id="dragme" draggable="true">拖我啊</div>
+    </div>
+</body>
+</html>
+
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+	}
+    #dragcontainer{
+        height: 100vh;
+		width: 100vw;
+		background-color: blanchedalmond;
+    }
+    #dragme{
+        width:10vw;
+        height:10vh;
+        border:1px solid black;
+        background-color:cadetblue;
+        cursor: pointer;
+        position: absolute;
+    }
+</style>
+
+<script>
+    let dragme = document.getElementById("dragme");
+    let startX = 0;
+    let startY = 0;
+
+
+    dragme.addEventListener('dragstart', obj => {
+
+
+        startX = obj.clientX - dragme.offsetLeft;
+        startY = obj.clientY - dragme.offsetTop;
+    
+    });
+
+	dragme.addEventListener('dragend', obj =>{
+		
+        //x = obj.clientX - startX;
+        //y = obj.clientY - startY;
+
+        dragme.style.left = obj.clientX - startX + "px";
+        dragme.style.top = obj.clientY - startY + "px";
+
+
+	});
+
+</script>
+
+
+
+
+

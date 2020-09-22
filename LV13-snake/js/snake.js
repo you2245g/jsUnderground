@@ -17,7 +17,6 @@ var nn = new Vue({
         yAxis:10,    //y座標軸
         availablePixel:[],  //可用畫素陣列
         currentFood:[],     //食物座標
-        //addTaken:$('<div class="taken"></div>'),
         //蛇身體物件
         snake:{
             direction:'',
@@ -156,18 +155,6 @@ var nn = new Vue({
                 let addTaken = $('<div class="taken"></div>')
                 $(`[data-coor="${str}"]`).append(addTaken)  //選擇指定畫素填入(div)
 
-                /*
-                //蛇身體著色
-                let head = this.snake.bodyPixel[this.snake.bodyPixel.length - 1]  //蛇頭為陣列尾
-
-                if(this.snake.bodyPixel.length == 1){
-                    console.log(head[1])
-                    $(`[data-coor="${head[0]}-1"] > div`).css('background-color','#93F3AF')
-                }
-                */
-
-
-
                 return true   //抓畫素成功
             }else {    
                 return false  //抓畫素失敗
@@ -280,7 +267,7 @@ var nn = new Vue({
                 let gameOverMusic = document.getElementById('gameOverMusic')
                 gameOverMusic.play()
                 //回傳badMove(遊戲結束)
-                //vm.gameState = 'badMove'
+                vm.gameState = 'badMove'
             }
 
         },
