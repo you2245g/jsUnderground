@@ -124,7 +124,8 @@ var nn = new Vue({
 
                     vm.snakeMove()  //執行移動
 
-                    if(vm.gameState === ''){return} //如果蛇正常移動，則return
+                    //如果蛇正常移動，則return(判斷輸贏階段)
+                    if(vm.gameState === ''){return}
                     //遊戲畫面控制及資訊歸零
                     clearInterval(gameInterval)  //取消計時器
 
@@ -152,8 +153,9 @@ var nn = new Vue({
             if(indexOf !== -1){  
                 this.availablePixel.splice(indexOf,1)         //從可用的畫素中刪除
 
+                //選擇指定畫素填入(div)
                 let addDiv = $('<div class="taken"></div>')
-                $(`[data-coor="${str}"]`).append(addDiv)  //選擇指定畫素填入(div)
+                $(`[data-coor="${str}"]`).append(addDiv) 
 
                 return true   //抓畫素成功
             }else {    
@@ -166,7 +168,7 @@ var nn = new Vue({
             if(vm.availablePixel ===0){return false}  //當可用畫素等於0時，回報false
             var indexOf = Math.floor(Math.random()*vm.availablePixel.length) //從可用pixel隨機取得索引
 
-            vm.currentFood = vm.availablePixel.splice(indexOf,1)[0].split('-')            //取得currentFood的x及y值
+            vm.currentFood = vm.availablePixel.splice(indexOf,1)[0].split('-')   //取得currentFood的x及y值
             //轉成數值
             let currentX = parseInt(vm.currentFood[0])
             let currentY = parseInt(vm.currentFood[1])
@@ -190,7 +192,7 @@ var nn = new Vue({
         snakeMove(){  
             let vm = this
 
-            let head = vm.snake.bodyPixel[0]  //蛇頭為陣列頭
+            let head = vm.snake.bodyPixel[vm.snake.bodyPixel.length - 1]  //蛇頭為陣列尾
             let nextHead = []   //蛇的下一個頭(由方向控制)
 
             //控制蛇移動的上下左右
@@ -207,10 +209,10 @@ var nn = new Vue({
             //蛇頭與食物座標疊合時
             if(nextHead[0] == vm.currentFood[0] && nextHead[1] == vm.currentFood[1]){
                 //將新頭塞進座標
-                vm.snake.bodyPixel.unshift(nextHead)   
+                vm.snake.bodyPixel.push(nextHead)   
                 //蛇頭外觀改變
                 $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).removeClass('food')
-
+                //選擇指定畫素填入(div)
                 let addDiv = $('<div class="taken"></div>')
                 $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).append(addDiv)
 
@@ -236,11 +238,10 @@ var nn = new Vue({
                 }
             //若蛇頭正常行進時(需正常釋放畫素)
             }else if(vm.snakeLocating(nextHead[0],nextHead[1])){
-                vm.snake.bodyPixel.unshift(nextHead)
+                vm.snake.bodyPixel.push(nextHead)
 
-                //蛇尾為陣列尾(由陣列尾去除)
-                let tailNumber = vm.snake.bodyPixel.length - 1
-                let tail = vm.snake.bodyPixel.splice(tailNumber,1)[0]
+                //蛇尾為陣列頭(由陣列頭去除)
+                let tail = vm.snake.bodyPixel.splice(0,1)[0]
                 vm.releasePixel(tail[0],tail[1])
 
             //其他狀態(輸的回合)
