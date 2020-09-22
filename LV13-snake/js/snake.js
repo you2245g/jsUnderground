@@ -152,8 +152,8 @@ var nn = new Vue({
             if(indexOf !== -1){  
                 this.availablePixel.splice(indexOf,1)         //從可用的畫素中刪除
 
-                let addTaken = $('<div class="taken"></div>')
-                $(`[data-coor="${str}"]`).append(addTaken)  //選擇指定畫素填入(div)
+                let addDiv = $('<div class="taken"></div>')
+                $(`[data-coor="${str}"]`).append(addDiv)  //選擇指定畫素填入(div)
 
                 return true   //抓畫素成功
             }else {    
@@ -190,7 +190,7 @@ var nn = new Vue({
         snakeMove(){  
             let vm = this
 
-            let head = vm.snake.bodyPixel[vm.snake.bodyPixel.length - 1]  //蛇頭為陣列尾
+            let head = vm.snake.bodyPixel[0]  //蛇頭為陣列頭
             let nextHead = []   //蛇的下一個頭(由方向控制)
 
             //控制蛇移動的上下左右
@@ -207,15 +207,16 @@ var nn = new Vue({
             //蛇頭與食物座標疊合時
             if(nextHead[0] == vm.currentFood[0] && nextHead[1] == vm.currentFood[1]){
                 //將新頭塞進座標
-                vm.snake.bodyPixel.push(nextHead)   
+                vm.snake.bodyPixel.unshift(nextHead)   
                 //蛇頭外觀改變
                 $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).removeClass('food')
 
-                let addTaken = $('<div class="taken"></div>')
-                $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).append(addTaken)
+                let addDiv = $('<div class="taken"></div>')
+                $(`[data-coor="${nextHead[0]}-${nextHead[1]}"]`).append(addDiv)
 
                 //加上分數
                 vm.Score ++
+
                 //迴圈清理背景(style)
                 for(let y = 1;y<=vm.yAxis;y++){
                     for(let x = 1;x<=vm.xAxis;x++){
@@ -235,13 +236,12 @@ var nn = new Vue({
                 }
             //若蛇頭正常行進時(需正常釋放畫素)
             }else if(vm.snakeLocating(nextHead[0],nextHead[1])){
-                vm.snake.bodyPixel.push(nextHead)
+                vm.snake.bodyPixel.unshift(nextHead)
 
-                let tail = vm.snake.bodyPixel.splice(0,1)[0]
+                //蛇尾為陣列尾(由陣列尾去除)
+                let tailNumber = vm.snake.bodyPixel.length - 1
+                let tail = vm.snake.bodyPixel.splice(tailNumber,1)[0]
                 vm.releasePixel(tail[0],tail[1])
-                $(`[data-coor="${tail[0]}-${tail[1]}"]`).empty()  //尾端釋放div
-                $(`[data-coor="${tail[0]}-${tail[1]}"] > div`).removeAttr('style')
-
 
             //其他狀態(輸的回合)
             } else{
@@ -288,6 +288,11 @@ var nn = new Vue({
             let vm = this
             $(`[data-coor="${x}-${y}"]`).removeClass('taken') //移除蛇身體外觀
             $(`[data-coor="${x}-${y}"]`).removeClass('food')  //移除食物外觀
+            
+            //尾端釋放div
+            $(`[data-coor="${x}-${y}"]`).empty()  
+            $(`[data-coor="${x}-${y}"] > div`).removeAttr('style')
+            
             vm.availablePixel.push(`${x}-${y}`)   //將被釋放的畫素加回可用畫素
         },
 
