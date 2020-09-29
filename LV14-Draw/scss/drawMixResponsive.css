@@ -1,0 +1,258 @@
+@media only screen and (max-width: 899px) {
+  #coverPage {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #coverPage h1 {
+    font-size: 70px;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    text-align: center;
+  }
+  #coverPage > div {
+    margin: 20px auto 0;
+    width: 350px;
+  }
+  #coverPage > div h2 {
+    font-size: 20px;
+    padding: 18px 0;
+  }
+  #coverPage > div p {
+    font-size: 15px;
+  }
+  #coverPage > div div > button {
+    width: calc(330px / 3);
+  }
+  #coverPage > div button {
+    font-size: 15px;
+    line-height: 30px;
+    width: 350px;
+    height: 30px;
+  }
+  #result .drawEnd h2 {
+    font-size: 120px;
+    padding: 5px 0 25px;
+  }
+  #result .drawEnd p {
+    font-size: 15px;
+  }
+  #result .detail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #result .detail div:first-child {
+    color: white;
+  }
+  #result .detail div:first-child h3 {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+  #result .detail div:first-child p {
+    line-height: 1.1rem;
+    font-size: 12px;
+  }
+  #result .detail div:first-child button {
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+  }
+  #result .detail div:last-child {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  #result .detail div:last-child h2 {
+    font-size: 12px;
+  }
+  #result .detail div:last-child h4 {
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+    margin: 0 auto;
+    font-size: 25px;
+    padding: 20px 0;
+    letter-spacing: 3px;
+    line-height: 2.3rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #coverPage {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  #coverPage h1 {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+  }
+  #coverPage div {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  #result .detail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  #result .detail div:first-child {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    text-align: left;
+    width: 40vw;
+  }
+  #result .detail div:first-child p {
+    font-family: 'Noto Sans TC', sans-serif !important;
+  }
+  #result .detail div:last-child {
+    width: 40vw;
+    height: 40vh;
+  }
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 900px) {
+  #coverPage {
+    padding: 3%;
+  }
+  #coverPage h1 {
+    font-size: 115px;
+  }
+  #coverPage div {
+    width: 400px;
+  }
+  #coverPage div h2 {
+    font-size: 25px;
+    padding: 20px 0;
+  }
+  #coverPage div p {
+    font-size: 15px;
+  }
+  #coverPage div div > button {
+    width: calc(380px / 3);
+  }
+  #coverPage div button {
+    line-height: 50px;
+    font-size: 15px;
+    width: 400px;
+    height: 50px;
+  }
+  #result .drawEnd h2 {
+    font-size: 200px;
+    padding: 10px 0 30px;
+  }
+  #result .drawEnd p {
+    font-size: 20px;
+  }
+  #result .detail div:first-child h3 {
+    font-size: 25px;
+    padding: 30px 0;
+  }
+  #result .detail div:first-child p {
+    font-size: 15px;
+    line-height: 1.4rem;
+    letter-spacing: 2px;
+  }
+  #result .detail div:first-child button {
+    margin-top: 30px;
+    font-size: 15px;
+    width: 355px;
+    height: 50px;
+  }
+  #result .detail div:last-child {
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+  }
+  #result .detail div:last-child h2 {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  #result .detail div:last-child h4 {
+    font-size: 37px;
+    line-height: 5rem;
+  }
+}
+
+@media only screen and (min-width: 1441px) {
+  #coverPage {
+    padding: 5%;
+  }
+  #coverPage h1 {
+    font-size: 140px;
+  }
+  #coverPage div {
+    width: 550px;
+  }
+  #coverPage div h2 {
+    font-size: 35px;
+    padding: 25px 0;
+  }
+  #coverPage div p {
+    font-size: 23px;
+  }
+  #coverPage div div > button {
+    width: calc(530px / 3);
+  }
+  #coverPage div button {
+    line-height: 70px;
+    font-size: 23px;
+    width: 550px;
+    height: 70px;
+  }
+  #result .drawEnd h2 {
+    font-size: 250px;
+    padding: 20px 0 40px;
+  }
+  #result .drawEnd p {
+    font-size: 30px;
+  }
+  #result .detail div:first-child h3 {
+    font-size: 28px;
+    padding: 30px 0;
+  }
+  #result .detail div:first-child p {
+    font-size: 23px;
+    line-height: 2.3rem;
+    letter-spacing: 2px;
+  }
+  #result .detail div:first-child button {
+    margin-top: 30px;
+    font-size: 23px;
+    width: 520px;
+    height: 70px;
+  }
+  #result .detail div:last-child {
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+  }
+  #result .detail div:last-child h2 {
+    font-size: 23px;
+    margin-left: 10px;
+  }
+  #result .detail div:last-child h4 {
+    font-size: 45px;
+    line-height: 6rem;
+  }
+}
+/*# sourceMappingURL=drawMixResponsive.css.map */

@@ -1,0 +1,40 @@
+
+
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin outward($width,$height) {  
+    width: $width;
+    height: $height;
+}
+
+@mixin colorSet($color,$backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+@mixin fontSet($fontWeight, $font-size) {
+    font-weight: $fontWeight;
+    font-size: $font-size;
+}
+
+//顏色設定
+$keyColor:white;
+$subColor:black;
+
+//文字大小設定
+$phoneText:15px;
+$deskTopText:15px;
+$bigDeskTopText:23px;
+
+//寬度設定
+$pnoneWidth:350px;
+$deskTopWidth:400px;
+$bigDeskTopWidth:550px;
+
+//按鈕高度設定
+$phoneButtonheight:30px;
+$deskTopButtonheight:50px;
+$bigDeskTopButtonheight:70px;

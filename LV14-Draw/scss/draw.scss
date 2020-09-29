@@ -1,0 +1,163 @@
+@import '../scss/drawMix.scss';
+
+body{
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    color:$keyColor;
+    font-family: 'Noto Serif TC', serif;
+}
+
+//規定頁面為滿頁
+#wrapper, #coverPage, #drawResult{
+    @include outward(100vw,100vh);
+}  
+
+#wrapper{
+    @include flex(column);
+}
+
+//封面
+#coverPage{
+    //背景漸層填色
+    background: -webkit-linear-gradient(to right, rgba($subColor,0.9),rgba($subColor,0.3)); 
+    background: linear-gradient(to right, rgba($subColor,0.9),rgba($subColor,0.3)); 
+    padding: 3%;
+    display: flex;
+    //右上半邊
+    h1{
+        font-weight: bold;
+    }
+    //左下半邊
+    div{
+        h2{
+            font-weight: bold;
+        }
+        p{
+            line-height: 1.4em;
+        }
+        div > button {
+            float: left;
+            margin: 5px 0;
+            &:nth-child(2){
+                margin: 5px 10px;
+            }
+            &:nth-child(5){
+                margin: 5px 10px;
+            }
+        }
+    }
+}
+
+
+
+//抽籤結果
+#drawResult{
+    padding: 2%;
+    background: -webkit-linear-gradient(to left, rgba($subColor,0.9),rgba($subColor,0.5), rgba($subColor,0.9)); 
+    background: linear-gradient(to left, rgba($subColor,0.9), rgba($subColor,0.5), rgba($subColor,0.9));
+    //flex平均配置
+    @include flex(column);
+    justify-content: space-between;
+
+    //內元素為row編排 
+    .column, #result{
+        @include flex(row);
+        justify-content: space-between;
+    }
+
+    .column{
+        justify-content: center;
+        //裝飾線
+        div{
+            background-color:rgba($keyColor,0.4);
+            @include outward(100vw,1px);
+            margin: 15px;
+
+        }
+        //裝飾字(未作響應式)
+        p{
+            font-size: 30px;
+            font-weight: bold;
+            color: rgba($keyColor,0.4);
+        }
+    }
+    #result{
+        text-align: center;
+        .lineY{
+            @include outward(2px, calc(100vh - 130px));
+            background-color:rgba($keyColor,0.4);
+            margin: 0 15px;
+        }
+
+        //說明欄共通設定
+        .drawEnd, .detail{
+            @include outward(100vw, calc(100vh - 130px));
+            justify-content: center;
+            padding: 3%;
+        }
+        
+        //抽籤結果(column)
+        .drawEnd{
+            @include flex(column);
+            h2, p {
+                letter-spacing: 20px;
+                color: transparent;
+            }
+            h2{
+                //動畫設定
+                animation-delay:2500ms;
+                animation-name:drawEndP;
+                animation-fill-mode:forwards;
+                animation-duration:2s;
+            }
+            p{  
+                //動畫設定
+                font-family: 'Noto Sans TC', sans-serif !important;
+                animation-delay:1s;
+                animation-name:drawEndP;
+                animation-fill-mode:forwards;
+                animation-duration:2s;
+            }
+        }
+    }
+}
+
+//動畫
+@keyframes drawEndP{
+
+    from{
+        color: transparent;
+    }
+    to{
+        color: white;
+    }
+
+}
+
+//button共通設定
+button{
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    @include colorSet($keyColor, transparent);
+    border: 1px solid $keyColor;
+    &:hover{
+        @include colorSet($subColor, rgba($keyColor,0.5));
+        transition: 0.2s;
+    }
+}
+
+
+//button disabled
+button:disabled{
+    border: 1px solid grey;
+    color: grey;
+    cursor: unset;
+    &:hover{
+        background-color: transparent;
+        color:  grey;
+    }
+}

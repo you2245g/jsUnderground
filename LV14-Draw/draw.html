@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="scss/draw.css">
+        <link rel="stylesheet" href="scss/drawMixResponsive.css">
+        <title>神明求籤</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <audio id="drawRing"> <!--音效-->
+                <source src="media/templeRing.mp3" type="audio/mp3">
+                <source src="media/templeRing.ogg" type="audio/ogg">
+            </audio>
+            <!--coverPage-->
+            <div id="coverPage" v-show="coverPage">
+                <div>
+                    <h2>
+                        求籤步驟
+                    </h2>
+                    <p>
+                        ① 請虔誠地在心中默念您的姓名、出生年月日、住址<br>
+                        ② 選擇欲請教的求籤類別後，誠心地在心中詳細說明<br>
+                        ③ 說明完後即可點選「開始求籤」按鈕進行線上求籤
+                    </p>
+                    <h2>
+                        求籤類別 
+                    </h2>
+                    <div>
+                        <button v-for="(item,val) in coverButtonText" @click="selectDraw($event)" :data-num="buttonDataNum(val)">
+                            {{item}}
+                        </button>
+                    </div>
+                    <button @click="startDraw()" disabled="disabled">
+                        開始求籤
+                    </button>
+                </div>
+                <h1>線上求籤</h1>
+            </div>
+            <!--drawResult-->
+            <div id="drawResult" v-show="drawResult">
+                <div class="column">
+                    <p>線</p>
+                    <div></div>
+                    <p>上</p>
+                </div>
+                <div id="result">
+                    <div class="lineY"></div>
+                    <!--抽籤結果-->
+                    <div class="drawEnd" v-show="drawEnd">
+                        <p v-text="drawList"></p>
+                        <h2 v-text="fate">
+                            
+                        </h2>
+                        <p v-text="drawTitle">
+                            
+                        </p>
+                    </div> 
+                    <!--解籤說明-->
+                    <div class="detail" v-show="detail">
+                        <!--左半邊-->
+                        <div>
+                            <h3>聖意</h3>
+                            <p v-html="mean">
+
+                            </p>
+                            <h3>解曰</h3>
+                            <p v-html="explan">
+
+                            </p>
+                            <button @click="reStart()">
+                                重新求籤
+                            </button>
+                        </div>
+                        <!--右半邊-->
+                        <div>
+                            <h2 v-html="drawName">
+                                 
+                            </h2>
+                            <h4 v-html="poem">
+                                
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="lineY"></div>
+                </div>
+                <div class="column">
+                    <p>求</p>
+                    <div></div>
+                    <p>籤</p>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js'></script>
+        <script src="js/draw.js"></script>
+    </body>
+</html>

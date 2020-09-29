@@ -1,0 +1,210 @@
+body {
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+  color: white;
+  font-family: 'Noto Serif TC', serif;
+}
+
+#wrapper, #coverPage, #drawResult {
+  width: 100vw;
+  height: 100vh;
+}
+
+#wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#coverPage {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0.3)));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
+  padding: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#coverPage h1 {
+  font-weight: bold;
+}
+
+#coverPage div h2 {
+  font-weight: bold;
+}
+
+#coverPage div p {
+  line-height: 1.4em;
+}
+
+#coverPage div div > button {
+  float: left;
+  margin: 5px 0;
+}
+
+#coverPage div div > button:nth-child(2) {
+  margin: 5px 10px;
+}
+
+#coverPage div div > button:nth-child(5) {
+  margin: 5px 10px;
+}
+
+#drawResult {
+  padding: 2%;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.9)), color-stop(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.9)));
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#drawResult .column, #drawResult #result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#drawResult .column {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#drawResult .column div {
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 100vw;
+  height: 1px;
+  margin: 15px;
+}
+
+#drawResult .column p {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#drawResult #result {
+  text-align: center;
+}
+
+#drawResult #result .lineY {
+  width: 2px;
+  height: calc(100vh - 130px);
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 0 15px;
+}
+
+#drawResult #result .drawEnd, #drawResult #result .detail {
+  width: 100vw;
+  height: calc(100vh - 130px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3%;
+}
+
+#drawResult #result .drawEnd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#drawResult #result .drawEnd h2, #drawResult #result .drawEnd p {
+  letter-spacing: 20px;
+  color: transparent;
+}
+
+#drawResult #result .drawEnd h2 {
+  -webkit-animation-delay: 2500ms;
+          animation-delay: 2500ms;
+  -webkit-animation-name: drawEndP;
+          animation-name: drawEndP;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+#drawResult #result .drawEnd p {
+  font-family: 'Noto Sans TC', sans-serif !important;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-name: drawEndP;
+          animation-name: drawEndP;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+@-webkit-keyframes drawEndP {
+  from {
+    color: transparent;
+  }
+  to {
+    color: white;
+  }
+}
+
+@keyframes drawEndP {
+  from {
+    color: transparent;
+  }
+  to {
+    color: white;
+  }
+}
+
+button {
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+button:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+button:disabled {
+  border: 1px solid grey;
+  color: grey;
+  cursor: unset;
+}
+
+button:disabled:hover {
+  background-color: transparent;
+  color: grey;
+}
+/*# sourceMappingURL=draw.css.map */

@@ -1,0 +1,302 @@
+@import '../scss/drawMix.scss';
+
+
+
+//899px以下(平板及手機)
+@media only screen and (max-width:899px){
+
+    #coverPage{
+        flex-direction: column;
+        justify-content: center;
+        h1{
+            font-size: 70px;
+            order:-1;  //排序至第一列
+            text-align: center;
+        }
+        > div{
+            margin: 20px auto 0;
+            width: $pnoneWidth;
+            h2{
+                font-size: 20px;
+                padding: 18px 0;
+            }
+            p{
+                font-size: $phoneText;
+            }
+            div > button{
+                width: calc(330px / 3);
+            } 
+            button{
+                font-size: $phoneText;
+                line-height: $phoneButtonheight;
+                @include outward($pnoneWidth,$phoneButtonheight);
+            }
+        }
+    }
+
+
+    //第二頁(抽籤結果)    
+    #result{
+        //顯示號籤
+        .drawEnd{
+            h2{
+                font-size: 120px;
+                padding: 5px 0 25px;
+            }
+            p{
+                font-size: 15px;
+            }
+        }
+
+        //詳細結果(row)
+        .detail{
+            @include flex(column);
+            div{
+                &:first-child{ //解說
+                    color: white;
+
+                    h3{
+                        font-size: 15px;
+                        padding: 10px 0;
+                    }
+                    p{
+                        line-height: 1.1rem;
+                        font-size: 12px;
+                    }
+                    button{
+                        @include outward(200px, 40px);
+                        margin-top: 20px;
+                    }
+
+                }
+                &:last-child{ //籤詩詞
+                    order: -1;
+                    h2{
+                        font-size: 12px;
+                    }
+                    h4{
+                        writing-mode: vertical-rl;
+                        margin: 0 auto;
+                        font-size: 25px;
+                        padding: 20px 0;
+                        letter-spacing: 3px;
+                        line-height: 2.3rem;
+                    }
+                }
+            }
+
+
+
+
+        }
+    }
+
+
+
+
+}
+
+
+//900px(桌機)以上共通適用 
+@media only screen and (min-width:900px){
+
+    //第一頁(coverPage)
+    #coverPage{
+        justify-content: space-around;
+        //右上半邊(靠右置中)
+        h1{
+            align-self: center;
+            writing-mode: vertical-rl;
+        }
+        //左下半邊(靠左下角)
+        div{
+            align-self: flex-end;
+        }
+    }
+
+    #result{
+        //詳細結果(row)
+        .detail{
+            @include flex(row);
+            justify-content: space-around;
+            div{
+                &:first-child{
+                    align-self: flex-end;
+                    text-align: left;
+                    width: 40vw;
+                    p{
+                        font-family: 'Noto Sans TC', sans-serif !important;
+                    }
+                }
+                
+                &:last-child{
+                    @include outward(40vw,40vh);
+                }   
+            }
+        }
+    }
+}
+
+//1440px以下小桌機(筆電)
+@media only screen and (max-width: 1440px) and (min-width:900px){
+
+    //第一頁(coverPage)
+    #coverPage{
+        padding: 3%;
+        //右上半邊
+        h1{
+            font-size: 115px;
+        }
+        //左下半邊
+        div{
+            width: $deskTopWidth;
+            h2{
+                font-size: 25px;
+                padding: 20px 0;
+            }
+            p{
+                font-size: $deskTopText;
+            }
+            div > button {
+                width: calc(380px / 3);
+            }
+            button{
+                line-height: $deskTopButtonheight;
+                font-size: $deskTopText;
+                @include outward($deskTopWidth, $deskTopButtonheight);
+            }
+        }
+    }
+
+    //第二頁(抽籤結果)    
+    #result{
+        //顯示號籤
+        .drawEnd{
+            h2{
+                font-size: 200px;
+                padding: 10px 0 30px;
+            }
+            p{
+                font-size: 20px;
+            }
+        }
+
+        //詳細結果(row)
+        .detail{
+            div{
+                &:first-child{
+                    //文字排版
+                    h3{
+                        font-size: 25px;
+                        padding: 30px 0 ;
+                    }
+                    p{
+                        font-size: $deskTopText;
+                        line-height: 1.4rem;
+                        letter-spacing: 2px;
+                    }
+                    button{
+                        margin-top: 30px;
+                        font-size: $deskTopText;
+                        @include outward(355px, 50px)
+                    }
+                    
+                }
+                &:last-child{
+                    writing-mode: vertical-rl;
+                    h2{
+                        font-size: $deskTopText;
+                        margin-left: 10px;
+                    }
+                    h4{
+                        font-size: 37px;
+                        line-height: 5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//1440px以上大桌機
+@media only screen and (min-width:1441px){
+
+    //第一頁(coverPage)
+    #coverPage{
+        padding: 5%;
+        //右上半邊
+        h1{ 
+            font-size: 140px;
+        }
+        //左下半邊
+        div{
+            width: $bigDeskTopWidth;
+            h2{
+                font-size: 35px;
+                padding: 25px 0;
+            }
+            p{
+                font-size: $bigDeskTopText;
+            }
+            div > button {
+                width: calc(530px / 3);
+            }
+            button{
+                line-height: $bigDeskTopButtonheight;
+                font-size: $bigDeskTopText;
+                @include outward($bigDeskTopWidth, $bigDeskTopButtonheight);
+            }
+        }
+    }
+
+
+    //第二頁(抽籤結果)    
+    #result{
+        //顯示號籤
+        .drawEnd{
+            h2{
+                font-size: 250px;
+                padding: 20px 0 40px;
+            }
+            p{
+                font-size: 30px;
+            }
+        }
+
+        //詳細結果(row)
+        .detail{
+            div{
+                &:first-child{
+                    //文字排版
+                    h3{
+                        font-size: 28px;
+                        padding: 30px 0;
+                    }
+                    p{
+                        font-size: $bigDeskTopText;
+                        line-height: 2.3rem;
+                        letter-spacing: 2px;
+                    }
+                    button{
+                        margin-top: 30px;
+                        font-size: $bigDeskTopText;
+                        @include outward(520px, 70px);
+                    }
+                    
+                }
+                &:last-child{
+                    writing-mode: vertical-rl;
+                    h2{
+                        font-size: $bigDeskTopText;
+                        margin-left: 10px;
+                    }
+                    h4{
+                        font-size: 45px;
+                        line-height: 6rem;
+                    }
+                }
+            }
+        }
+    }
+}
