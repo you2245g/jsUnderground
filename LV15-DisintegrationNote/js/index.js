@@ -44,8 +44,9 @@ var nn = new Vue({
         },
         //消除功能
         eliminate(){
+            let vm =this;
             let name = document.getElementById('name').value;  //求出input值
-            let index = this.galleryText.indexOf(name);        //求出順位
+            let index = vm.galleryText.indexOf(name);        //求出順位
             let check = $(`.imgDist > div > div:eq(${index})`).attr('style');  //求出檢查值
 
             //不符合時執行(索引找不到或check裡已有background-color)
@@ -58,6 +59,19 @@ var nn = new Vue({
                 return
             }
             //符合時執行
+            //將被消除的照片轉至seleted
+            let freqNum = index - vm.nowArray[2]; //求得需轉回次數(及方位)
+            let freq = Math.abs(freqNum);  //求得次數(for陣列使用)
+            //執行轉動
+            if(freqNum < 0){ //減相
+                for(let i =0;i<freq;i++){
+                    vm.leftHandler();
+                }
+            }else{ //加相
+                for(let i =0;i<freq;i++){
+                    vm.rightHandler();
+                }
+            }
             //消除動畫效果
             $(`.imgDist > div > div:eq(${index})`).css({
                 "animation-name":"animate",
