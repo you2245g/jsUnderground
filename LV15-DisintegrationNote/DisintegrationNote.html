@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <script src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>  <!--fontAwesome CDN-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/> <!--for animate-->  
+        <link rel="stylesheet" href="css/index.css">
+        <title>死亡筆記本</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Disintegration Note</h1>
+            <!--展示圖片區-->
+            <div class="imgDist">
+                <!--迴圈產生圖片-->
+                <template v-for="(val,key) in galleryText">
+                    <div>
+                        <div :style="gallery(key)"></div>
+                        <p>{{val}}</p>
+                    </div>
+                </template>
+                <!--控制鈕-->
+                <div class="control">
+                    <p @click="leftHandler()">
+                        <i class="fas fa-angle-left"></i>   
+                    </p>      
+                    <p @click="rightHandler()">         
+                        <i class="fas fa-angle-right"></i>
+                    </p>
+                </div>
+            </div>
+            <!--寫字區-->
+            <div class="writting">
+                <h2>
+                    -WRITE DOWN THE NAME TO DISINTEGRATE IT-
+                </h2>
+                <input id="name" @keyup.enter="eliminate()">
+                <div></div>
+            </div>
+        </div>
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>

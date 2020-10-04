@@ -1,0 +1,17 @@
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin outward($width,$height) {  
+    width: $width;
+    height: $height;
+}
+
+@mixin colorSet($color,$backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+$keyColor:white;
+$subColor:black;

@@ -10,6 +10,7 @@
         justify-content: center;
         h1{
             font-size: 70px;
+            margin-bottom: 10px;
             order:-1;  //排序至第一列
             text-align: center;
         }
@@ -17,8 +18,8 @@
             margin: 20px auto 0;
             width: $pnoneWidth;
             h2{
-                font-size: 20px;
-                padding: 18px 0;
+                font-size: 18px;
+                padding: 20px 0;
             }
             p{
                 font-size: $phoneText;
@@ -61,7 +62,7 @@
                     }
                     p{
                         line-height: 1.1rem;
-                        font-size: 12px;
+                        font-size: $phoneText;
                     }
                     button{
                         @include outward(200px, 40px);
@@ -72,7 +73,7 @@
                 &:last-child{ //籤詩詞
                     order: -1;
                     h2{
-                        font-size: 12px;
+                        font-size: $phoneText;
                     }
                     h4{
                         writing-mode: vertical-rl;

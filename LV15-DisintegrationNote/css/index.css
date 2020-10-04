@@ -1,0 +1,195 @@
+body {
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+}
+
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+}
+
+#wrapper h1 {
+  font-size: 70px;
+  font-family: 'caesar';
+  padding: 5vh 0 2vh;
+}
+
+#wrapper .imgDist {
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 55vh;
+}
+
+#wrapper .imgDist > div {
+  position: absolute;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: black;
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 1%;
+  display: none;
+}
+
+#wrapper .imgDist > div div {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#wrapper .imgDist > div p {
+  font-family: "handWritting";
+  font-size: 25px;
+  padding-top: 15px;
+}
+
+#wrapper .imgDist .control {
+  color: white !important;
+  background-color: transparent;
+  width: 620px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrapper .imgDist .control > p > [class*="fa-angle-"] {
+  font-size: 50px;
+  cursor: pointer;
+}
+
+#wrapper .imgDist .control > p > [class*="fa-angle-"]:hover {
+  color: yellow;
+}
+
+#wrapper .writting {
+  width: 70vw;
+  height: 15vh;
+  color: black;
+  background-color: white;
+  margin: 5vh auto 0;
+  font-family: 'caesar';
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding-top: 1vh;
+}
+
+#wrapper .writting > input {
+  text-align: center;
+  font-family: "handWritting";
+  margin-top: 2vh;
+}
+
+#wrapper .writting > input:focus {
+  outline: none;
+}
+
+#wrapper .writting > div {
+  width: 85%;
+  height: 1px;
+  margin: 0 auto;
+  background-color: black;
+}
+
+.previous, .next, .last, .first {
+  padding: 0% !important;
+  -webkit-box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+          box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  display: block !important;
+}
+
+.previous > p, .next > p, .last > p, .first > p {
+  display: none;
+}
+
+.selected {
+  width: 500px !important;
+  height: 390px !important;
+  display: block !important;
+  left: 50%;
+  z-index: 2;
+}
+
+.selected div {
+  height: 310px !important;
+}
+
+.previous, .next {
+  z-index: 1;
+  width: 400px !important;
+  height: 300px !important;
+}
+
+.previous {
+  left: 30%;
+}
+
+.next {
+  left: 70%;
+}
+
+.last, .first {
+  z-index: 0;
+}
+
+.last {
+  left: 85%;
+}
+
+.first {
+  left: 15%;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animate {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=index.css.map */
