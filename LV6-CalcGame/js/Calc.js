@@ -118,20 +118,20 @@ function printNumber(){
         questionNumber2 += randomNumber(10);
 
     } else if(countTime >= 20){
-        questionNumber1 += randomNumber(10) + randomNumber(10);
-        questionNumber2 += randomNumber(10) + randomNumber(10);
-        if(questionNumber1.charAt(0)==='0' || questionNumber2.charAt(0)==='0'){
+        questionNumber1 += randomNumber(100);
+        questionNumber2 += randomNumber(100);
+        if(questionNumber1.toString().length !==2 || questionNumber2.toString().length !==2){
             printNumber();
             return
-        };  //確認首字是否為0
+        };  //確認是否為二位數
 
     } else if(countTime >= 0){
-        questionNumber1 += randomNumber(10) + randomNumber(10) + randomNumber(10);
-        questionNumber2 += randomNumber(10) + randomNumber(10) + randomNumber(10);
-        if(questionNumber1.charAt(0)==='0' || questionNumber2.charAt(0)==='0'){
+        questionNumber1 += randomNumber(1000);
+        questionNumber2 += randomNumber(1000);
+        if(questionNumber1.toString().length !==3 || questionNumber2.toString().length !==3){
             printNumber();
             return
-        };  //確認首字是否為0
+        };  //確認是否為三位數
     }
 
     //令其為數字
