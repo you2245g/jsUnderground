@@ -96,6 +96,7 @@ canvas.addEventListener('mouseup',function(){
 //手機點壓，更新座標
 canvas.addEventListener('touchstart',function(obj){
 
+    obj.preventDefault();     //阻止瀏覽器預設事件
     isDrawing = true; //令畫筆可以使用
     var setX = obj.touches[0].clientX; //取得X座標
     var setY = obj.touches[0].clientY; //取得Y座標
@@ -120,8 +121,9 @@ canvas.addEventListener('touchmove',function(obj){
 });
 
 //移開touch觸發事件(執行紀錄，解鎖功能鈕)
-canvas.addEventListener('touchend',function(){
+canvas.addEventListener('touchend',function(obj){
 
+    obj.preventDefault();     //阻止瀏覽器預設事件
     record();
     if(userhistory.length > 0){
         keyUndo.classList.remove('disable');
