@@ -108,8 +108,8 @@ canvas.addEventListener('touchmove',function(obj){
 
     var setX = obj.touches[0].clientX; //取得X座標
     var setY = obj.touches[0].clientY; //取得Y座標
-    if(!isDrawing){return}; //停止繪畫動作
-
+    if(!isDrawing){return};   //停止繪畫動作
+    obj.preventDefault();     //阻止瀏覽器預設事件
     ctx.beginPath();          //路徑開始
     ctx.moveTo(lastX, lastY); //路徑結束
     ctx.lineTo(setX, setY);
