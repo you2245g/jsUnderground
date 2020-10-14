@@ -109,8 +109,8 @@ canvas.addEventListener('touchmove',function(obj){
 
     var setX = obj.touches[0].clientX; //取得X座標
     var setY = obj.touches[0].clientY; //取得Y座標
-    if(!isDrawing){return};   //停止繪畫動作
     obj.preventDefault();     //阻止瀏覽器預設事件
+    if(!isDrawing){return};   //停止繪畫動作
     ctx.beginPath();          //路徑開始
     ctx.moveTo(lastX, lastY); //路徑結束
     ctx.lineTo(setX, setY);
@@ -123,7 +123,6 @@ canvas.addEventListener('touchmove',function(obj){
 //移開touch觸發事件(執行紀錄，解鎖功能鈕)
 canvas.addEventListener('touchend',function(obj){
 
-    obj.preventDefault();     //阻止瀏覽器預設事件
     record();
     if(userhistory.length > 0){
         keyUndo.classList.remove('disable');
