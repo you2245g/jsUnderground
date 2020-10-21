@@ -1,165 +1,124 @@
-//將資料顯示於ID=result(記錄畫面)
-function result(){     //取得
-    return document.getElementById('result').innerText;
-}
+var nn = new Vue({
 
-function resultnum(num){   //印出
-    document.getElementById('result').innerText = num;
-}
-
-//將資料顯示於ID=calc(屏幕畫面)
-function calc(){     //取得
-    return document.getElementById('calc').innerText;
-}
-
-function calcnum(num){   //印出
-
-    if(num ==""){   //假設是字串
-        document.getElementById('calc').innerText = num;   //則不用格式化數字
-
-    }else{  //假設是字串以外
-        document.getElementById('calc').innerText = 
-        (function(num){
-
-            //檢查值是否為負數，及尾數是否為小數點
-            if(num=="-"){
-            return "";
+    el:'#wrapper',
+    data:{
+        calc:$('#calc').text(),
+        result:$('#result').text(),
+    },
+    watch:{
+        calc:function(calc){
+            //假如字串中含逗點，且不含e
+            if(calc.includes('.') && !calc.includes('e') ){ 
+                let array = [];
+                array = calc.split('.');
+                array[0] = array[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                calc = array[0] + '.' + array[1];
             }
-            else if(num.includes('.')){
-                return num;
-            }else if(num.length ===12){
-                return num = NaN;
+            //假如字串中不含逗點，且不含e
+            else if(!calc.includes('.') && !calc.includes('e') ){
+                calc = calc.replace(/\B(?=(\d{3})+(?!\d))/g, ",");  //加上千分位符
             }
-            else{  
-                var num = Number(num);
-            }
-        //將字串加上數字點（每三個加一點）               //將字串轉為數字
-        var value = num.toLocaleString("en");  //字串轉成local EN
-        return value;  //返回value
-        })(num);  //每個印出的數字資料都格式化
-    }
-}
-
-//取代字串中逗號
-function reverseFormatNum(num){ 
-
-    if(num.includes('.')){
-        return num.replace(/,/g,'');  //replace(/取代字符/全域(g).'替代字符');(確認數列有無逗號)
-    }else{
-        return Number(num.replace(/,/g,''));  //replace(/取代字符/全域(g).'替代字符');
-    }
-}
-
-
-//計算機操作鈕迴圈，及增加監聽事件
-const calcOperator = document.getElementsByClassName('calc-operator');  //取得calc-operator常數
-for(var i=0;i<calcOperator.length;i++){
-    calcOperator[i].addEventListener('click',function(){   //為每個calc-operator增加監聽事件
-
-        if(this.innerText ==="AC"){  //清除鈕事件
-            resultnum('');
-            calcnum('0');
-        }
-
-        else if(this.innerText ==="CE"){  //刪除鈕事件
-            var outPut = reverseFormatNum(calc()).toString();  //將取得屏幕字元格式化，轉換成字串
-            if(outPut.length >1){    //假設outPut字數大於一
-                outPut = outPut.substr(0,[outPut.length]-1); //刪去一個字元
-                calcnum(outPut);
-            }
-            else{   //假設outPut字數小於1
-                calcnum('0');
-            }
-        }
-
-        else if(this.innerText ==='.'){    //小數點事件
-            var outPut = reverseFormatNum(calc()).toString();
-            if(!outPut.includes('.')){
-                outPut += this.innerText;  
-            }  //判斷計算器內有無小數點
-            calcnum(outPut);
-        }   
-        
-        else if(this.innerText ==='00'){   //00事件
-            var outPut = reverseFormatNum(calc());
-            if(!outPut =='0'){   //假設outPut數值不為0時
-                outPut += this.innerText;
-            }else if(outPut ===''){   //假設calc()為空字串時
-                outPut += '0';
-            }
-            calcnum(outPut);
-        } 
-
-        else if(this.innerText ==="+" || this.innerText ==="-" ||
-                this.innerText ==="×" || this.innerText ==="÷"  )  //判斷按鍵為加減乘除
-        {
-            var outPut = calc();       //取出屏幕值
-            var resultPut = result();  //取出紀錄值   
-            var math = this.id;        //取出算術符號值
-
-            if(outPut=="" && resultPut !==""){    //假設屏幕值為空，且紀錄值不為空
-                resultPut = resultPut.substr(0,resultPut.length-1);   //減去紀錄符號：避免重覆加運算符號
-            }
-            //檢查屏幕字尾有無小數點，有則自動減去
-            else if(outPut.charAt([outPut.length]-1)== "."){
-                outPut = outPut.substr(0,outPut.length-1);   //減去屏幕小數點
-                resultPut += outPut;
-            }
-            //檢查屏幕字元是否無法讀取，有則無動作
-            else if(outPut ==="NaN" || outPut ==="∞"){   //假設屏幕值為無限符號或NaN：按鈕無回應
-                return false
-            }
-            else if(outPut !=="" || resultPut !==""){    //假設紀錄值不為空或紀錄不為空
-                outPut = reverseFormatNum(outPut);  
-                resultPut += outPut;   
-            }
-
-            resultPut += math;
-            resultnum(resultPut);
-            outPut ='';
-            calcnum(outPut);
-        }
-        else{  //等號鍵事件
-
-            //先指定變數，之後待運算
-            var resultN = result();  
-            //當紀錄尾數為運算符號之變數宣告
-            var resultCheck = result().charAt([result().length]-1);  //取得字符
-            var resultCheckG = resultCheck === "+" || resultCheck === "-" ||  resultCheck === "/" || resultCheck === "*";
             
-            //執行檢查
-            //1. 若字串尾有運算符號，且calc()為空值，去掉字串尾
-            //2. 若字串為無限或NaN符號，則無反應
-            //3. 其他狀態則紀錄字串與屏幕字串相加
-            if(resultCheckG && calc()==''){   
-                outPut = resultN.substr(0,[result().length]-1);  //紀錄字元減一
-            } 
-            else if(calc()==="∞" || calc()==="NaN" ){    //檢查calc()是否為無限及NaN字樣，是則返回false(無作用)
-                return false;
-            } else {
-                var outPut = resultN + reverseFormatNum(calc());   //令紀錄與螢幕顯示字串相加
-            }   
-            //執行相加動作
-            var resultEval = eval(outPut);    //相加後執行eval()函式
-            //寫入資料
-            document.getElementById('calc').innerText = resultEval.toLocaleString("en");
-            //清空紀錄
-            resultnum('');                      
-        }
-    })
-}
+            //由字數判斷文字大小
+            console.log(calc.length);
+            if(calc.length <= 14){
+                $('#calc').css("font-size","40px");
+            } else if(calc.length <=18){
+                $('#calc').css("font-size","30px");
+            } else if(calc.length <=29){
+                $('#calc').css("font-size","20px");
+            } else if(calc.length <=58){
+                $('#calc').css("font-size","10px");
+            }
 
-//數字鍵按鈕
-const clickNumber = document.getElementsByClassName('calc-num');  //取得clickNumber常數
-for(var i=0;i<clickNumber.length;i++){
-	clickNumber[i].addEventListener('click',function(){   //為每個clickNumber增加監聽事件
-        var outPut = reverseFormatNum(calc());    
-        if(outPut !==NaN){   //設使outPut是數字
-            outPut += this.innerText;  //outPut累加數字
-            calcnum(outPut);  //印出outPut
+            $('#calc').text(calc);
+
+        },
+        result:function(result){
+            $('#result').text(result);
         }
-    })
-}
+
+
+
+    },
+    methods:{
+        //數字鍵
+        calcNum(obj){
+            if( isNaN( parseInt(this.calc) ) && this.calc !=='' ){return}; //當數字欄不是數值，且不為空值時:return
+            if(this.calc === '0'){
+                this.calc = '';
+            }
+            this.calc += obj.target.innerText;
+        },
+        //操作鍵
+        calcOperator(obj){
+            let check = obj.target.innerText;
+            //AC鍵(清空屏幕及記錄欄)
+            if(check === 'AC'){
+                this.calc = '0';
+                this.result = '';
+            }
+            //CE鍵(屏幕字串字尾減去一)
+            else if(check === 'CE'){
+                if( isNaN( parseInt(this.calc) ) && this.calc !=='' ){return}; //當數字欄不是數值，且不為空值時:return
+                if(this.calc.length > 1){
+                    this.calc = this.calc.substr(0,[this.calc.length]-1); //刪去一個字元
+                }else{
+                    this.calc = '0';
+                }
+            }
+            //00鍵
+            else if(check === '00'){
+                if( isNaN( parseInt(this.calc) ) && this.calc !=='' ){return}; //當數字欄不是數值，且不為空值時:return
+                if(this.calc !== '0' && this.calc !==''){
+                    this.calc += obj.target.innerText;
+                }else{
+                    this.calc ='0';
+                }
+            }
+            //小數點鍵(檢查字串不包含小數點，若為空值時，則自動+0)
+            else if(check === '.'){
+                if( isNaN( parseInt(this.calc) ) && this.calc !=='' ){return}; //當數字欄不是數值，且不為空值時:return
+                if(this.calc == ''){
+                    this.calc += '0.';
+                }
+                else if(!this.calc.includes('.')){
+                    this.calc += '.';
+                }
+            }
+            //算術鍵(屏幕欄跳上記錄鍵)
+            else{
+                if( isNaN( parseInt(this.calc) ) && this.calc !=='' ){return}; //當數字欄不是數值，且不為空值時:return
+                if(this.calc === ''){ //判斷屏幕欄鍵是否為空值，若為空值則替換算術符
+                    this.result = this.result.substr(0,this.result.length-1);
+                    this.result += check;
+                    return
+                }
+                this.result += Number(this.calc) + check;
+                this.calc = '';
+            }
+        },
+        //相等鍵
+        equal(){
+            if(this.calc ==='0' && this.result ===''){return} //若畫面為初始值時，按等於無效
+            //取代乘除字元為運算符
+            this.result = this.result.replace(/×/g, "*").replace(/÷/g, "/");
+            //假設屏幕欄為空值，則要從記錄欄尾部減去一字元
+            if(this.calc ===''){
+                this.result = this.result.substr(0,this.result.length-1); 
+            }
+            //假設屏幕欄不為空，則記錄欄與屏幕欄字串相加
+            else if(this.calc !==''){
+                this.result +=this.calc;
+            }
+            //執行math函式庫記算，記算結束後令記錄值為空
+            this.calc = math.format( math.evaluate(this.result) , 14 ); //計算+使計算質精確
+            this.calc = this.calc.toString();   //回歸回字串
+            this.result = '';
+        },
+    },
+});
+
 
 //為按鈕增加點按事件(按住背景色變黑)
 const operatorBtn = document.querySelectorAll('.row div');
@@ -169,9 +128,7 @@ for(var i=0;i<operatorBtn.length;i++){
     })
 
     operatorBtn[i].addEventListener('mouseup',function(){
-        this.style.backgroundColor = "#930000";
+        this.style.backgroundColor = "";
     })
 
 }
-
-
