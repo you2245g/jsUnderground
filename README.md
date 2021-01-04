@@ -6,7 +6,7 @@
 
 #### 2F-時鐘 <a href="https://you2245g.github.io/jsUnderground/LV2-clock/clock.html">Demo</a>
 
-#### 3F-計算機 <a href="https://you2245g.github.io/jsUnderground/LV3-calculator/calculator.html">Demo</a>
+#### 3F-計算機 <a href="https://you2245g.github.io/jsUnderground/LV3-calculator/calculator.html">Demo</a>｜<a href="https://medium.com/悠遊魚世的自動化筆記/js地下城ー計算機-4dc7ec66f8ba">Blog</a>
 
 #### 4F-時區 <a href="https://you2245g.github.io/jsUnderground/LV4-World Time/worldTime.html">Demo</a>｜<a href="https://medium.com/悠遊魚世的自動化筆記/js地下城-利用原生js製作時區時鐘-7c3c1e424241">Blog</a>
 
@@ -24,7 +24,7 @@
 
 #### 11F-燈箱 <a href="https://you2245g.github.io/jsUnderground/LV11-Slideshow/slideShow.html">Demo</a>｜<a href="https://medium.com/悠遊魚世的自動化筆記/js地下城ー燈箱-ecb7573f94f8">Blog</a>
 
-#### 12F-拼圖 <a href="https://you2245g.github.io/jsUnderground/LV12-Puzzle/puzzle.html">Demo</a>
+#### 12F-拼圖 <a href="https://you2245g.github.io/jsUnderground/LV12-Puzzle/puzzle.html">Demo</a>｜<a href="https://medium.com/悠遊魚世的自動化筆記/js地下城ー拼圖-12ceef3d9092">Blog</a>
 
 #### 13F-貪食蛇 <a href="https://you2245g.github.io/jsUnderground/LV13-snake/snake.html">Demo</a>｜<a href="https://medium.com/悠遊魚世的自動化筆記/js地下城ー貪食蛇-44ffdb86934d">Blog</a>
 
