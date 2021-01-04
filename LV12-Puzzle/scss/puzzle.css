@@ -1,0 +1,206 @@
+body {
+  background-image: url(../img/bgQingming.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrapper .cover h1 {
+  font-weight: 500;
+  font-size: 40px;
+  text-align: center;
+}
+
+#wrapper .cover button {
+  color: white;
+  background-color: transparent;
+  width: 240px;
+  height: 60px;
+  font-weight: 300;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  border: 2px solid white;
+  margin: 40vh auto 0;
+  line-height: 60px;
+}
+
+#wrapper .cover button:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#wrapper .playground {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrapper .playground > h2 {
+  text-align: center;
+}
+
+#wrapper .playground .puzzleOutward {
+  position: relative;
+  margin: 3vh 0;
+}
+
+#wrapper .playground .puzzleOutward > div {
+  border: 1px solid white;
+  float: left;
+}
+
+#wrapper .playground > button {
+  color: white;
+  background-color: transparent;
+  width: 240px;
+  height: 60px;
+  font-weight: 300;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  border: 2px solid white;
+  margin: 0vh auto 0;
+  line-height: 60px;
+}
+
+#wrapper .playground > button:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#wrapper .playground [class*="puzzleUnit"] {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrapper .playground article {
+  position: absolute;
+  z-index: 10;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.puzzleUnit1, .puzzleUnit3 {
+  -webkit-box-align: start !important;
+      -ms-flex-align: start !important;
+          align-items: flex-start !important;
+}
+
+.puzzleUnit7, .puzzleUnit9 {
+  -webkit-box-align: end !important;
+      -ms-flex-align: end !important;
+          align-items: flex-end !important;
+}
+
+.puzzleUnit4 {
+  -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important;
+}
+
+.puzzleUnit6 {
+  -webkit-box-pack: end !important;
+      -ms-flex-pack: end !important;
+          justify-content: flex-end !important;
+}
+
+.invisible {
+  display: none !important;
+}
+
+.hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@-webkit-keyframes wordsReward {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wordsReward {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes wordsOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes wordsOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=puzzle.css.map */

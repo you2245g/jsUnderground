@@ -1,0 +1,50 @@
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin outward($width,$height) {  
+    width: $width;
+    height: $height;
+}
+
+@mixin square($outward, $multiple){
+    width: $outward / $multiple;
+    height: $outward /$multiple;
+}
+
+@mixin colorSet($color,$backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+@mixin fontSet($fontWeight, $font-size) {
+    font-weight: $fontWeight;
+    font-size: $font-size;
+}
+
+@mixin button($margintop, $width, $height, $fontSize){  //按鈕
+    @include colorSet($primary,transparent);
+    @include outward($width,$height);
+    @include fontSet(300, $fontSize);
+    cursor: pointer;
+    display: block;
+    border: 2px solid $primary;
+    margin: $margintop auto 0;
+    line-height: $height;
+    &:hover{
+        @include colorSet($secondary,rgba($primary,0.6));
+        transition: 0.4s;
+    }
+}
+
+
+
+
+$primary:white;
+$secondary:black;
+
+//區塊高寬設定
+$blockDeskTop:500px;
+$blockTablet:360px;
+$blockMobile:320px;

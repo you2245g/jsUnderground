@@ -1,0 +1,113 @@
+@import '../scss/puzzleMix.scss';
+
+body{
+    background-image: url(../img/bgQingming.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+#wrapper{
+    @include outward(100vw,100vh);
+    @include colorSet($primary,rgba($secondary,0.5));
+    @include flex(column);
+    justify-content: center;
+    align-items: center;
+    //第一頁
+    .cover{
+        h1{
+            @include fontSet(500,40px);
+            text-align: center;
+        }
+        button{
+            @include button(40vh, 240px, 60px, 20px);  //代入按鈕mixin
+        }
+    }
+    //第二頁(playground)
+    .playground{
+        position: relative;
+        @include outward(100vw,100vh);
+        @include flex(column);
+        justify-content: center;
+        align-items: center;
+        > h2{
+            text-align: center;
+        }
+        .puzzleOutward{
+            position: relative;
+            margin: 3vh 0;
+            > div{
+                border: 1px solid $primary;
+                float: left;
+            }
+        }
+        > button{
+            @include button(0vh, 240px, 60px, 20px);  //代入按鈕mixin
+        }
+        //拼圖塊外觀
+        [class*="puzzleUnit"]{
+            position: absolute;
+            @include flex(row);
+            justify-content: center;
+            align-items: center;
+        }
+        article{
+            position: absolute;
+            z-index: 10;
+            @include colorSet($primary,rgba($secondary, 0.4));
+            animation-duration: 2s;
+            animation-fill-mode:forwards;
+        }
+
+    }
+
+}
+
+
+//針對每片拼圖作位置編列
+//上角
+.puzzleUnit1, .puzzleUnit3{
+    align-items: flex-start !important;
+}
+//下角
+.puzzleUnit7, .puzzleUnit9{
+    align-items: flex-end !important;
+}
+
+.puzzleUnit4{
+    justify-content: flex-start !important;
+}
+
+.puzzleUnit6{
+    justify-content: flex-end !important;
+}
+
+//dragStart時,物件消失
+.invisible{
+    display: none !important;
+}
+
+//container區塊被hover
+.hover{
+    background-color:rgba($primary, 0.4);
+}
+
+@keyframes wordsReward{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes wordsOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

@@ -1,0 +1,317 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'title';
+  src: url("../font/NotoSansTC-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: 'text';
+  src: url("../font/NotoSerifCJKtc-Medium.otf") format("truetype");
+}
+
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+}
+
+#wrapper > div {
+  position: absolute;
+}
+
+#wrapper .mainPage {
+  width: 70vw;
+  height: 100vh;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#wrapper .frontPage {
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#wrapper .frontPage > div:first-child {
+  width: 70vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 10%;
+}
+
+#wrapper .frontPage > div:first-child > div {
+  padding: 10px;
+  line-height: 50px;
+  color: white;
+  background-color: black;
+  font-family: "title";
+  font-size: 36px;
+  position: relative;
+}
+
+#wrapper .frontPage > div:first-child > div:before {
+  content: "“";
+  position: absolute;
+  font-family: "title";
+  font-size: 100px;
+  color: black;
+  left: -120px;
+  top: -30px;
+}
+
+#wrapper .frontPage > div:last-child {
+  width: 30vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 4% 0 4% 4%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#wrapper .frontPage > div:last-child > i {
+  font-size: 40px;
+  cursor: pointer;
+  color: black;
+}
+
+#wrapper .frontPage > div:last-child > i:hover {
+  color: #ababab !important;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#wrapper .addPage {
+  width: 30vw;
+  height: 100vh;
+  -webkit-transition: .3s;
+  transition: .3s;
+  right: 0;
+  padding: 6% 2% 6% 2%;
+  overflow-y: scroll;
+}
+
+#wrapper .addPage > div {
+  font-family: "text";
+  font-size: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 0;
+}
+
+#wrapper .addPage > div > span {
+  font-size: 16px !important;
+  padding-top: 7px;
+  cursor: pointer;
+}
+
+#wrapper .addPage > div:nth-child(2) {
+  border-top: 1px solid black;
+}
+
+#wrapper .addPage > div:nth-child(n+3) {
+  border-bottom: 1px solid black;
+  padding: 20px 0 !important;
+}
+
+#wrapper .addPage > div:nth-child(n+3) input {
+  width: 70%;
+  font-size: 16px;
+  outline: unset;
+}
+
+#wrapper .addPage > div:nth-child(n+3) i {
+  font-size: 14px;
+}
+
+#wrapper .addPage > div:nth-child(n+3) i:last-child {
+  margin-left: 10px;
+}
+
+#wrapper .addPage > i {
+  color: black;
+  position: absolute;
+  top: 5.5%;
+  left: 8%;
+  font-size: 24px;
+}
+
+#wrapper .addPage i {
+  cursor: pointer;
+}
+
+#wrapper .addPage i:hover {
+  color: #ababab !important;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#wrapper .addQuotations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70%;
+  height: 100vh;
+  padding: 10%;
+  position: relative;
+}
+
+#wrapper .addQuotations > p {
+  font-family: "title";
+  font-size: 36px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#wrapper .addQuotations > p:before, #wrapper .addQuotations > p:after {
+  color: black;
+  position: absolute;
+}
+
+#wrapper .addQuotations > p:before {
+  content: "“";
+  left: -50px;
+}
+
+#wrapper .addQuotations > p:after {
+  content: "”";
+  left: 155px;
+}
+
+#wrapper .addQuotations > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 1px solid black;
+}
+
+#wrapper .addQuotations > div input {
+  font-family: "title";
+  font-size: 24px;
+  width: 100%;
+  outline: unset;
+  line-height: 50px;
+  color: black;
+  background-color: transparent;
+}
+
+#wrapper .addQuotations > div i {
+  padding-top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#wrapper .addQuotations > div i:hover {
+  color: #ababab !important;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.nightMode {
+  color: white !important;
+  background-color: black !important;
+}
+
+.nightMode input {
+  color: white !important;
+  background-color: black !important;
+}
+
+.nightMode .mainPage {
+  position: relative;
+}
+
+.nightMode .mainPage:before {
+  content: '';
+  display: block;
+  width: 70vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 1;
+}
+
+.nightMode .addPage > * {
+  border-color: white !important;
+}
+
+.nightMode .addPage > i {
+  color: white !important;
+}
+
+.nightMode .frontPage > div:first-child > div {
+  color: black !important;
+  background-color: white !important;
+  white-space: pre-wrap;
+}
+
+.nightMode .frontPage > div:first-child > div:before {
+  color: white !important;
+}
+
+.nightMode .frontPage i {
+  color: white !important;
+}
+
+.nightMode .addQuotations {
+  color: white !important;
+}
+
+.nightMode .addQuotations p:before, .nightMode .addQuotations p:after {
+  color: white !important;
+}
+
+.nightMode .addQuotations div {
+  border-color: white !important;
+}
+
+.nightMode .addQuotations div > input {
+  color: white !important;
+  background-color: transparent !important;
+}
+/*# sourceMappingURL=newtab.css.map */

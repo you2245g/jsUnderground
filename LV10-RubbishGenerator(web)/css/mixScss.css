@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'title';
+  src: url("../font/NotoSansTC-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: 'text';
+  src: url("../font/NotoSerifCJKtc-Medium.otf") format("truetype");
+}
+/*# sourceMappingURL=mixScss.css.map */

@@ -1,0 +1,221 @@
+@import '../scss/mixScss.scss';
+
+
+#wrapper{
+    @include outward(100vw,100vh);
+    overflow: hidden;
+    background-color:$secondary;
+    position: relative;
+    > div{
+        position: absolute;
+    }
+    //背景圖
+    .mainPage{
+        @include outward(70vw,100vh);
+        right: 0;
+        //background-image: url('../img/pic2.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        transition: .3s;
+    }
+    //封面三物件
+    .frontPage{
+        z-index: 1;
+        @include flex(row);
+        > div{
+            &:first-child{
+                @include outward(70vw,100vh);
+                @include flex(row);
+                align-items: center;
+                padding-left: 10%;
+                > div{ 
+                    padding: 10px;
+                    line-height: 50px;
+                    @include color($secondary,$primary);
+                    @include font('title',36px);
+                    position: relative;
+                    &:before{
+                        content:"“";
+                        position: absolute;
+                        @include font('title',100px);
+                        color: $primary;
+                        left: -120px;
+                        top: -30px;
+                    }
+                }
+            }
+            &:last-child{
+                @include outward(30vw,100vh);
+                @include flex(column);
+                padding: 4% 0 4% 4%;
+                justify-content: space-between;
+                > i{
+                    font-size: 40px;
+                    cursor: pointer;
+                    color: $primary;
+                    &:hover{
+                        color: #ababab !important;
+                        transition: .3s;
+                    }
+                }
+
+
+            }
+        }
+    }
+    //管理語錄區塊
+    .addPage{
+        @include outward(30vw,100vh);
+        transition: .3s;
+        right: 0;
+        padding: 6% 2% 6% 2%;
+        overflow-y: scroll;
+        > div{
+            @include font('text',24px);
+            @include flex(row);
+            justify-content: space-between;
+            padding: 20px 0;
+            > span{
+                font-size: 16px !important;
+                padding-top: 7px;
+                cursor: pointer;
+            }
+            &:nth-child(2){
+                border-top: 1px solid $primary;
+            }
+            &:nth-child(n+3){
+                border-bottom: 1px solid $primary;
+                padding: 20px 0 !important;
+                input{
+                    width: 70%;
+                    font-size: 16px;
+                    outline:unset;
+                }
+                i{
+                    font-size: 14px;
+                    &:last-child{
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+        > i{
+            color: $primary;
+            position: absolute;
+            top: 5.5%;
+            left: 8%;
+            font-size: 24px;
+        }
+        i{
+            cursor: pointer;
+            &:hover{
+                color: #ababab !important;
+                transition: .3s; 
+            }
+        }
+    }
+    //新增語錄區(第二頁左區)
+    .addQuotations{
+        @include flex(column);
+        justify-content: center;
+        @include outward(70%, 100vh);
+        padding: 10%;
+        position: relative;
+        > p{
+            @include font('title',36px);
+            position: relative;
+            margin-bottom: 10px;
+            &:before, &:after{
+                color: $primary;
+                position:absolute;
+            }
+            &:before{
+                content:"“";
+                left: -50px;
+            }
+            &:after{
+                content:"”";
+                left: 155px;
+            }
+        }
+        > div{
+            @include flex(row);
+            border-bottom: 1px solid $primary;
+            input{
+                @include font('title',24px);
+                width: 100%;
+                outline: unset;
+                line-height: 50px;
+                @include color($primary, transparent);
+            }
+            i{
+                padding-top: 20px;
+                font-size: 20px;
+                cursor: pointer;
+                &:hover{
+                    color: #ababab !important;
+                    transition: .3s;
+                }
+            }
+        }
+    }
+}
+
+
+//日夜間模式(夜間模式)
+.nightMode{
+    @include color($secondary !important, $primary !important);
+    input{
+        @include color($secondary !important, $primary !important);
+    }
+    .mainPage{
+        position: relative;
+        &:before{
+            content: '';
+            display: block;
+            @include outward(70vw,100vh);
+            background-color: rgba($primary ,0.5);
+            position: absolute;
+            z-index: 1;
+        }
+    }
+    .addPage{
+        > *{
+            border-color: $secondary !important;
+        }
+        > i{
+            color: $secondary !important;
+        }
+    }
+    .frontPage{
+        > div{
+            &:first-child{
+                > div{
+                    @include color($primary !important, $secondary !important);
+                    white-space: pre-wrap;
+                    &:before{
+                        color: $secondary !important;
+                    }
+                }
+            }
+        }
+        i{
+            color: $secondary !important;
+        }
+    }
+    .addQuotations{
+        color: $secondary!important;
+        p{
+            &:before, &:after{
+                color: white !important;
+            }
+        }
+        div{
+            border-color: $secondary !important;
+            > input{
+                @include color($secondary !important, transparent !important);
+            }
+        }
+    }
+}

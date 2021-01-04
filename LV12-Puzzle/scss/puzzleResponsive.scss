@@ -1,0 +1,101 @@
+@import '../scss/puzzleMix.scss';
+
+//1280電腦以上
+@media (min-width: 1024px) {
+
+    .playground{
+        > h2{
+            @include fontSet(500,30px);
+        }
+        .puzzleOutward{
+            @include square($blockDeskTop,1);
+            > div{
+                @include square($blockDeskTop,3);
+            }
+        }
+    }
+    [class*="puzzleUnit"]{
+        @include square($blockDeskTop,3);
+    }
+    article{
+        @include square($blockDeskTop, 1);
+        padding: 25px;
+        > h3{
+            font-size: 30px;
+        }
+        > p{
+            font-size: 16px;
+            padding-top: 20px;
+            line-height: 28px;
+        }
+    }
+}
+
+
+
+//小平板
+@media screen and (min-width: 768px) and (max-width: 1023px){
+
+    .playground{
+        > h2{
+            @include fontSet(500,24px);
+        }
+        .puzzleOutward{
+            @include square($blockTablet,1);
+            > div{
+                @include square($blockTablet,3);
+            }
+        }
+    }
+
+    [class*="puzzleUnit"]{
+        @include square($blockTablet,3);
+    }
+    article{
+        @include square($blockTablet,1);
+        padding: 15px;
+        > h3{
+            font-size: 20px;
+        }
+        > p{
+            font-size: 12px;
+            padding-top: 12px;
+            line-height: 22px;
+        }
+    }
+}
+
+
+//手機以下
+@media (max-width: 767px) {
+
+    .playground{
+        > h2{
+            @include fontSet(500,18px);
+        }
+        .puzzleOutward{
+            @include square($blockMobile,1);
+            > div{
+                @include square($blockMobile,3);
+            }
+        }
+
+    }
+
+    [class*="puzzleUnit"]{
+        @include square($blockMobile,3);
+    }
+    article{
+        @include square($blockMobile,1);
+        padding: 15px;
+        > h3{
+            font-size: 17px;
+        }
+        > p{
+            font-size: 10px;
+            padding-top: 10px;
+            line-height: 19px;
+        }
+    }
+}
+

@@ -20,7 +20,11 @@
 
 #### 9F-幸運轉盤 <a href="https://you2245g.github.io/jsUnderground/LV9-LuckyWheel(vue)/luckywheel.html">Demo</a>｜<a href="https://medium.com/悠遊魚世的自動化筆記/js地下城ー幸運轉盤-1d2879002a4d">Blog</a>
 
+#### 10F-幹話產生器 <a href="https://you2245g.github.io/jsUnderground/LV10-RubbishGenerator(web)/newtab.html">web Demo</a>
+
 #### 11F-燈箱 <a href="https://you2245g.github.io/jsUnderground/LV11-Slideshow/slideShow.html">Demo</a>｜<a href="https://medium.com/悠遊魚世的自動化筆記/js地下城ー燈箱-ecb7573f94f8">Blog</a>
+
+#### 12F-拼圖 <a href="https://you2245g.github.io/jsUnderground/LV12-Puzzle/puzzle.html">Demo</a>
 
 #### 13F-貪食蛇 <a href="https://you2245g.github.io/jsUnderground/LV13-snake/snake.html">Demo</a>｜<a href="https://medium.com/悠遊魚世的自動化筆記/js地下城ー貪食蛇-44ffdb86934d">Blog</a>
 

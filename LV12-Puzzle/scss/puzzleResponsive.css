@@ -1,0 +1,96 @@
+@media (min-width: 1024px) {
+  .playground > h2 {
+    font-weight: 500;
+    font-size: 30px;
+  }
+  .playground .puzzleOutward {
+    width: 500px;
+    height: 500px;
+  }
+  .playground .puzzleOutward > div {
+    width: 166.66667px;
+    height: 166.66667px;
+  }
+  [class*="puzzleUnit"] {
+    width: 166.66667px;
+    height: 166.66667px;
+  }
+  article {
+    width: 500px;
+    height: 500px;
+    padding: 25px;
+  }
+  article > h3 {
+    font-size: 30px;
+  }
+  article > p {
+    font-size: 16px;
+    padding-top: 20px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .playground > h2 {
+    font-weight: 500;
+    font-size: 24px;
+  }
+  .playground .puzzleOutward {
+    width: 360px;
+    height: 360px;
+  }
+  .playground .puzzleOutward > div {
+    width: 120px;
+    height: 120px;
+  }
+  [class*="puzzleUnit"] {
+    width: 120px;
+    height: 120px;
+  }
+  article {
+    width: 360px;
+    height: 360px;
+    padding: 15px;
+  }
+  article > h3 {
+    font-size: 20px;
+  }
+  article > p {
+    font-size: 12px;
+    padding-top: 12px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .playground > h2 {
+    font-weight: 500;
+    font-size: 18px;
+  }
+  .playground .puzzleOutward {
+    width: 320px;
+    height: 320px;
+  }
+  .playground .puzzleOutward > div {
+    width: 106.66667px;
+    height: 106.66667px;
+  }
+  [class*="puzzleUnit"] {
+    width: 106.66667px;
+    height: 106.66667px;
+  }
+  article {
+    width: 320px;
+    height: 320px;
+    padding: 15px;
+  }
+  article > h3 {
+    font-size: 17px;
+  }
+  article > p {
+    font-size: 10px;
+    padding-top: 10px;
+    line-height: 19px;
+  }
+}
+/*# sourceMappingURL=puzzleResponsive.css.map */

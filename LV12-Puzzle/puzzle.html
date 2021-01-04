@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="scss/puzzle.css">
+        <link rel="stylesheet" href="scss/puzzleResponsive.css">
+        <title>Puzzle Game</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="cover" v-if="coverPage">
+                <h1>玩拼圖學歷史</h1>
+                <button @click="gameStart()">
+                    開始遊戲
+                </button>
+            </div>
+            <div class="playground" v-else @dragover.prevent @drop="drop($event)">
+                <h2 v-text="titleStatus"></h2>
+                <!--拼圖區迴圈產出-->
+                <div class="puzzleOutward">
+                    <template v-for="val in 9">
+                        <div
+                        @dragenter.prevent="dragenter($event)"
+                        @dragleave.prevent="dragleave($event)"
+                        :data-num="val"
+                        class="block"
+                        >
+                        </div>
+                    </template>
+                    <article v-if="articleShow" 
+                    :style="{'animation-name': (article ? 'wordsRewards' : 'wordsOut' )}"
+                    >
+                        <h3>清院本清明上河圖</h3>
+                        <p>陳枚、孫祜、金昆、戴洪、程志道</p>
+                        <p>清高宗乾隆元年（1736）</p>
+                        <p>宋張澤端（活動於西元十二世紀前期）「清明上河圖」是畫史中寫實風俗畫的一件傑作，歷代臨仿者甚多，在故宮即藏有七種不同的本子，其中就屬清院本「清明上河圖」最為有名。</p>
+                        <p>此卷為乾隆元年（一七三六）由宮廷畫院畫師陳枚、孫祜、金昆、戴洪、程志道等五人合繪。 此卷設色鮮麗，用筆圓熟，界畫橋樑、屋宇及人物皆十分細膩嚴謹，是院畫中之極精者。所畫事物甚多，雖失去了宋代古制，但也足以代表明清之際北京風物。</p>
+                    </article>
+                </div>  
+                <!--拼圖塊迴圈產出-->
+                <template v-for="val in 9">
+                    <div 
+                    draggable="true" 
+                    :data-num="val"
+                    :class="puzzleUnit(val)"
+                    @dragStart="dragStart($event)" 
+                    @dragEnd="dragEnd($event)"
+                    >
+                        <img 
+                        :src="puzzleChip(val)"  
+                        :width="widthSet(val)"
+                        :height="heightSet(val)"
+                        >
+                    </div>
+                </template>
+                <button 
+                @click="resetBtn" v-text="gameStatus"
+                @mouseover="btnMouseOver" 
+                @mouseout="btnMouseout">
+                </button>
+            </div>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/puzzle.js"></script>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+        <link rel="stylesheet" href="fontawesome-free/css/all.css">
+        <link rel="stylesheet" href="css/newtab.css">
+        <title>Rubbish Generator</title>
+    </head>
+    <body>
+        <div id="wrapper" :class="{ nightMode : status }">
+            <!--背景圖-->
+            <div class="mainPage" style="transform: translateX(0vw);" :style="randomBackground"></div> 
+            <!--新增語錄區-->
+            <div class="addPage" style="transform: translateX(30vw);">
+                <div>
+                    <p v-text=" status ? '夜間模式' : '日間模式' "></p>
+                    <el-switch v-model="status" active-color="grey" inactive-color="black" :width="50"></el-switch>
+                </div>
+                <div>
+                    <p>我的語錄</p>
+                    <span>編輯</span>
+                </div>
+                <!--資料區-->
+                <div v-for="(item,index) in rubbishData">
+                    <input type="text" class="updateBlock" :data-num="index" v-model="rubbishData[index]" :readonly="isDataEdit" @keyup.enter="dataEdit($event)">
+                    <div>
+                        <i class="far fa-edit" @click="dataEdit($event)" :data-num="index"></i>
+                        <i class="fas fa-trash-alt" :data-num="index" @click="deleteData($event)"></i>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-right" @click="frontPageShow"></i>
+            </div>
+            <!--封面三物件-->
+            <div class="frontPage" v-if="addStatus" > 
+                <div>
+                    <div v-html="displayRubbish"></div>
+                </div>
+                <div>
+                    <i class="fas fa-hamburger" @click="frontPageNone"></i>
+                    <el-switch v-model="status" active-color="grey" inactive-color="black" :width="50"></el-switch>
+                </div>
+            </div>
+            <!--新增語錄區-->
+            <div class="addQuotations" v-else>
+                <p>新增語錄</p>
+                <div>
+                    <input class="inputBox" type="text" v-model="addRubbish" placeholder="請輸入詞語" @focus="inputFocus" @keyup.enter="upDate">
+                    <i class="fas fa-plus-circle" @click="upDate"></i>
+                </div>
+            </div>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js'></script>
+        <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/all.js"></script>
+    </body>
+</html>

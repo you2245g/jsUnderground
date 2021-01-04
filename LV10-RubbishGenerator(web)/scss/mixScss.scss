@@ -1,0 +1,36 @@
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin outward($width,$height) {  
+    width: $width;
+    height: $height;
+}
+
+@mixin color($color,$backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+@mixin font($fontfamifont-family, $font-size) {
+    font-family: $fontfamifont-family;
+    font-size: $font-size;
+}
+
+//字型設定
+@font-face{
+    font-family: 'title';
+    src: url('../font/NotoSansTC-Bold.otf') format('truetype');
+}
+
+@font-face{
+    font-family: 'text';
+    src: url('../font/NotoSerifCJKtc-Medium.otf') format('truetype');
+}
+
+
+$primary:black;
+$secondary:white;
+
+
